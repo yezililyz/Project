@@ -21,9 +21,7 @@
       --paper: #FAFAFA;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -134,9 +132,7 @@
       padding: 72px 80px 60px;
     }
 
-    main {
-      min-width: 0;
-    }
+    main { min-width: 0; }
 
     .toc {
       position: sticky;
@@ -174,9 +170,7 @@
       margin: 0 0 18px;
     }
 
-    .toc-item {
-      margin-bottom: 6px;
-    }
+    .toc-item { margin-bottom: 6px; }
 
     .toc-link {
       display: inline-flex;
@@ -186,18 +180,12 @@
       color: var(--muted);
     }
 
-    .toc-link span {
-      font-size: 0.9rem;
-    }
+    .toc-link span { font-size: 0.9rem; }
 
-    .toc-link strong {
-      font-weight: 500;
-    }
+    .toc-link strong { font-weight: 500; }
 
     .toc-link:hover,
-    .toc-link:focus {
-      color: var(--teal);
-    }
+    .toc-link:focus { color: var(--teal); }
 
     .toc-tags {
       display: flex;
@@ -301,9 +289,7 @@
       background: var(--teal);
     }
 
-    p {
-      margin: 0 0 14px;
-    }
+    p { margin: 0 0 14px; }
 
     .body-prose {
       font-family: "IBM Plex Serif", Georgia, serif;
@@ -400,9 +386,7 @@
       align-items: flex-start;
     }
 
-    .confidential-banner span {
-      margin-top: 1px;
-    }
+    .confidential-banner span { margin-top: 1px; }
 
     .callout-banner {
       margin: 24px 0 18px;
@@ -460,9 +444,7 @@
       border-top: 1px solid var(--border-l);
     }
 
-    .numbered-item:first-of-type {
-      border-top: none;
-    }
+    .numbered-item:first-of-type { border-top: none; }
 
     .num-left {
       background: var(--navy);
@@ -475,9 +457,7 @@
       padding: 10px 0;
     }
 
-    .num-right {
-      padding: 10px 12px;
-    }
+    .num-right { padding: 10px 12px; }
 
     .insight-grid {
       display: grid;
@@ -564,9 +544,7 @@
       padding: 8px 10px;
     }
 
-    .weight-group {
-      margin: 10px 0 4px;
-    }
+    .weight-group { margin: 10px 0 4px; }
 
     .weight-row {
       display: flex;
@@ -647,30 +625,17 @@
       gap: 12px;
     }
 
-    .proto-text {
-      font-family: "IBM Plex Serif", serif;
-      font-size: 0.96rem;
+    .screenshots {
+      margin: 18px 0 6px;
     }
 
-    figure {
-      margin: 20px 0;
-      background: #050608;
-      border-radius: 4px;
-      padding: 8px;
-      border: 1px solid #111827;
-    }
-
-    figure img {
+    .screenshots img {
       width: 100%;
+      max-width: 100%;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      margin-bottom: 10px;
       display: block;
-      border-radius: 3px;
-    }
-
-    figure figcaption {
-      font-family: "Barlow", system-ui, sans-serif;
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 6px;
     }
 
     footer {
@@ -703,9 +668,7 @@
       color: var(--muted);
     }
 
-    .footer-links a:hover {
-      color: var(--teal);
-    }
+    .footer-links a:hover { color: var(--teal); }
 
     @media (max-width: 960px) {
       .nav-tagline { display: none; }
@@ -717,7 +680,10 @@
     }
 
     @media (max-width: 680px) {
-      .page-wrap { margin: 0; padding: 0; }
+      .page-wrap {
+        margin: 0;
+        padding: 0;
+      }
       .page-card {
         border-radius: 0;
         border-left: none;
@@ -756,53 +722,72 @@
     <div class="page-card">
       <div class="page-inner">
         <main class="body-prose">
-          <!-- CONTEXT & VISION (overview anchor) -->
-          <section id="overview">
-            <div class="chapter-label">🎯 01 — Context and Vision</div>
-            <h1>Context and Vision</h1>
-
-            <p>*For confidential purposes, this article left out business case, competitor research data. This case is inspired by a real Web3 VC conference brief. All sensitive details have been anonymized or left out .</p>
-
-            <p>High intent small room event organizers such as organizers in the Web3 and Venture capital space are bringing capital, infrastructure, and policy decision makers together, leading to deal‑ready conversations to the table.  However the current networking solution relies on keywords match and search filters to connect decision makers together, resulting in mismatches that are not deal ready and missing Inherent signals of mutual interest in discussions.</p>
-
-            <p>By pure keywords match, an investor can be matched with a founder who fits the same thesis, intent  but not at the same financial readiness (raising stage) or a founder that is not operationally ready to meet the goal of an allocator. While inherent signals for founders that provide solutions to similar problems might not proactively provide this information upfront for the registration form.</p>
-
-            <p>Our goal is to make the platform the driver of trusted, deal-driven relationships for private‑market decision‑makers, bringing deal‑ready conversations to the table. Proof of Match is a high‑end dealflow enabler—an engine for high‑intent, small‑N room events where capital, infrastructure, and policy decisions are made.</p>
-
-            <div class="hero-meta">
+          <!-- OVERVIEW / HERO -->
+          <div id="overview">
+            <div class="chapter-label">🎯 01 — Overview</div>
+            <h1>Proof of Match – AI-powered deal-ready matching for VC &amp; Web3 events</h1>
+            <p class="hero-subtitle">
+              High intent small room event organizers such as organizers in the Web3 and Venture capital space are bringing capital, infrastructure, and policy decision makers together, leading to deal‑ready conversations to the table.  However the current networking solution relies on keywords match and search filters to connect decision makers together, resulting in mismatches that are not deal ready and missing Inherent signals of mutual interest in discussions.
+            </p>
+            <p class="hero-meta">
               Role: <span>Product Manager</span> · Type: <span>AI case study</span> · Year: <span>2026</span>
-            </div>
-
+            </p>
             <div class="btn-row">
               <a class="btn btn-primary" href="https://v2-proof-of-match-308044321110.us-west1.run.app/" target="_blank" rel="noopener noreferrer">🚀 View prototype</a>
             </div>
 
             <div class="confidential-banner">
               <span>🔒</span>
-              <span>For confidentiality, this case omits business-sensitive details and competitor data. It is inspired by a real Web3 VC conference brief; all sensitive elements have been anonymised or omitted.</span>
+              <span>For confidential purposes, this article left out business case, competitor research data. This case is inspired by a real Web3 VC conference brief. All sensitive details have been anonymized or left out .</span>
             </div>
+
+            <div class="callout-banner">
+              <div class="callout-label">Context and Vision</div>
+              <div class="callout-text">
+                Our goal is to make the platform the driver of trusted, deal-driven relationships for private‑market decision‑makers, bringing deal‑ready conversations to the table. Proof of Match is a high‑end dealflow enabler—an engine for high‑intent, small‑N room events where capital, infrastructure, and policy decisions are made.
+              </div>
+            </div>
+
+            <p>
+              By pure keywords match, an investor can be matched with a founder who fits the same thesis, intent  but not at the same financial readiness (raising stage) or a founder that is not operationally ready to meet the goal of an allocator. While inherent signals for founders that provide solutions to similar problems might not proactively provide this information upfront for the registration form.
+            </p>
+          </div>
+
+          <!-- CONTEXT -->
+          <section id="context">
+            <div class="chapter-label">🌐 02 — Context</div>
+            <h2>Context and Vision</h2>
+            <p>
+              High intent small room event organizers such as organizers in the Web3 and Venture capital space are bringing capital, infrastructure, and policy decision makers together, leading to deal‑ready conversations to the table.  However the current networking solution relies on keywords match and search filters to connect decision makers together, resulting in mismatches that are not deal ready and missing Inherent signals of mutual interest in discussions.
+            </p>
+            <p>
+              By pure keywords match, an investor can be matched with a founder who fits the same thesis, intent  but not at the same financial readiness (raising stage) or a founder that is not operationally ready to meet the goal of an allocator. While inherent signals for founders that provide solutions to similar problems might not proactively provide this information upfront for the registration form.
+            </p>
+            <p>
+              Our goal is to make the platform the driver of trusted, deal-driven relationships for private‑market decision‑makers, bringing deal‑ready conversations to the table. Proof of Match is a high‑end dealflow enabler—an engine for high‑intent, small‑N room events where capital, infrastructure, and policy decisions are made.
+            </p>
           </section>
 
-          <!-- USER RESEARCH / JTBD -->
-          <section id="context">
-            <div class="chapter-label">🌐 02 — User research and JBTD</div>
+          <!-- USERS / JTBD -->
+          <section id="users">
+            <div class="chapter-label">👥 03 — Users / JTBD</div>
             <h2>User research and JBTD</h2>
 
-            <p>Investors / allocators</p>
+            <h3>Investors / allocators</h3>
             <p>JTBD</p>
             <ul>
               <li>Identify a small set of thesis‑fit, deal‑ready founders, infra providers, and co‑investors to add to the pipeline.</li>
               <li>Understand where capital, regulation, and infrastructure are moving to refine their own theses.</li>
             </ul>
 
-            <p>Founders / operators (startups, infra CEOs)</p>
+            <h3>Founders / operators (startups, infra CEOs)</h3>
             <p>JTBD</p>
             <ul>
               <li>Secure strategic capital and a handful of the right partners (design partners, distribution, infra, regulators).</li>
               <li>Build a targeted investor/partner map they can nurture after the event.</li>
             </ul>
 
-            <p>Regulators / policymakers / public-sector innovation leads</p>
+            <h3>Regulators / policymakers / public-sector innovation leads</h3>
             <p>JTBD</p>
             <ul>
               <li>Find serious builders and allocators to inform frameworks and potential sandboxes.</li>
@@ -812,34 +797,42 @@
 
           <!-- PAIN POINTS -->
           <section id="pain-points">
-            <div class="chapter-label">⚡ 03 — Common pain points and prioritization</div>
+            <div class="chapter-label">⚡ 04 — Pain Points</div>
             <h2>Common pain points and prioritization</h2>
-
-            <p>Across 3 personas and the context of short time window, high intent networking events, I identified the following pain paints:</p>
+            <p>
+              Across 3 personas and the context of short time window, high intent networking events, I identified the following pain paints:
+            </p>
 
             <div class="pain-row">
               <div class="pain-card">
                 <div class="pain-badge badge-p1">P1 – Right counterpart, actually ready</div>
-                <p>“As a venture capital networking event attendee, I struggle to find the few people who are both a strong strategic fit and truly ready to do a real deal or pilot in the next cycle, instead of spending time on high‑level chats that go nowhere.”</p>
+                <p>
+                  “As a venture capital networking event attendee, I struggle to find the few people who are both a strong strategic fit and truly ready to do a real deal or pilot in the next cycle, instead of spending time on high‑level chats that go nowhere.”
+                </p>
               </div>
               <div class="pain-card">
                 <div class="pain-badge badge-p2">P2 – Limited time, multiple intents</div>
-                <p>“As a venture capital networking event attendee, my time is extremely limited and I have several goals (deploy, raise, find partners, learn), so I need help prioritizing a small number of meetings I can turn into long‑term relationships, not just maximizing random introductions.”</p>
+                <p>
+                  “As a venture capital networking event attendee, my time is extremely limited and I have several goals (deploy, raise, find partners, learn), so I need help prioritizing a small number of meetings I can turn into long‑term relationships, not just maximizing random introductions.”
+                </p>
               </div>
               <div class="pain-card">
                 <div class="pain-badge badge-p3">P3 – Non‑obvious, cross‑persona connections</div>
-                <p>“As an attendee (investor, founder, regulator, or corporate), I often miss non‑obvious but high‑value connections across roles and verticals (for example, a regulator or infra partner who shares my underlying problem), because current tools only match on surface keywords and titles.”</p>
+                <p>
+                  “As an attendee (investor, founder, regulator, or corporate), I often miss non‑obvious but high‑value connections across roles and verticals (for example, a regulator or infra partner who shares my underlying problem), because current tools only match on surface keywords and titles.”
+                </p>
               </div>
             </div>
           </section>
 
           <!-- SIGNALS -->
           <section id="signals">
-            <div class="chapter-label">📡 04 — User research</div>
+            <div class="chapter-label">📡 05 — Signals</div>
             <h2>User research</h2>
-
             <p>Which signals actually help people connect in the context of venture capital and web3 space?</p>
-            <p>From interviews, LinkedIn how‑tos, and founder playbooks, these are the signals that most affect whether someone will take a conversation seriously at Venture capital Web3 events:</p>
+            <p>
+              From interviews, LinkedIn how‑tos, and founder playbooks, these are the signals that most affect whether someone will take a conversation seriously at Venture capital Web3 events:
+            </p>
 
             <div class="pull-quote">
               Stage &amp; fund size  [1]
@@ -851,43 +844,53 @@
             </div>
 
             <p>The warm‑intro graph [2] </p>
-            <p>Multiple fundraising guides show that successful first raises come via warm introductions, often from portfolio founders.</p>
-
+            <p>
+              Multiple fundraising guides show that successful first raises come via warm introductions, often from portfolio founders.
+            </p>
             <p>Prior relationship &amp; online presence (credibility amplifier) [3]</p>
-            <p>A clean, specific LinkedIn and X/warpcast presence (clear what the offering is do, what stage you’re at, and what you’re looking for) reinforces in‑person meetings.</p>
-
+            <p>
+              A clean, specific LinkedIn and X/warpcast presence (clear what the offering is do, what stage you’re at, and what you’re looking for) reinforces in‑person meetings.
+            </p>
             <p>Contextual, specific asks [4]</p>
-            <p>People are far more likely to connect when the ask is narrow and relevant (e.g., “we’re a seed‑stage RWA protocol; you backed X and Y – could we get 15 minutes to understand how they approached liquidity incentives?”).</p>
+            <p>
+              People are far more likely to connect when the ask is narrow and relevant (e.g., “we’re a seed‑stage RWA protocol; you backed X and Y – could we get 15 minutes to understand how they approached liquidity incentives?”).
+            </p>
 
             <p>In summary, what connection signals are </p>
 
             <div class="insight-grid">
               <div class="insight-card">
                 <div class="insight-label">Thesis fit first</div>
-                <p>Thesis fit first: Clear match on sector, stage, geography, and check/token economics so nobody wastes time.</p>
+                <p>
+                  Thesis fit first: Clear match on sector, stage, geography, and check/token economics so nobody wastes time.
+                </p>
               </div>
               <div class="insight-card">
                 <div class="insight-label">Warm intros / shared nodes</div>
-                <p>Warm intros / shared nodes: Introductions via founders, mutual connections, or small curated circles; these beat cold approaches and raw LinkedIn presence by a wide margin.</p>
+                <p>
+                  Warm intros / shared nodes: Introductions via founders, mutual connections, or small curated circles; these beat cold approaches and raw LinkedIn presence by a wide margin.
+                </p>
               </div>
               <div class="insight-card">
                 <div class="insight-label">Proof of work</div>
-                <p>Proof of work: Visible shipped product, code, traction, or serious research/regulatory engagement; it separates serious actors from tourists and makes everyone (investor, founder, regulator) lean in.</p>
+                <p>
+                  Proof of work: Visible shipped product, code, traction, or serious research/regulatory engagement; it separates serious actors from tourists and makes everyone (investor, founder, regulator) lean in.
+                </p>
               </div>
               <div class="insight-card">
                 <div class="insight-label">Targeted, informed outreach</div>
-                <p>Targeted, informed outreach: Showing you understand the other side’s mandate or constraints (fund thesis, startup runway, regulatory remit) makes the conversation feel like collaboration, not a sales pitch.</p>
+                <p>
+                  Targeted, informed outreach: Showing you understand the other side’s mandate or constraints (fund thesis, startup runway, regulatory remit) makes the conversation feel like collaboration, not a sales pitch.
+                </p>
               </div>
             </div>
           </section>
 
-          <!-- ARCHITECTURE / DATA STRATEGY -->
+          <!-- ARCHITECTURE -->
           <section id="architecture">
-            <div class="chapter-label">🏗️ 05 — Product design and user flow</div>
+            <div class="chapter-label">🏗️ 06 — Architecture</div>
             <h2>Product design and user flow </h2>
-
             <p>The user journey of a Venture capital web3 networking events as follows:  </p>
-
             <div class="numbered-list">
               <div class="numbered-item">
                 <div class="num-left">01</div>
@@ -906,42 +909,61 @@
                 <div class="num-right">4) Final schedule &amp; on‑site guidance </div>
               </div>
             </div>
-
-            <p>The matching intelligence starts from the second layer: from quick onboarding to matching, meeting scheduling. </p>
+            <p>
+              The matching intelligence starts from the second layer: from quick onboarding to matching, meeting scheduling. 
+            </p>
 
             <h2>Data strategy</h2>
             <p>Data collection and enrichment</p>
-            <p>The initial registration form only collects basic information attendee’s name, company, title, ticket type, self-selected interests, free-text of intent, mandate, from which the data gives signals to the attendee persona archetypes (investor, founder, regulators), their intents, mandate, thesis information. </p>
+            <p>
+              The initial registration form only collects basic information attendee’s name, company, title, ticket type, self-selected interests, free-text of intent, mandate, from which the data gives signals to the attendee persona archetypes (investor, founder, regulators), their intents, mandate, thesis information. 
+            </p>
+            <p>
+              While the drivers of deal flow conversation, according to more in depth market/user research above, needing enriched signals such as credibility, financial and operational readiness, funding stages, check size, geographic focus, thesis, vertical, regulatory, geography, and compliance tags. and underlying inherent secondary intents.    
+            </p>
+            <p>
+              Enrichment of data from public sources could provide those contextual data. 
+            </p>
 
-            <p>While the drivers of deal flow conversation, according to more in depth market/user research above, needing enriched signals such as credibility, financial and operational readiness, funding stages, check size, geographic focus, thesis, vertical, regulatory, geography, and compliance tags. and underlying inherent secondary intents.    </p>
-
-            <p>Enrichment of data from public sources could provide those contextual data. </p>
-
-            <h2>GenAI agents come in four layers: </h2>
+            <h2>GenAI agents come in four layers:</h2>
             <p>Data enrichment : extract entities from unstructured data and output structured data fields </p>
             <p>Embedding and semantic similarity matching : Assess the semantic cosine similarity of thematic overlap,  Primary/Inherit secondary intent match</p>
-            <p>Individual scoring : credibility, financial, operational scoring (the caveat here is LLM could hallucinates and could be bias prone, to derisk this we need to integrate strict definition of scoring system, human in the loop and guardrails, this part is not covered in the case study and need domain experts review).</p>
-            <p>Pair scoring: Scoring agents assess the pair fit based on persona fit (investor, founder, regulator), theme, intent overlap score, non obvious match score(based on problem space) for each attendee pairs.</p>
-            <p>Contextual intro explainer:  translate structured data outputs into actionable insights as “warm intro” of the connection presented at the UI layer   </p>
+            <p>
+              Individual scoring : credibility, financial, operational scoring (the caveat here is LLM could hallucinates and could be bias prone, to derisk this we need to integrate strict definition of scoring system, human in the loop and guardrails, this part is not covered in the case study and need domain experts review).
+            </p>
+            <p>
+              Pair scoring: Scoring agents assess the pair fit based on persona fit (investor, founder, regulator), theme, intent overlap score, non obvious match score(based on problem space) for each attendee pairs.
+            </p>
+            <p>
+              Contextual intro explainer:  translate structured data outputs into actionable insights as “warm intro” of the connection presented at the UI layer   
+            </p>
           </section>
 
-          <!-- MATCHING / ML LAYERS -->
+          <!-- MATCHING -->
           <section id="matching">
-            <div class="chapter-label">🧮 06 — ML layers</div>
+            <div class="chapter-label">🧮 07 — Matching</div>
             <h2>ML layers</h2>
-
             <p>Candidate generation </p>
-            <p>With the enriched signals, candidate generation layer will classify the matching pairs into buckets of priorities based on precision: complementary matching bucket that indicates strong matches with  high-precision (intents, persona, thesis) and non-obvious bucket that encompasses problem space (for example two founders solving the same problems). </p>
+            <p>
+              With the enriched signals, candidate generation layer will classify the matching pairs into buckets of priorities based on precision: complementary matching bucket that indicates strong matches with  high-precision (intents, persona, thesis) and non-obvious bucket that encompasses problem space (for example two founders solving the same problems). 
+            </p>
 
             <h2>Matching score and ranking logic</h2>
-            <p>Matching score is the weighted sum of pair scoring (persona fit, intent, thematic overlap, credibility score, non obvious score, complementary score).</p>
-
-            <p>Persona-specific weight vectors matrix in matching :</p>
-            <p>*The persona aware vector matrix should remain as a playbook and configurable as a strategic layer. </p>
-
-            <p>Persona-specific weight vectors ensure each persona type gets a score relevant to their mandate. As investors, founders, and regulators do not value the same things equally, even for the exact same connection. Depending on who is looking, an institutional allocator will rank a founder who matches their stage and intent much higher than a regulator would, even though they are seeing the same profile. </p>
-
-            <p>For one persona, the matrix is just a small table of “how much this person cares” about each signal, adding up to 100%. For example, for an investor the matrix might say: persona fit 30%, intent overlap 25%, thematic fit 20%, complementary score 15%, non‑obviousness 0%, credibility 10%. When the system scores a potential match for that investor, it multiplies each raw component score by these percentages and sums them, so the things investors care about most (fit and intent) move the final score the most.</p>
+            <p>
+              Matching score is the weighted sum of pair scoring (persona fit, intent, thematic overlap, credibility score, non obvious score, complementary score).
+            </p>
+            <p>
+              Persona-specific weight vectors matrix in matching :
+            </p>
+            <p>
+              *The persona aware vector matrix should remain as a playbook and configurable as a strategic layer. 
+            </p>
+            <p>
+              Persona-specific weight vectors ensure each persona type gets a score relevant to their mandate. As investors, founders, and regulators do not value the same things equally, even for the exact same connection. Depending on who is looking, an institutional allocator will rank a founder who matches their stage and intent much higher than a regulator would, even though they are seeing the same profile. 
+            </p>
+            <p>
+              For one persona, the matrix is just a small table of “how much this person cares” about each signal, adding up to 100%. For example, for an investor the matrix might say: persona fit 30%, intent overlap 25%, thematic fit 20%, complementary score 15%, non‑obviousness 0%, credibility 10%. When the system scores a potential match for that investor, it multiplies each raw component score by these percentages and sums them, so the things investors care about most (fit and intent) move the final score the most.
+            </p>
 
             <div class="weight-group">
               <div class="weight-row">
@@ -950,35 +972,42 @@
                 <div class="weight-pct">30%</div>
               </div>
               <div class="weight-row">
-                <div class="weight-label">Intent</div>
+                <div class="weight-label">Intent overlap</div>
                 <div class="weight-track"><div class="weight-fill" style="width:25%"></div></div>
                 <div class="weight-pct">25%</div>
               </div>
               <div class="weight-row">
-                <div class="weight-label">Thematic</div>
+                <div class="weight-label">Thematic fit</div>
                 <div class="weight-track"><div class="weight-fill" style="width:20%"></div></div>
                 <div class="weight-pct">20%</div>
               </div>
               <div class="weight-row">
-                <div class="weight-label">Compl.</div>
+                <div class="weight-label">Compl. score</div>
                 <div class="weight-track"><div class="weight-fill" style="width:15%"></div></div>
                 <div class="weight-pct">15%</div>
               </div>
               <div class="weight-row">
-                <div class="weight-label">Cred.</div>
+                <div class="weight-label">Credibility</div>
                 <div class="weight-track"><div class="weight-fill" style="width:10%"></div></div>
                 <div class="weight-pct">10%</div>
               </div>
             </div>
 
-            <p>Persona aware matrix in ranking:</p>
-            <p>Playbook weights for counterparty readiness (alpha) and self-readiness (beta). </p>
-            <p>While gamma is the persona parameter selecting readiness dimension for rank_score. 'fin'=financial, 'ops'=operational, 'max'=MAX of both.</p>
-
-            <p>For example:</p>
-            <p>Investor: α=0.60, β=0.05, gamma: "fin" </p>
-            <p>Regulator: α=0.20, β=0.05, "gamma": "ops" </p>
-            <p>In this scenario, Gamma is just the switch that chooses which readiness dial to read: for investors, gamma = "fin" means “use the financial ready score in the rank score,” while for regulators, gamma = "ops" means “use the operational ready score instead.” as it matters more to regulators.</p>
+            <p>
+              Persona aware matrix in ranking:
+            </p>
+            <p>
+              Playbook weights for counterparty readiness (alpha) and self-readiness (beta). 
+              While gamma is the persona parameter selecting readiness dimension for rank_score. 'fin'=financial, 'ops'=operational, 'max'=MAX of both.
+            </p>
+            <p>
+              For example:
+              Investor: α=0.60, β=0.05, gamma: "fin" 
+              Regulator: α=0.20, β=0.05, "gamma": "ops" 
+            </p>
+            <p>
+              In this scenario, Gamma is just the switch that chooses which readiness dial to read: for investors, gamma = "fin" means “use the financial ready score in the rank score,” while for regulators, gamma = "ops" means “use the operational ready score instead.” as it matters more to regulators.
+            </p>
 
             <div class="formula-block">
               <div class="formula-label">Ranking formula</div>
@@ -987,47 +1016,48 @@
               </div>
             </div>
 
-            <p>Persona aware weighted matrix ensures the rank score is bidirectional</p>
+            <p>
+              Persona aware weighted matrix ensures the rank score is bidirectional
+            </p>
+            <p>
+              Rank_score = Match_score × (1 + α × deal_cpty + β × deal_self). A→B ≠ B→A.
+            </p>
+            <p>
+              Same as matching scores, with each persona, the weighted attributes of each counterpart varies, making sure that  each person's shortlist is ranked from their own perspective. 
+            </p>
+            <p>
+              Ranking results and presentation layer:
+              The ranked results will be presented to end users with a feedback loop for improving the recommender. 
+            </p>
+            <p>
+              P1 pairs will be pushed higher as priority meetings (We get candidates from complementary buckets)
+              P2/P3/Pilot pairs ranked lower as
+              Pilot meetings 
+              Strategic meetings
+              Keep warm in the future
+            </p>
 
-            <p>Rank_score = Match_score × (1 + α × deal_cpty + β × deal_self). A→B ≠ B→A.</p>
-
-            <p>Same as matching scores, with each persona, the weighted attributes of each counterpart varies, making sure that  each person's shortlist is ranked from their own perspective. </p>
-
-            <p>Ranking results and presentation layer:
-            The ranked results will be presented to end users with a feedback loop for improving the recommender. </p>
-
-            <p>P1 pairs will be pushed higher as priority meetings (We get candidates from complementary buckets)
-            P2/P3/Pilot pairs ranked lower as
-            Pilot meetings 
-            Strategic meetings
-            Keep warm in the future</p>
-
-            <figure>
-              <img src="assets/Screenshot_2026-03-03_at_21.09.21-ebf816f9-ecaf-4fe1-afae-b84424dff7d5.png" alt="Meeting briefs view screenshot">
-              <figcaption>(Here add screenshots uploaded – meeting briefs)</figcaption>
-            </figure>
-
-            <figure>
-              <img src="assets/Screenshot_2026-03-03_at_21.09.52-7cfea4ab-731a-409a-ac1d-3725a29d6cdf.png" alt="Priority meetings detail screenshot">
-              <figcaption>(Here add screenshots uploaded – priority meetings)</figcaption>
-            </figure>
+            <div class="screenshots">
+              <p>(Here add screenshots uploaded)</p>
+              <img src="assets/Screenshot_2026-03-03_at_21.09.21-ebf816f9-ecaf-4fe1-afae-b84424dff7d5.png" alt="Proof of Match meeting briefs UI">
+              <img src="assets/Screenshot_2026-03-03_at_21.09.52-7cfea4ab-731a-409a-ac1d-3725a29d6cdf.png" alt="Proof of Match priority meetings UI">
+            </div>
           </section>
 
           <!-- PROTOTYPE -->
           <section id="prototype">
-            <div class="chapter-label">🚀 07 — Prototype</div>
+            <div class="chapter-label">🚀 08 — Prototype</div>
             <h2>Prototype</h2>
-            <p>Prototype  Link https://v2-proof-of-match-308044321110.us-west1.run.app/</p>
+            <p>
+              Prototype  Link https://v2-proof-of-match-308044321110.us-west1.run.app/
+            </p>
 
             <div class="proto-band">
-              <div class="proto-text">
-                🚀 Open the prototype to explore registration, onboarding to matchmaking, pre‑event matching &amp; scheduling, and ranked shortlists powered by enriched signals and persona‑aware scoring.
-              </div>
               <a class="btn btn-accent" href="https://v2-proof-of-match-308044321110.us-west1.run.app/" target="_blank" rel="noopener noreferrer">Open prototype</a>
             </div>
           </section>
 
-          <!-- IMPACT / METRICS (placeholder, unchanged text) -->
+          <!-- IMPACT / METRICS -->
           <section id="impact">
             <div class="chapter-label">📈 Impact / Metrics</div>
             <h2>Impact &amp; metrics (prototype stage)</h2>
@@ -1048,6 +1078,7 @@
           </section>
         </main>
 
+        <!-- SIDEBAR TOC -->
         <aside class="toc">
           <div class="toc-label">On this page</div>
           <div class="toc-progress-track">
@@ -1061,12 +1092,13 @@
           </div>
 
           <ul class="toc-list">
-            <li class="toc-item"><a class="toc-link" href="#overview"><span>🎯</span><strong>Context &amp; vision</strong></a></li>
-            <li class="toc-item"><a class="toc-link" href="#context"><span>🌐</span><strong>User research &amp; JBTD</strong></a></li>
+            <li class="toc-item"><a class="toc-link" href="#overview"><span>🎯</span><strong>Overview</strong></a></li>
+            <li class="toc-item"><a class="toc-link" href="#context"><span>🌐</span><strong>Context</strong></a></li>
+            <li class="toc-item"><a class="toc-link" href="#users"><span>👥</span><strong>Users / JTBD</strong></a></li>
             <li class="toc-item"><a class="toc-link" href="#pain-points"><span>⚡</span><strong>Pain points</strong></a></li>
             <li class="toc-item"><a class="toc-link" href="#signals"><span>📡</span><strong>Signals</strong></a></li>
-            <li class="toc-item"><a class="toc-link" href="#architecture"><span>🏗️</span><strong>Product design</strong></a></li>
-            <li class="toc-item"><a class="toc-link" href="#matching"><span>🧮</span><strong>ML layers</strong></a></li>
+            <li class="toc-item"><a class="toc-link" href="#architecture"><span>🏗️</span><strong>Architecture</strong></a></li>
+            <li class="toc-item"><a class="toc-link" href="#matching"><span>🧮</span><strong>Matching</strong></a></li>
             <li class="toc-item"><a class="toc-link" href="#prototype"><span>🚀</span><strong>Prototype</strong></a></li>
             <li class="toc-item"><a class="toc-link" href="#impact"><span>📈</span><strong>Impact</strong></a></li>
           </ul>
