@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yezi Li — Product growth & AI Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #fdfdfc;
+            --color-surface: #ffffff;
+            --color-text: #1a1916;
+            --color-text-muted: #636260;
+            --color-accent: #01696f;
+            --color-accent-soft: #eef7f6;
+            --color-border: #eeebe6;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', 'Inter', -apple-system, sans-serif;
+            --container-width: 1100px;
+            --section-spacing: 120px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 { font-size: clamp(3rem, 8vw, 5rem); letter-spacing: -0.02em; }
+        h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 2rem; }
+        h3 { font-size: 1.75rem; margin-bottom: 1rem; }
+        
+        p { margin-bottom: 1.5rem; color: var(--color-text-muted); font-size: 1.1rem; max-width: 70ch; }
+        strong { color: var(--color-text); font-weight: 600; }
+
+        .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-accent);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: var(--section-spacing) 0;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(253, 253, 252, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--color-text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--color-accent); }
+
+        /* Hero */
+        .hero {
+            padding-top: 180px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero h1 {
+            max-width: 18ch;
+            margin-bottom: 2rem;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .meta-item .label { margin-bottom: 0.5rem; }
+        .meta-item .value { font-size: 1rem; color: var(--color-text); font-weight: 500; }
+
+        /* Narrative Timeline */
+        .journey-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 1px solid var(--color-border);
+        }
+
+        .timeline-item {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: calc(-2rem - 5px);
+            top: 0.5rem;
+            width: 9px;
+            height: 9px;
+            background: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-role {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-co {
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Case Studies */
+        .flagship-case {
+            background: var(--color-accent-soft);
+            border-radius: 24px;
+            padding: 4rem;
+            margin-top: 2rem;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .case-card {
+            border-top: 1px solid var(--color-border);
+            padding-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .case-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+        }
+
+        .metric-value {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--color-text);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.3s;
+            gap: 0.75rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background: var(--color-accent-dark, #0c4e54);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--color-text);
+            color: var(--color-text);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0;
+            border-top: 1px solid var(--color-border);
+            text-align: left;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .contact-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .contact-links a:hover {
+            border-color: var(--color-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .journey-grid, .case-grid, .footer-grid { grid-template-columns: 1fr; }
+            .hero-meta { flex-direction: column; gap: 2rem; }
+            .flagship-case { padding: 2rem; }
+            nav ul { display: none; }
+            section { padding: 80px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Yezi Li</a>
+            <ul>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#flagship">Flagship</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <span class="label">Growth Operations & Product</span>
+                <h1>Building the intelligence layer
+for product growth</h1>
+                <p>I’m Yezi — a PM who builds the systems behind growth rather than just shipping features. Over seven years across 0→1, 1→10, and scale-up phases in high-growth B2B and B2C SaaS, I’ve gone from cleaning messy data and turning marketing–product insight into automation at BlaBlaCar, to integrating user funnels and evangelising tracking at Dailymotion, to building an intelligent data infrastructure layer with GenAI at Go1 that brought a 100k+ content library into a user-facing platform. Now, starting Proof of Match from zero, I focus on building <strong>growth experimentation infrastructure, AI pipelines and frameworks, activation architecture</strong> that turns raw data into user-facing products..</p>
+                
+                <div class="hero-meta">
+                    <div class="meta-item">
+                        <span class="label">Current Focus</span>
+                        <span class="value">AI enabled product and growth</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Based In</span>
+                        <span class="value">Paris, France</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Languages</span>
+                        <span class="value">English, Mandarin, French</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOURNEY -->
+        <section id="journey" class="container">
+            <div class="journey-grid">
+                <div>
+                    <span class="label">The Trajectory</span>
+                    <h2>A coherent path from analytics to AI.</h2>
+                    <p>My career is a progression in systems thinking for growth: from analyzing cohort retention, automating lifecycle marketing, and building experimentation frameworks at BlaBlaCar, to leveraging user behavior, funnel drop‑offs, and A/B tests to scale global growth at Dailymotion. At Go1, I focused on reducing friction and churn and optimizing time‑to‑value for different user profiles by turning the data infrastructure layer into usable, user‑facing products that help people reach “aha” moments faster. At Sparteo, I architected real‑time bidding data pipelines that continuously fed publisher monetization opportunities, and most recently I’ve been translating AI and LLM trends into concrete product opportunities by building AI matching engines for capital markets.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-date">2026 — Present</span>
+                        <div class="timeline-role">Founder & Product Lead</div>
+                        <span class="timeline-co">Proof of  Match</span>
+                        <p>Architecting the matching intelligence engine for high-intent VC and Web3 events. Shifting matchmaking from keyword similarity to deal-ready complementarity.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2024 — 2025</span>
+                        <div class="timeline-role">Senior Product Manager (Content Intelligence)</div>
+                        <span class="timeline-co">Go1</span>
+                        <p>Leveraged LLMs to enrich metadata and personalize enterprise learning at scale. Retained $1.7M ARR through precision-driven content matching.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2022 — 2024</span>
+                        <div class="timeline-role">Product Data — User Insights & Growth</div>
+                        <span class="timeline-co">Dailymotion</span>
+                        <p>Redesigned global event taxonomy and A/B test infra. Aligned acquisition cohorts with activation signals for 400M+ users.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">2020 — 2022</span>
+                        <div class="timeline-role">Product Growth & Analytics</div>
+                        <span class="timeline-co">BlaBlaCar</span>
+                        <p>Scaled lifecycle experiments across 9 markets. Built the measurement framework for multi-channel activation and retention.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLAGSHIP -->
+        <section id="flagship" class="container">
+            <div class="flagship-case">
+                <span class="label">Flagship Project</span>
+                <h2>Proof of Match: AI-Powered Deal-Ready Networking</h2>
+                
+                <div class="case-grid">
+                    <div class="case-content">
+                        <h3>1. Problem Statement</h3>
+                        <p>Traditional event networking relies on shallow keyword signals. An investor and a founder might share a "DeFi" tag but have deep mismatches in funding stage, mandate, or operational readiness, resulting in low-signal conversations that waste high-value time.Event organizers feel the churn pressure and lack of insight brining sponsor ROI to YoY revenue growth signal</p>
+                        
+                        <h3>2. Research & Insights</h3>
+                        <p>Through interviews, LinkedIn how‑tos, and founder playbooks, I identified that deal-ready meetings require complementarity (offer vs. need) rather than just similarity. I mapped JTBD for three personas: Investors (thesis-fit pipeline), Founders (strategic capital), and Regulators (policy engagement). And researched the current gap of existing tooling for capital networking organizer complaining the ROI is fuzzy and organizers struggle to attribute meetings to business results.
+
+ </p>
+                    </div>
+                    <div class="case-content">
+                        <h3>3. Solution & Process</h3>
+                        <p>Architected a 6-agent AI pipeline with fact signals that enriches raw data, extracts traction facts, and scores pairs across 7 independent dimensions: Persona Fit, Complementary Value, Intent Overlap, Sector Overlap, Stage Fit, Credibility, and Non-Obviousness matching.</p>
+                        
+                        <h3>4. Impact & Metrics</h3>
+                        <p>Delivered an intelligence engine that generates prioritized "Match Cards" with natural language reasoning. The system successfully surfaces non-obvious connections—detecting when a fintech founder and a healthcare regulator are solving the same protocol challenges.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(1, 105, 111, 0.1);">
+                    <h3 style="font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted);"> 
+                    
+            
+                     <h3>5. Reflection</h3>
+                    <p style=; font-size: 1rem; color: var(--color-text);">The core challenge was balancing semantic flexibility with deterministic filters, a classical tradepff between deterministic and probabilistic pipeline in traditional ML and LLM outcomes. By separating 'who you are' from 'what you want' in the embedding space, we avoided the 'echo chamber' effect of similarity-only matching. Next iterations would focus on incorporating real-time feedback loops from scheduled meeting outcomes</p>
+                </div>
+
+                <div class="btn-group">
+                    <a href="https://heather-element-e24.notion.site/Proof-of-match-Yezi-323e1d2be00e80968544e40f50237fef?pvs=73" class="btn" target="_blank">View Case Study</a>
+                    <a href="https://yezililyz.github.io/Project/proof-of-match/" class="btn btn-outline" target="_blank">Github Repository</a>
+                    <a href="https://proof-of-match-587748836028.us-west1.run.app/" class="btn btn-outline" target="_blank">Live Demo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- OTHER PROJECTS -->
+        <section id="projects" class="container">
+            <span class="label">Selected Impact</span>
+            <h2>Measuring what matters.</h2>
+            
+            <div class="case-grid">
+                <div class="case-card">
+                    <h3>Go1: Retention via Content Intelligence</h3>
+                    <div class="case-meta">
+                        <div class="metric">
+                            <span class="metric-value">$1.7M</span>
+                            <span class="metric-label">ARR Retained</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">+35%</span>
+                            <span class="metric-label">Playability Lift</span>
+                        </div>
+                    </div>
+                    
+                    <p><strong>1. Problem:</strong> Technical failures and poor metadata were blocking users from accessing curated content, leading to churn in the enterprise sector.Fragmented event tracking across mobile and desktop platforms made it impossible to isolate true activation/engagement signals from noise for 8M+ users </p>
+                    <p><strong>2. Research:</strong> Conducted behavioral funnel analysis and synthesized qualitative insights with quantitative engagement data. Analyzed search-to-play rates as an activation proxy, identifying friction points in the content consumption funnel.</p>
+                    <p><strong>3. Solution:</strong> Drove core product growth by building an LLM-powered metadata enrichment pipeline and rebuilding the learner activation and engagement layer. Architected global event schemas that cleanly isolated true learner and content-partner activation signals from noise, and redesigned the content partner upload workflow to unlock higher-quality supply and faster time-to-value. </p>
+                    <p><strong>4. Impact:</strong> Yielded +25% search discoverability and +15% content consumption, retaining $1.7M in ARR.</p>
+                    <p><strong>5. Reflection:</strong> Found that "content playability" is often a data-integrity issue rather than a UX issue. Automated metadata enrichment is the only way to scale curation for enterprise-grade learning libraries.</p>
+                </div>
+                <div class="case-card">
+                    <h3>Dailymotion: User insight led to platform revamp & Global Taxonomy Redesign</h3>
+                    <div class="case-meta">
+                        <div class="metric">
+                            <span class="metric-value">+58%</span>
+                            <span class="metric-label">Search Views</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">+25%</span>
+                            <span class="metric-label">Revenue Lift</span>
+                        </div>
+                    </div>
+
+                   <p><strong>1. Problem:</strong> For new mobile users, search was the dominant entry point (90% of sessions) but only 60% converted into a video play, signaling weak relevance and a leaky first-session experience. Inconsistent tracking between mobile and desktop obscured the impact of UI changes and search improvements for a 400M+ user base.</p>
+<p><strong>2. Research:</strong> Ran structured user interviews, layered on top of funnel and cohort analysis, to understand how Gen Z users searched, discovered, and decided to watch. Used this to pinpoint friction in the watch page, search ranking, and topic understanding.</p>
+<p><strong>3. Solution:</strong> Designed and rolled out a unified Amplitude event model and dashboards that connected acquisition sources to activation, engagement, and retention. Led a combined effort on watch page UX revamp, search provider migration, and Google NLP–powered topic annotation to enable semantic search, while embedding an A/B testing and tracking framework into the product development lifecycle.</p>
+<p><strong>4. Impact:</strong> Increased overall engagement by 17%, improved search-to-play conversion by 25%, and drove a 50% uplift in views originating from search, alongside a 20% reduction in infrastructure costs.</p>
+<p><strong>5. Reflection:</strong> Durable growth depends on clean taxonomy and reliable instrumentation. Once events and cohorts are trustworthy, product and growth decisions shift from intuition to repeatable experimentation.</p>
+                </div>
+                <div class="case-card">
+                    <h3>BlaBlaCar: Growth Lifecycle Experiments</h3>
+                    <div class="case-meta">
+                        <div class="metric">
+                            <span class="metric-value">+20%</span>
+                            <span class="metric-label">Activation</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">+30%</span>
+                            <span class="metric-label">Retention</span>
+                        </div>
+                    </div>
+
+                    <p><strong>1. Problem:</strong> Low return-trip booking rates and inefficient marketing spend due to last-click attribution models across 9 markets.</p>
+                    <p><strong>2. Research:</strong> Performed proxy analysis to identify return rate gaps and mapped user journey signals for modal-based cohort logic.</p>
+                    <p><strong>3. Solution:</strong> Architected a lifecycle experiments system and deployed a data-driven multi-touch attribution model.</p>
+                    <p><strong>4. Impact:</strong> Validated +15% conversion lift in return bookings and improved marketing ops efficiency by 30%.</p>
+                    <p><strong>5. Reflection:</strong> Transitioning from simple re-engagement to event-triggered activation sequences requires tight coordination between marketing and product data layers.</p>
+                </div>
+                <div class="case-card">
+                    <h3>Sparteo: Revenue Safeguarding & Privacy</h3>
+                    <div class="case-meta">
+                        <div class="metric">
+                            <span class="metric-value">15%</span>
+                            <span class="metric-label">Revenue Protected</span>
+                        </div>
+                    </div>
+
+                    <p><strong>1. Problem:</strong> Emerging GDPR privacy requirements threatened adtech revenue streams dependent on cross-platform data pipelines.</p>
+                    <p><strong>2. Research:</strong> Stakeholder interviews and gap analysis on real-time bidding data compliance.</p>
+                    <p><strong>3. Solution:</strong> Led end-to-end privacy implementation and architected real-time publisher dashboards converting operaional ads monetisation process to visible revenue impact .</p>
+                    <p><strong>4. Impact:</strong> Successfully safeguarded ~15% of annual revenue through compliant data infrastructure.</p>
+                    <p><strong>5. Reflection:</strong> Privacy isn't just a compliance hurdle—it's a product feature that builds long-term trust with publishers and ecosystem partners.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="container">
+            <div class="footer-grid">
+                <div>
+                    <p>Open to discussions on growth operations, product systems thinking, and AI-enabled matching infrastructure.</p>
+                    <div class="btn-group">
+                        <a href="mailto:yezi.lilyz@gmail.com" class="btn">yezi.lilyz@gmail.com</a>
+                        <span style="font-weight: 500; align-self: center;">+33 6 34 99 15 30</span>
+                    </div>
+                </div>
+                <div>
+                    <ul class="contact-links">
+                        <li><a href="https://www.linkedin.com/in/yezi-l-985066126/" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://medium.com/@yezi.li_jla" target="_blank">Medium</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Yezi Li. Built with a focus on high-signal matching.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
