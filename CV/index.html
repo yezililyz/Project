@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yezi Li — Growth Operations Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+--color-bg:#f9f8f5;--color-surface:#ffffff;--color-border:#e2e0da;--color-divider:#edece8;
+--color-text:#1a1916;--color-text-muted:#636260;--color-text-faint:#a8a7a3;
+--color-accent:#01696f;--color-accent-light:#d0e4e2;--color-accent-dark:#0c4e54;
+--font-display:'DM Serif Display',Georgia,serif;--font-body:'DM Sans','Helvetica Neue',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-font-smoothing:antialiased;print-color-adjust:exact;-webkit-print-color-adjust:exact;}
+body{font-family:var(--font-body);font-size:9.2pt;line-height:1.55;color:var(--color-text);background:var(--color-bg);}
+
+.screen-wrapper{max-width:900px;margin:28px auto;background:var(--color-surface);box-shadow:0 8px 48px rgba(0,0,0,.13);border-radius:8px;overflow:hidden;}
+
+.cv-layout{display:grid;grid-template-columns:215px 1fr;min-height:100%;}
+
+/* SIDEBAR */
+.sidebar{background:#1b2929;color:#cfe2e1;padding:2rem 1.25rem;display:flex;flex-direction:column;gap:1.4rem;}
+.sidebar-name{font-family:var(--font-display);font-size:24pt;font-weight:400;color:#fff;line-height:1.05;letter-spacing:-.5px;}
+.sidebar-title{font-size:7.5pt;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#4f98a3;margin-top:.25rem;}
+.s-rule{border:none;border-top:1px solid rgba(255,255,255,.09);margin:.15rem 0;}
+.s-head{font-size:6.8pt;font-weight:700;letter-spacing:1.9px;text-transform:uppercase;color:#4f98a3;margin-bottom:.55rem;}
+.contact-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.contact-list li{font-size:8pt;color:#b6d0cf;display:flex;align-items:flex-start;gap:.4rem;line-height:1.35;}
+.cicon{width:11px;flex-shrink:0;margin-top:1px;opacity:.55;}
+.skills-group{display:flex;flex-direction:column;gap:.9rem;}
+.s-cat{font-size:7pt;font-weight:600;color:rgba(255,255,255,.38);text-transform:uppercase;letter-spacing:.7px;margin-bottom:.3rem;}
+.chips{display:flex;flex-wrap:wrap;gap:3px;}
+.chip{font-size:7.2pt;padding:2px 6px;border-radius:3px;background:rgba(79,152,163,.17);color:#9fd4d9;border:1px solid rgba(79,152,163,.23);line-height:1.4;}
+.chip.hi{background:rgba(79,152,163,.33);color:#c5e9ec;border-color:rgba(79,152,163,.42);font-weight:600;}
+.lang-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.lang-item{display:flex;justify-content:space-between;font-size:8.2pt;color:#b6d0cf;}
+.lang-lv{font-size:6.8pt;color:#4f98a3;font-weight:700;text-transform:uppercase;letter-spacing:.4px;}
+.edu-block{display:flex;flex-direction:column;gap:2px;}
+.edu-deg{font-size:8.2pt;font-weight:600;color:#d2e4e3;line-height:1.3;}
+.edu-school{font-size:7.8pt;color:#7fbabe;}
+.edu-date{font-size:7.2pt;color:rgba(255,255,255,.3);}
+.edu-badge{font-size:7.2pt;color:#f0c57a;margin-top:3px;display:flex;align-items:center;gap:3px;}
+
+/* MAIN */
+.main-content{padding:1.75rem 1.75rem 1.75rem 1.5rem;display:flex;flex-direction:column;gap:1.2rem;}
+.sec-hdr{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;}
+.sec-lbl{font-size:7pt;font-weight:700;letter-spacing:1.9px;text-transform:uppercase;color:var(--color-accent);white-space:nowrap;}
+.sec-rule{flex:1;border:none;border-top:1.5px solid var(--color-accent-light);}
+
+.summary-text{font-size:9.2pt;line-height:1.65;color:var(--color-text-muted);max-width:72ch;}
+.summary-text strong{color:var(--color-text);font-weight:600;}
+
+/* WINS BAR */
+.wins-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;background:#f0faf9;border:1px solid var(--color-accent-light);border-radius:6px;padding:.85rem 1rem;}
+.win-item{text-align:center;}
+.win-num{font-family:var(--font-display);font-size:16pt;color:var(--color-accent-dark);line-height:1;display:block;}
+.win-lbl{font-size:6.8pt;color:var(--color-text-muted);line-height:1.35;margin-top:2px;}
+
+/* EXP */
+.exp-list{display:flex;flex-direction:column;gap:1.1rem;}
+.exp-hdr{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.4rem;margin-bottom:.35rem;}
+.exp-role{font-size:9.8pt;font-weight:700;color:var(--color-text);line-height:1.2;}
+.exp-co-line{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;margin-top:1px;}
+.exp-co{font-size:8.2pt;font-weight:600;color:var(--color-accent);}
+.exp-badge{font-size:6.8pt;padding:1px 6px;border-radius:2px;background:#f0faf9;border:1px solid var(--color-accent-light);color:var(--color-accent-dark);font-weight:500;}
+.exp-date{font-size:7.8pt;color:var(--color-text-faint);white-space:nowrap;font-variant-numeric:tabular-nums;}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:3px;}
+.exp-bullets li{font-size:8.3pt;line-height:1.5;color:var(--color-text-muted);padding-left:13px;position:relative;}
+.exp-bullets li::before{content:'▸';position:absolute;left:0;color:var(--color-accent);font-size:7pt;top:2px;}
+.exp-bullets li strong{color:var(--color-text);font-weight:600;}
+.exp-div{border:none;border-top:1px solid var(--color-divider);}
+
+/* Proof of Match links (top of section) */
+.exp-links{font-size:7pt;color:var(--color-accent);display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.exp-links a{color:var(--color-accent);text-decoration:none;border-bottom:1px solid rgba(1,105,111,.35);}
+
+/* BlaBlaCar key stats (black marker instead of blue points) */
+.exp-bullets li.stat-key{color:var(--color-text);}
+.exp-bullets li.stat-key::before{content:'●';color:#000;font-size:7pt;font-weight:900;top:2px;}
+.exp-bullets li.stat-key strong{color:#000;font-weight:700;}
+
+/* PRINT */
+@media print{
+body{background:#fff;font-size:8.8pt;}
+.screen-wrapper{box-shadow:none;margin:0;border-radius:0;max-width:100%;}
+.sidebar{background:#1b2929!important;-webkit-print-color-adjust:exact!important;}
+.wins-bar,.exp-badge{background:#f0faf9!important;-webkit-print-color-adjust:exact!important;}
+.chip{background:rgba(79,152,163,.17)!important;-webkit-print-color-adjust:exact!important;}
+.print-btn{display:none!important;}
+a{color:inherit;text-decoration:none;}
+}
+
+.print-btn{position:fixed;bottom:22px;right:22px;background:var(--color-accent);color:#fff;border:none;padding:9px 18px;border-radius:6px;font-family:var(--font-body);font-size:12.5px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(1,105,111,.35);z-index:100;display:flex;align-items:center;gap:7px;transition:background .18s;}
+.print-btn:hover{background:var(--color-accent-dark);}
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+Print / Save PDF
+</button>
+
+<div class="screen-wrapper">
+<div class="cv-layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+<div>
+<div class="sidebar-name">Yezi Li</div>
+<div class="sidebar-title">Growth Operations Manager</div>
+</div>
+<hr class="s-rule">
+<div>
+<div class="s-head">Contact</div>
+<ul class="contact-list">
+<li>
+<svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.07 3.4 2 2 0 0 1 3.04 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.92a16 16 0 0 0 8 8l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 23 17"/>
+</svg>+33 6 34 99 15 30
+</li>
+<li>
+<svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <rect x="2" y="4" width="20" height="16" rx="2"/>
+  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+</svg>yezi.lilyz@gmail.com
+</li>
+<li>
+<svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+  <rect x="2" y="9" width="4" height="12"/>
+  <circle cx="4" cy="4" r="2"/>
+</svg>linkedin.com/in/yezi-li
+</li>
+<li>
+<svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+  <circle cx="12" cy="9" r="2.5"/>
+</svg>Paris, France
+</li>
+<li>
+<svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <circle cx="12" cy="12" r="10"/>
+  <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+</svg>medium.com/@yezi.li_jla
+</li>
+</ul>
+</div>
+<hr class="s-rule">
+<div>
+<div class="s-head">Core Stack</div>
+<div class="skills-group">
+<div>
+<div class="s-cat">Analytics &amp; Instrumentation</div>
+<div class="chips">
+<span class="chip hi">Amplitude</span><span class="chip hi">BigQuery</span><span class="chip">Mixpanel</span><span class="chip">Looker</span><span class="chip">Tableau</span><span class="chip">Python</span><span class="chip">SQL</span>
+</div>
+</div>
+<div>
+<div class="s-cat">Experimentation</div>
+<div class="chips">
+<span class="chip hi">A/B Test Infra</span><span class="chip hi">Event Taxonomy</span><span class="chip"> Funnel QA</span><span class="chip">Cohort Analysis</span>
+</div>
+</div>
+<div>
+<div class="s-cat">Growth &amp; CRM Tooling</div>
+<div class="chips">
+  <span class="chip">Braze</span>
+  <span class="chip">Adjust</span>
+  <span class="chip">Multi-touch Attr.</span>
+  <span class="chip">Hubspot</span>
+  <span class="chip">Optimizely</span>
+</div>
+</div>
+<div>
+<div class="s-cat">Product &amp; AI</div>
+<div class="chips">
+<span class="chip">Figma</span><span class="chip">Jira</span><span class="chip">LLM Pipelines</span><span class="chip">n8n</span><span class="chip">RAG/LangChain</span>
+</div>
+</div>
+</div>
+</div>
+<hr class="s-rule">
+<div>
+<div class="s-head">Education</div>
+<div class="edu-block">
+<div class="edu-deg">MSc Big Data &amp; Marketing Management</div>
+<div class="edu-school">Toulouse Business School</div>
+<div class="edu-date">Sep 2018 – Jan 2020</div>
+<div class="edu-badge">
+<svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+Eiffel Scholarship (Top 2/80)
+</div>
+</div>
+</div>
+<hr class="s-rule">
+<div>
+<div class="s-head">Languages</div>
+<ul class="lang-list">
+<li class="lang-item"><span>Mandarin</span><span class="lang-lv">Native</span></li>
+<li class="lang-item"><span>English</span><span class="lang-lv">Bilingual</span></li>
+<li class="lang-item"><span>French</span><span class="lang-lv">Proficient</span></li>
+<li class="lang-item"><span>Italian</span><span class="lang-lv">Basic</span></li>
+</ul>
+</div>
+</aside>
+
+<!-- MAIN -->
+<main class="main-content">
+
+<!-- PROFILE -->
+<div>
+<div class="sec-hdr"><span class="sec-lbl">Profile</span><hr class="sec-rule"></div>
+<p class="summary-text">
+Growth‑focused Product &amp; Operations Manager <strong>7+ years</strong> building the <strong>experimentation infrastructure, event taxonomy, and PLG funnel systems</strong> behind fast-growing B2C and B2B SaaS products.
+</p>
+</div>
+
+<!-- KEY METRICS -->
+<div class="wins-bar">
+<div class="win-item"><span class="win-num">$1.7M</span><div class="win-lbl">ARR retained via LLM personalisation (Go1)</div></div>
+<div class="win-item"><span class="win-num">+58%</span><div class="win-lbl">Views from search after event taxonomy redesign (Dailymotion)</div></div>
+<div class="win-item"><span class="win-num">9 mkts</span><div class="win-lbl">A/B test infra scaled globally (BlaBlaCar)</div></div>
+<div class="win-item"><span class="win-num">60%</span><div class="win-lbl">Freemium → premium conversion rate (BevSight)</div></div>
+</div>
+
+<!-- EXPERIENCE -->
+<div>
+<div class="sec-hdr"><span class="sec-lbl">Experience</span><hr class="sec-rule"></div>
+<div class="exp-list">
+
+  <!-- Proof of Match -->
+  <div>
+    <div class="exp-hdr">
+      <div>
+        <div class="exp-role">Founder &amp; Product Lead</div>
+        <div class="exp-co-line">
+          <span class="exp-co">Proof of Match</span>
+          <span class="exp-links">
+            <a href="https://heather-element-e24.notion.site/Proof-of-match-Yezi-323e1d2be00e80968544e40f50237fef?pvs=74">Notion</a>
+            <span> | </span>
+            <a href="https://yezililyz.github.io/Project/proof-of-match/">GitHub</a>
+            <span> | </span>
+            <a href="https://proof-of-match-198450121132.us-west1.run.app/">Prototype</a>
+          </span>
+          <span class="exp-badge">B2B SaaS · AI Networking · 0→1</span>
+        </div>
+      </div>
+      <div class="exp-date">2026 – Present</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Built AI-powered matchmaking platform targeting the <strong>€20M+ capital events market</strong>; designed full conversion funnel from organiser onboarding → attendee matching → attendee activation → deal outcome tracking.</li>
+    </ul>
+  </div>
+
+  <!-- Sparteo -->
+  <div>
+    <div class="exp-hdr">
+      <div>
+        <div class="exp-role">Product Manager — Analytics &amp; Data Infrastructure</div>
+        <div class="exp-co-line"><span class="exp-co">Sparteo</span><span class="exp-badge">B2B SaaS · Adtech</span></div>
+      </div>
+      <div class="exp-date">2025</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Safeguarded <strong>~15% of annual revenue</strong> by leading GDPR-compliant privacy implementation across display and video ad pipelines. Owned end-to-end analytics product strategy: architected real-time bidding data pipelines feeding publisher revenue dashboards.</li>
+    </ul>
+  </div>
+
+  <!-- Go1 -->
+  <div>
+    <div class="exp-hdr">
+      <div>
+        <div class="exp-role">Senior Product Manager — Content Intelligence</div>
+        <div class="exp-co-line"><span class="exp-co">Go1</span><span class="exp-badge">B2B SaaS · Enterprise Learning · Series E</span></div>
+      </div>
+      <div class="exp-date">2024 – 2025</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Designed <strong>search-to-play rate</strong> as activation proxy metric; redesigned content event tracking (query → click → play) that identified friction points, yielding <strong>+25% search discoverability</strong> and <strong>+15% content consumption</strong>.</li>
+      <li>Unlocked <strong>+35% content playability</strong> by rebuilding admin activation layer; resolved technical failures blocking end users from accessing curated content.</li>
+      <li>Spearheaded LLM-based metadata enrichment pipeline (POC → production); improved content precision/recall and <strong>retained $1.7M ARR</strong> by reducing churn through AI-driven personalisation.</li>
+    </ul>
+  </div>
+
+  <!-- Dailymotion -->
+  <div>
+    <div class="exp-hdr">
+      <div>
+        <div class="exp-role">Product data — User insights &amp; Growth</div>
+        <div class="exp-co-line"><span class="exp-co">Dailymotion</span><span class="exp-badge">B2C · Video Platform · 400M+ users</span></div>
+      </div>
+      <div class="exp-date">2022 – 2024</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Increased <strong>user activation-to-engagement conversion by 25%</strong> and <strong>revenue by 35%</strong> through end-to-end A/B testing and behavioral funnel analysis; synthesized qualitative insights with quantitative data to optimize conversion across mobile and desktop platforms.</li>
+      <li>Maintained ongoing visibility into key engagement signals (search-to-play, session depth, repeat views) and used these metrics to inform growth and product prioritisation, contributing to a <strong>25% increase in search engagement</strong>, <strong>+58% views from search</strong>, and a <strong>17% uplift in overall engagement</strong> while reducing infra costs by ~20%.</li>
+      <li>Architected global Amplitude event schemas and cross-platform dashboards with user funnel analytics; aligned acquisition cohorts with activation and retention signals, enabling data-driven growth prioritization.</li>
+    </ul>
+  </div>
+
+  <!-- BlaBlaCar -->
+  <div>
+    <div class="exp-hdr">
+      <div>
+        <div class="exp-role">Product Manager — Growth &amp; Marketing Automation</div>
+        <div class="exp-co-line"><span class="exp-co">BlaBlaCar</span><span class="exp-badge">B2C · Ridesharing · Global Marketplace</span></div>
+      </div>
+      <div class="exp-date">2020 – 2022</div>
+    </div>
+    <ul class="exp-bullets">
+      <li class="stat-key">Achieved <strong>+20% user activation</strong> and <strong>+30% retention</strong> by architecting and scaling a growth lifecycle experiments system across 9 markets. Defined the measurement framework and developed multi-channel re-engagement flows, including event-triggered activation sequences and modality-based cohort logic integrating marketing and product data.</li>
+      <li class="stat-key">Managed the migration of 300k+ monthly bus bookings. Performed proxy analysis to identify return rate gaps and implemented a robust A/B testing infrastructure for return trips, resulting in a validated <strong>+15% conversion lift</strong> in return trip bookings across all markets.</li>
+      <li>Enhanced marketing ops efficiency by<strong> 30% </strong>through the deployment of a multi-touch attribution model, replacing last-click models with data-driven channel allocation in coordination with marketing operations.</li>
+    </ul>
+  </div>
+
+  <!-- BevSight -->
+  <div>
+    <div class="exp-hdr">
+      <div>
+        <div class="exp-role">Product &amp; Operations Manager</div>
+        <div class="exp-co-line"><span class="exp-co">BevSight.com</span><span class="exp-badge">B2B SaaS · F&amp;B · Early Stage</span></div>
+      </div>
+      <div class="exp-date">2017 – 2018</div>
+    </div>
+    <ul class="exp-bullets">
+      <li>Designed PLG funnel (signup → onboarding → insight → upgrade); achieved <strong>60% freemium-to-premium conversion</strong> as first PM leading a cross-functional team of 3 through full product lifecycle.</li>
+    </ul>
+  </div>
+
+</div>
+</div>
+
+</main>
+</div><!-- cv-layout -->
+</div><!-- screen-wrapper -->
+</body>
+</html>
