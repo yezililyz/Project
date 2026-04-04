@@ -3,23 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yezi Li — Growth Operations Manager</title>
+<title>Yezi Li — Product Manager · Growth, Data, AI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root {
---color-bg:#f9f8f5;--color-surface:#ffffff;--color-border:#e2e0da;--color-divider:#edece8;
---color-text:#1a1916;--color-text-muted:#636260;--color-text-faint:#a8a7a3;
---color-accent:#01696f;--color-accent-light:#d0e4e2;--color-accent-dark:#0c4e54;
---font-display:'DM Serif Display',Georgia,serif;--font-body:'DM Sans','Helvetica Neue',sans-serif;
+  --color-bg:#f9f8f5;--color-surface:#ffffff;--color-border:#e2e0da;--color-divider:#edece8;
+  --color-text:#1a1916;--color-text-muted:#636260;--color-text-faint:#a8a7a3;
+  --color-accent:#01696f;--color-accent-light:#d0e4e2;--color-accent-dark:#0c4e54;
+  --font-display:'DM Serif Display',Georgia,serif;--font-body:'DM Sans','Helvetica Neue',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{-webkit-font-smoothing:antialiased;print-color-adjust:exact;-webkit-print-color-adjust:exact;}
 body{font-family:var(--font-body);font-size:9.2pt;line-height:1.55;color:var(--color-text);background:var(--color-bg);}
 
 .screen-wrapper{max-width:900px;margin:28px auto;background:var(--color-surface);box-shadow:0 8px 48px rgba(0,0,0,.13);border-radius:8px;overflow:hidden;}
-
 .cv-layout{display:grid;grid-template-columns:215px 1fr;min-height:100%;}
 
 /* SIDEBAR */
@@ -50,7 +49,6 @@ body{font-family:var(--font-body);font-size:9.2pt;line-height:1.55;color:var(--c
 .sec-hdr{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;}
 .sec-lbl{font-size:7pt;font-weight:700;letter-spacing:1.9px;text-transform:uppercase;color:var(--color-accent);white-space:nowrap;}
 .sec-rule{flex:1;border:none;border-top:1.5px solid var(--color-accent-light);}
-
 .summary-text{font-size:9.2pt;line-height:1.65;color:var(--color-text-muted);max-width:72ch;}
 .summary-text strong{color:var(--color-text);font-weight:600;}
 
@@ -74,26 +72,25 @@ body{font-family:var(--font-body);font-size:9.2pt;line-height:1.55;color:var(--c
 .exp-bullets li strong{color:var(--color-text);font-weight:600;}
 .exp-div{border:none;border-top:1px solid var(--color-divider);}
 
-/* Proof of Match links (top of section) */
+/* Proof of Match links */
 .exp-links{font-size:7pt;color:var(--color-accent);display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
 .exp-links a{color:var(--color-accent);text-decoration:none;border-bottom:1px solid rgba(1,105,111,.35);}
 
-/* BlaBlaCar key stats (black marker instead of blue points) */
+/* BlaBlaCar key stats */
 .exp-bullets li.stat-key{color:var(--color-text);}
 .exp-bullets li.stat-key::before{content:'●';color:#000;font-size:7pt;font-weight:900;top:2px;}
 .exp-bullets li.stat-key strong{color:#000;font-weight:700;}
 
 /* PRINT */
 @media print{
-body{background:#fff;font-size:8.8pt;}
-.screen-wrapper{box-shadow:none;margin:0;border-radius:0;max-width:100%;}
-.sidebar{background:#1b2929!important;-webkit-print-color-adjust:exact!important;}
-.wins-bar,.exp-badge{background:#f0faf9!important;-webkit-print-color-adjust:exact!important;}
-.chip{background:rgba(79,152,163,.17)!important;-webkit-print-color-adjust:exact!important;}
-.print-btn{display:none!important;}
-a{color:inherit;text-decoration:none;}
+  body{background:#fff;font-size:8.8pt;}
+  .screen-wrapper{box-shadow:none;margin:0;border-radius:0;max-width:100%;}
+  .sidebar{background:#1b2929!important;-webkit-print-color-adjust:exact!important;}
+  .wins-bar,.exp-badge{background:#f0faf9!important;-webkit-print-color-adjust:exact!important;}
+  .chip{background:rgba(79,152,163,.17)!important;-webkit-print-color-adjust:exact!important;}
+  .print-btn{display:none!important;}
+  a{color:inherit;text-decoration:none;}
 }
-
 .print-btn{position:fixed;bottom:22px;right:22px;background:var(--color-accent);color:#fff;border:none;padding:9px 18px;border-radius:6px;font-family:var(--font-body);font-size:12.5px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(1,105,111,.35);z-index:100;display:flex;align-items:center;gap:7px;transition:background .18s;}
 .print-btn:hover{background:var(--color-accent-dark);}
 </style>
@@ -106,238 +103,280 @@ Print / Save PDF
 </button>
 
 <div class="screen-wrapper">
-<div class="cv-layout">
+  <div class="cv-layout">
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
-<div>
-<div class="sidebar-name">Yezi Li</div>
-<div class="sidebar-title">Growth Operations Manager</div>
-</div>
-<hr class="s-rule">
-<div>
-<div class="s-head">Contact</div>
-<ul class="contact-list">
-<li>
-<svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.07 3.4 2 2 0 0 1 3.04 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.92a16 16 0 0 0 8 8l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 23 17"/>
-</svg>+33 6 34 99 15 30
-</li>
-<li>
-<svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-  <rect x="2" y="4" width="20" height="16" rx="2"/>
-  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-</svg>yezi.lilyz@gmail.com
-</li>
-<li>
-<svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-  <rect x="2" y="9" width="4" height="12"/>
-  <circle cx="4" cy="4" r="2"/>
-</svg>linkedin.com/in/yezi-li
-</li>
-<li>
-<svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-  <circle cx="12" cy="9" r="2.5"/>
-</svg>Paris, France
-</li>
-<li>
-<svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-  <circle cx="12" cy="12" r="10"/>
-  <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-</svg>medium.com/@yezi.li_jla
-</li>
-</ul>
-</div>
-<hr class="s-rule">
-<div>
-<div class="s-head">Core Stack</div>
-<div class="skills-group">
-<div>
-<div class="s-cat">Analytics &amp; Instrumentation</div>
-<div class="chips">
-<span class="chip hi">Amplitude</span><span class="chip hi">BigQuery</span><span class="chip">Mixpanel</span><span class="chip">Looker</span><span class="chip">Tableau</span><span class="chip">Python</span><span class="chip">SQL</span>
-</div>
-</div>
-<div>
-<div class="s-cat">Experimentation</div>
-<div class="chips">
-<span class="chip hi">A/B Test Infra</span><span class="chip hi">Event Taxonomy</span><span class="chip"> Funnel QA</span><span class="chip">Cohort Analysis</span>
-</div>
-</div>
-<div>
-<div class="s-cat">Growth &amp; CRM Tooling</div>
-<div class="chips">
-  <span class="chip">Braze</span>
-  <span class="chip">Adjust</span>
-  <span class="chip">Multi-touch Attr.</span>
-  <span class="chip">Hubspot</span>
-  <span class="chip">Optimizely</span>
-</div>
-</div>
-<div>
-<div class="s-cat">Product &amp; AI</div>
-<div class="chips">
-<span class="chip">Figma</span><span class="chip">Jira</span><span class="chip">LLM Pipelines</span><span class="chip">n8n</span><span class="chip">RAG/LangChain</span>
-</div>
-</div>
-</div>
-</div>
-<hr class="s-rule">
-<div>
-<div class="s-head">Education</div>
-<div class="edu-block">
-<div class="edu-deg">MSc Big Data &amp; Marketing Management</div>
-<div class="edu-school">Toulouse Business School</div>
-<div class="edu-date">Sep 2018 – Jan 2020</div>
-<div class="edu-badge">
-<svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-Eiffel Scholarship (Top 2/80)
-</div>
-</div>
-</div>
-<hr class="s-rule">
-<div>
-<div class="s-head">Languages</div>
-<ul class="lang-list">
-<li class="lang-item"><span>Mandarin</span><span class="lang-lv">Native</span></li>
-<li class="lang-item"><span>English</span><span class="lang-lv">Bilingual</span></li>
-<li class="lang-item"><span>French</span><span class="lang-lv">Proficient</span></li>
-<li class="lang-item"><span>Italian</span><span class="lang-lv">Basic</span></li>
-</ul>
-</div>
-</aside>
-
-<!-- MAIN -->
-<main class="main-content">
-
-<!-- PROFILE -->
-<div>
-<div class="sec-hdr"><span class="sec-lbl">Profile</span><hr class="sec-rule"></div>
-<p class="summary-text">
-Growth‑focused Product &amp; Operations Manager <strong>7+ years</strong> building the <strong>experimentation infrastructure, event taxonomy, and PLG funnel systems</strong> behind fast-growing B2C and B2B SaaS products.
-</p>
-</div>
-
-<!-- KEY METRICS -->
-<div class="wins-bar">
-<div class="win-item"><span class="win-num">$1.7M</span><div class="win-lbl">ARR retained via LLM personalisation (Go1)</div></div>
-<div class="win-item"><span class="win-num">+58%</span><div class="win-lbl">Views from search after event taxonomy redesign (Dailymotion)</div></div>
-<div class="win-item"><span class="win-num">9 mkts</span><div class="win-lbl">A/B test infra scaled globally (BlaBlaCar)</div></div>
-<div class="win-item"><span class="win-num">60%</span><div class="win-lbl">Freemium → premium conversion rate (BevSight)</div></div>
-</div>
-
-<!-- EXPERIENCE -->
-<div>
-<div class="sec-hdr"><span class="sec-lbl">Experience</span><hr class="sec-rule"></div>
-<div class="exp-list">
-
-  <!-- Proof of Match -->
-  <div>
-    <div class="exp-hdr">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
       <div>
-        <div class="exp-role">Founder &amp; Product Lead</div>
-        <div class="exp-co-line">
-          <span class="exp-co">Proof of Match</span>
-          <span class="exp-links">
-            <a href="https://heather-element-e24.notion.site/Proof-of-match-Yezi-323e1d2be00e80968544e40f50237fef?pvs=74">Notion</a>
-            <span> | </span>
-            <a href="https://yezililyz.github.io/Project/proof-of-match/">GitHub</a>
-            <span> | </span>
-            <a href="https://proof-of-match-198450121132.us-west1.run.app/">Prototype</a>
-          </span>
-          <span class="exp-badge">B2B SaaS · AI Networking · 0→1</span>
+        <div class="sidebar-name">Yezi Li</div>
+        <div class="sidebar-title">Product Manager · Growth & Data& AI</div>
+      </div>
+      <hr class="s-rule">
+      <div>
+        <div class="s-head">Contact</div>
+        <ul class="contact-list">
+          <li>
+            <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.07 3.4 2 2 0 0 1 3.04 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.92a16 16 0 0 0 8 8l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 23 17"/>
+            </svg>
+            +33 6 34 99 15 30
+          </li>
+          <li>
+            <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            yezi.lilyz@gmail.com
+          </li>
+          <li>
+            <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            linkedin.com/in/yezi-li
+          </li>
+          <li>
+            <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+            France
+          </li>
+          <li>
+            <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            medium.com/@yezi.li_jla
+          </li>
+        </ul>
+      </div>
+
+      <hr class="s-rule">
+
+      <div>
+        <div class="s-head">Core Stack</div>
+        <div class="skills-group">
+          <div>
+            <div class="s-cat">User, Market & UX Research</div>
+            <div class="chips">
+              <span class="chip hi">User research & interviews</span>
+              <span class="chip">Product discovery</span>
+              <span class="chip">Competitor analysis</span>
+              <span class="chip">Funnel analysis</span>
+              <span class="chip">Experiment design</span>
+            </div>
+          </div>
+          <div>
+            <div class="s-cat">Analytics & Data Strategy</div>
+            <div class="chips">
+              <span class="chip hi">Amplitude</span><span class="chip hi">BigQuery</span><span class="chip">Mixpanel</span><span class="chip">Looker</span><span class="chip">Tableau</span><span class="chip">Python</span><span class="chip">SQL</span>
+            </div>
+          </div>
+          <div>
+            <div class="s-cat">Experimentation & Growth</div>
+            <div class="chips">
+              <span class="chip hi">A/B test infra</span>
+              <span class="chip">Cohorts</span>
+              <span class="chip">Lifecycle CRM</span>
+              <span class="chip">Multi-touch attribution</span>
+            </div>
+          </div>
+          <div>
+            <div class="s-cat">Product & AI Systems</div>
+            <div class="chips">
+              <span class="chip hi">Figma</span>
+              <span class="chip hi">Antigravity</span>
+              <span class="chip">LLM pipelines</span>
+              <span class="chip">Machine learning</span>
+              <span class="chip">RAG/LangChain</span>
+              <span class="chip">n8n</span>
+              <span class="chip">Miro</span>
+              <span class="chip">Notion</span>
+               <span class="chip">Jira</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="exp-date">2026 – Present</div>
-    </div>
-    <ul class="exp-bullets">
-      <li>Built AI-powered matchmaking platform targeting the <strong>€20M+ capital events market</strong>; designed full conversion funnel from organiser onboarding → attendee matching → attendee activation → deal outcome tracking.</li>
-    </ul>
-  </div>
 
-  <!-- Sparteo -->
-  <div>
-    <div class="exp-hdr">
+      <hr class="s-rule">
+
       <div>
-        <div class="exp-role">Product Manager — Analytics &amp; Data Infrastructure</div>
-        <div class="exp-co-line"><span class="exp-co">Sparteo</span><span class="exp-badge">B2B SaaS · Adtech</span></div>
+        <div class="s-head">Education</div>
+        <div class="edu-block">
+          <div class="edu-deg">MSc Big Data &amp; Marketing Management</div>
+          <div class="edu-school">Toulouse Business School</div>
+          <div class="edu-date">Sep 2018 – Jan 2020</div>
+          <div class="edu-badge">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            Eiffel Scholarship (Top 2/80)
+          </div>
+        </div>
       </div>
-      <div class="exp-date">2025</div>
-    </div>
-    <ul class="exp-bullets">
-      <li>Safeguarded <strong>~15% of annual revenue</strong> by leading GDPR-compliant privacy implementation across display and video ad pipelines. Owned end-to-end analytics product strategy: architected real-time bidding data pipelines feeding publisher revenue dashboards.</li>
-    </ul>
-  </div>
 
-  <!-- Go1 -->
-  <div>
-    <div class="exp-hdr">
+      <hr class="s-rule">
+
       <div>
-        <div class="exp-role">Senior Product Manager — Content Intelligence</div>
-        <div class="exp-co-line"><span class="exp-co">Go1</span><span class="exp-badge">B2B SaaS · Enterprise Learning · Series E</span></div>
+        <div class="s-head">Languages</div>
+        <ul class="lang-list">
+          <li class="lang-item"><span>Mandarin</span><span class="lang-lv">Native</span></li>
+          <li class="lang-item"><span>English</span><span class="lang-lv">Bilingual</span></li>
+          <li class="lang-item"><span>French</span><span class="lang-lv">Proficient</span></li>
+          <li class="lang-item"><span>Italian</span><span class="lang-lv">Basic</span></li>
+        </ul>
       </div>
-      <div class="exp-date">2024 – 2025</div>
-    </div>
-    <ul class="exp-bullets">
-      <li>Designed <strong>search-to-play rate</strong> as activation proxy metric; redesigned content event tracking (query → click → play) that identified friction points, yielding <strong>+25% search discoverability</strong> and <strong>+15% content consumption</strong>.</li>
-      <li>Unlocked <strong>+35% content playability</strong> by rebuilding admin activation layer; resolved technical failures blocking end users from accessing curated content.</li>
-      <li>Spearheaded LLM-based metadata enrichment pipeline (POC → production); improved content precision/recall and <strong>retained $1.7M ARR</strong> by reducing churn through AI-driven personalisation.</li>
-    </ul>
-  </div>
+    </aside>
 
-  <!-- Dailymotion -->
-  <div>
-    <div class="exp-hdr">
+    <!-- MAIN -->
+    <main class="main-content">
+
+      <!-- PROFILE -->
       <div>
-        <div class="exp-role">Product data — User insights &amp; Growth</div>
-        <div class="exp-co-line"><span class="exp-co">Dailymotion</span><span class="exp-badge">B2C · Video Platform · 400M+ users</span></div>
+        <div class="sec-hdr"><span class="sec-lbl">Profile</span><hr class="sec-rule"></div>
+        <p class="summary-text">
+         Growth‑focused Product Manager with <strong>7+ years</strong> building the systems behind growth: user and market research, event taxonomy, experimentation, and PLG funnels. 
+           My focus isturning messy data into clear user journeys and UI:
+          <strong>from data strategy and AI pipelines to UX research, interaction design, and reporting</strong>. 
+        </p>
       </div>
-      <div class="exp-date">2022 – 2024</div>
-    </div>
-    <ul class="exp-bullets">
-      <li>Increased <strong>user activation-to-engagement conversion by 25%</strong> and <strong>revenue by 35%</strong> through end-to-end A/B testing and behavioral funnel analysis; synthesized qualitative insights with quantitative data to optimize conversion across mobile and desktop platforms.</li>
-      <li>Maintained ongoing visibility into key engagement signals (search-to-play, session depth, repeat views) and used these metrics to inform growth and product prioritisation, contributing to a <strong>25% increase in search engagement</strong>, <strong>+58% views from search</strong>, and a <strong>17% uplift in overall engagement</strong> while reducing infra costs by ~20%.</li>
-      <li>Architected global Amplitude event schemas and cross-platform dashboards with user funnel analytics; aligned acquisition cohorts with activation and retention signals, enabling data-driven growth prioritization.</li>
-    </ul>
-  </div>
 
-  <!-- BlaBlaCar -->
-  <div>
-    <div class="exp-hdr">
+      <!-- KEY METRICS -->
+      <div class="wins-bar">
+        <div class="win-item"><span class="win-num">$1.7M</span><div class="win-lbl">ARR retained via LLM‑driven content intelligence (Go1)</div></div>
+        <div class="win-item"><span class="win-num">+58%</span><div class="win-lbl">Views from search after taxonomy & UX revamp (Dailymotion)</div></div>
+        <div class="win-item"><span class="win-num">9 mkts</span><div class="win-lbl">Lifecycle experiments scaled globally (BlaBlaCar)</div></div>
+        <div class="win-item"><span class="win-num">60%</span><div class="win-lbl">Freemium → premium conversion in PLG funnel (BevSight)</div></div>
+      </div>
+
+      <!-- EXPERIENCE -->
       <div>
-        <div class="exp-role">Product Manager — Growth &amp; Marketing Automation</div>
-        <div class="exp-co-line"><span class="exp-co">BlaBlaCar</span><span class="exp-badge">B2C · Ridesharing · Global Marketplace</span></div>
+        <div class="sec-hdr"><span class="sec-lbl">Experience</span><hr class="sec-rule"></div>
+        <div class="exp-list">
+
+          <!-- Proof of Match -->
+          <div>
+            <div class="exp-hdr">
+              <div>
+                <div class="exp-role">Founder &amp; Product Lead</div>
+                <div class="exp-co-line">
+                  <span class="exp-co">Proof of Match</span>
+                  <span class="exp-links">
+                    <a href="https://heather-element-e24.notion.site/Proof-of-match-Yezi-323e1d2be00e80968544e40f50237fef?pvs=74">Case study</a>
+                    <span>·</span>
+                    <a href="https://yezililyz.github.io/Project/proof-of-match/">GitHub</a>
+                    <span>·</span>
+                    <a href="https://proof-of-match-198450121132.us-west1.run.app/">Live prototype</a>
+                  </span>
+                  <span class="exp-badge">B2B SaaS · AI matching · 0→1</span>
+                </div>
+              </div>
+              <div class="exp-date">2026 – Present</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Proof of Match — <strong>0→1 AI matching engine</strong> that turns noisy event and profile data into deal‑ready connections for capital‑market and Web3 events.</li>
+              <li>Led <strong>user and market research</strong>, defining JTBD, matching pain points, and success metrics.</li>
+              <li>Designed the <strong>data model and ranking signals</strong> (persona fit, complementarity, intent, stage, credibility) and orchestrated a multi‑agent AI pipeline from raw data to Match Cards.</li>
+              <li>Owned <strong>end‑to‑end UX</strong>: designed full conversion funnel from organiser onboarding → attendee matching → attendee activation → deal outcome tracking.</li>
+              <li>Prototyped and shipped an MVP with a clear <strong>GTM thesis</strong> for high‑intent events.</li>
+            </ul>
+          </div>
+
+          <!-- Sparteo -->
+          <div>
+            <div class="exp-hdr">
+              <div>
+                <div class="exp-role">Product Manager — Analytics &amp; Data Infrastructure</div>
+                <div class="exp-co-line">
+                  <span class="exp-co">Sparteo</span>
+                  <span class="exp-badge">B2B SaaS · Adtech · Privacy</span>
+                </div>
+              </div>
+              <div class="exp-date">2025</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Owned analytics product strategy for privacy‑sensitive real‑time bidding data: architected data pipelines and publisher dashboards translating raw bids into <strong>clear revenue insights</strong>.</li>
+              <li>Led GDPR‑compliant privacy implementation across cross‑platform pipelines, safeguarding <strong>~15% of annual revenue</strong> — relevant to on‑chain/off‑chain asset flows with regulatory constraints.</li>
+            </ul>
+          </div>
+
+          <!-- Go1 -->
+          <div>
+            <div class="exp-hdr">
+              <div>
+                <div class="exp-role">Senior Product Manager — Content Intelligence</div>
+                <div class="exp-co-line">
+                  <span class="exp-co">Go1</span>
+                  <span class="exp-badge">B2B SaaS · Enterprise learning · Series E</span>
+                </div>
+              </div>
+              <div class="exp-date">2024 – 2025</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Turned a noisy learning catalog into a <strong>user‑facing discovery system</strong> by leading an LLM‑based metadata enrichment pipeline; improved precision/recall and retained <strong>$1.7M ARR</strong>.</li>
+              <li>Unlocked <strong>+35% content playability</strong> by rebuilding admin activation layer; resolved technical failures blocking end users from accessing curated content.</li>
+              <li>Defined events, KPIs, and dashboards that made content performance and learner activation visible : search-to-play rate as activation proxy metric; redesigned content event tracking (query → click → play) that identified friction points, yielding <strong>+25% search discoverability</strong> and <strong>+15% content consumption</strong>.</li>
+            </ul>
+          </div>
+
+          <!-- Dailymotion -->
+          <div>
+            <div class="exp-hdr">
+              <div>
+                <div class="exp-role">Product Data — User Insights &amp; Growth</div>
+                <div class="exp-co-line">
+                  <span class="exp-co">Dailymotion</span>
+                  <span class="exp-badge">B2C · Video platform · 400M+ users</span>
+                </div>
+              </div>
+              <div class="exp-date">2022 – 2024</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Led a redesign of the <strong>global search UX and underlying infrastructure</strong>, including the full event taxonomy (search query → results → play) and semantic search layer, driving <strong>+58%</strong> search‑originated views and a <strong>17% </strong>lift in overall engagement while lowering infra costs.
+              <li>Combined user interviews with funnel/cohort analysis to understand how Gen Z were searching and deciding what to watch, then drove <strong>watch‑page and search UX changes</strong> based on these insights.</li>
+              <li>Architected global Amplitude event schemas and cross‑platform funnel dashboards that improved <strong>time‑to‑first‑value</strong>, and aligned acquisition cohorts with clear activation and retention signals, enabling truly data‑driven growth prioritisation. </li>
+            </ul>
+          </div>
+
+          <!-- BlaBlaCar -->
+          <div>
+            <div class="exp-hdr">
+              <div>
+                <div class="exp-role">Product Manager — Growth &amp; Marketing Automation</div>
+                <div class="exp-co-line">
+                  <span class="exp-co">BlaBlaCar</span>
+                  <span class="exp-badge">B2C · Marketplace · 9 markets</span>
+                </div>
+              </div>
+              <div class="exp-date">2020 – 2022</div>
+            </div>
+            <ul class="exp-bullets">
+             
+              <li class="stat-key">Achieved <strong>+20% user activation</strong> and  <strong>+30% retention</strong> by architecting and scaling a growth lifecycle experiments system across 9 markets. Defined the measurement framework and developed multi-channel re-engagement flows, including event-triggered activation sequences and modality-based cohort logic integrating marketing and product data.</li>
+              <li>Partnered with marketing ops to implement a <strong>multi‑touch attribution model</strong>, shifting budget toward true value‑drivers rather than last‑click channels.</li>
+            </ul>
+          </div>
+
+          <!-- BevSight -->
+          <div>
+            <div class="exp-hdr">
+              <div>
+                <div class="exp-role">Founding product manager</div>
+                <div class="exp-co-line">
+                  <span class="exp-co">BevSight</span>
+                  <span class="exp-badge">B2B SaaS · PLG</span>
+                </div>
+              </div>
+              <div class="exp-date">2017 – 2018</div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Designed a PLG funnel (signup → onboarding → first insight → upgrade) that achieved <strong>60% freemium‑to‑premium conversion</strong>, showing ability to craft self‑serve flows for data‑heavy products.</li>
+            </ul>
+          </div>
+
+        </div>
       </div>
-      <div class="exp-date">2020 – 2022</div>
-    </div>
-    <ul class="exp-bullets">
-      <li class="stat-key">Achieved <strong>+20% user activation</strong> and <strong>+30% retention</strong> by architecting and scaling a growth lifecycle experiments system across 9 markets. Defined the measurement framework and developed multi-channel re-engagement flows, including event-triggered activation sequences and modality-based cohort logic integrating marketing and product data.</li>
-      <li class="stat-key">Managed the migration of 300k+ monthly bus bookings. Performed proxy analysis to identify return rate gaps and implemented a robust A/B testing infrastructure for return trips, resulting in a validated <strong>+15% conversion lift</strong> in return trip bookings across all markets.</li>
-      <li>Enhanced marketing ops efficiency by<strong> 30% </strong>through the deployment of a multi-touch attribution model, replacing last-click models with data-driven channel allocation in coordination with marketing operations.</li>
-    </ul>
-  </div>
 
-  <!-- BevSight -->
-  <div>
-    <div class="exp-hdr">
-      <div>
-        <div class="exp-role">Product &amp; Operations Manager</div>
-        <div class="exp-co-line"><span class="exp-co">BevSight.com</span><span class="exp-badge">B2B SaaS · F&amp;B · Early Stage</span></div>
-      </div>
-      <div class="exp-date">2017 – 2018</div>
-    </div>
-    <ul class="exp-bullets">
-      <li>Designed PLG funnel (signup → onboarding → insight → upgrade); achieved <strong>60% freemium-to-premium conversion</strong> as first PM leading a cross-functional team of 3 through full product lifecycle.</li>
-    </ul>
-  </div>
-
-</div>
-</div>
-
-</main>
-</div><!-- cv-layout -->
-</div><!-- screen-wrapper -->
-</body>
-</html>
+     
