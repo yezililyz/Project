@@ -25,6 +25,16 @@ body{font-family:var(--font-body);font-size:9.2pt;line-height:1.55;color:var(--c
 .sidebar{background:#1b2929;color:#cfe2e1;padding:2rem 1.25rem;display:flex;flex-direction:column;gap:1.4rem;}
 .sidebar-name{font-family:var(--font-display);font-size:24pt;font-weight:400;color:#fff;line-height:1.05;letter-spacing:-.5px;}
 .sidebar-title{font-size:7.5pt;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#4f98a3;margin-top:.25rem;}
+.sidebar-cta{
+  display:flex;align-items:center;justify-content:center;gap:5px;margin-top:.75rem;padding:7px 10px;border-radius:4px;
+  background:#4f98a3;color:#142220;font-size:7.2pt;font-weight:700;letter-spacing:.55px;text-transform:uppercase;
+  text-decoration:none;border:1px solid rgba(159,212,217,.45);line-height:1.25;text-align:center;
+  transition:background .15s ease,color .15s ease,box-shadow .15s ease;
+  box-shadow:0 1px 0 rgba(0,0,0,.2);
+}
+.sidebar-cta:hover{background:#6bb3bc;color:#0d1818;box-shadow:0 2px 8px rgba(0,0,0,.18);}
+.sidebar-cta:focus-visible{outline:2px solid #9fd4d9;outline-offset:2px;}
+.sidebar-cta svg{width:11px;height:11px;flex-shrink:0;opacity:.9;}
 .s-rule{border:none;border-top:1px solid rgba(255,255,255,.09);margin:.15rem 0;}
 .s-head{font-size:6.8pt;font-weight:700;letter-spacing:1.9px;text-transform:uppercase;color:#4f98a3;margin-bottom:.55rem;}
 .contact-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
@@ -86,10 +96,12 @@ body{font-family:var(--font-body);font-size:9.2pt;line-height:1.55;color:var(--c
   body{background:#fff;font-size:8.8pt;}
   .screen-wrapper{box-shadow:none;margin:0;border-radius:0;max-width:100%;}
   .sidebar{background:#1b2929!important;-webkit-print-color-adjust:exact!important;}
+  .sidebar-cta{background:#4f98a3!important;color:#142220!important;-webkit-print-color-adjust:exact!important;}
   .wins-bar,.exp-badge{background:#f0faf9!important;-webkit-print-color-adjust:exact!important;}
   .chip{background:rgba(79,152,163,.17)!important;-webkit-print-color-adjust:exact!important;}
   .print-btn{display:none!important;}
   a{color:inherit;text-decoration:none;}
+  .sidebar-cta::after{content:" " attr(href);font-size:6.2pt;font-weight:500;letter-spacing:0;text-transform:none;display:block;margin-top:3px;opacity:.95;word-break:break-all;}
 }
 .print-btn{position:fixed;bottom:22px;right:22px;background:var(--color-accent);color:#fff;border:none;padding:9px 18px;border-radius:6px;font-family:var(--font-body);font-size:12.5px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(1,105,111,.35);z-index:100;display:flex;align-items:center;gap:7px;transition:background .18s;}
 .print-btn:hover{background:var(--color-accent-dark);}
@@ -110,6 +122,10 @@ Print / Save PDF
       <div>
         <div class="sidebar-name">Yezi Li</div>
         <div class="sidebar-title">Product Manager · Growth & Data& AI</div>
+        <a class="sidebar-cta" href="https://yezililyz.github.io/Project/Portfolio/" target="_blank" rel="noopener noreferrer">
+          <span>Portfolio &amp; case studies</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+        </a>
       </div>
       <hr class="s-rule">
       <div>
@@ -334,7 +350,7 @@ Print / Save PDF
               <div class="exp-date">2022 – 2024</div>
             </div>
             <ul class="exp-bullets">
-              <li>Led a redesign of the <strong>global search UX and underlying infrastructure</strong>, including the full event taxonomy (search query → results → play) and semantic search layer, driving <strong>+58%</strong> search‑originated views and a <strong>17% </strong>lift in overall engagement while lowering infra costs.
+              <li>Led a redesign of the <strong>global search UX and underlying infrastructure</strong>, including the full event taxonomy (search query → results → play) and semantic search layer, driving <strong>+58%</strong> search‑originated views and a <strong>17% </strong>lift in overall engagement while lowering infra costs.</li>
               <li>Combined user interviews with funnel/cohort analysis to understand how Gen Z were searching and deciding what to watch, then drove <strong>watch‑page and search UX changes</strong> based on these insights.</li>
               <li>Architected global Amplitude event schemas and cross‑platform funnel dashboards that improved <strong>time‑to‑first‑value</strong>, and aligned acquisition cohorts with clear activation and retention signals, enabling truly data‑driven growth prioritisation. </li>
             </ul>
@@ -379,4 +395,10 @@ Print / Save PDF
         </div>
       </div>
 
-     
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
