@@ -1,545 +1,901 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yezi Li — Product growth & AI Systems</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-bg: #fdfdfc;
-            --color-surface: #ffffff;
-            --color-text: #1a1916;
-            --color-text-muted: #636260;
-            --color-accent: #01696f;
-            --color-accent-soft: #eef7f6;
-            --color-border: #eeebe6;
-            --font-display: 'DM Serif Display', Georgia, serif;
-            --font-body: 'DM Sans', 'Inter', -apple-system, sans-serif;
-            --container-width: 1100px;
-            --section-spacing: 120px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yezi Li — Product Growth & AI Systems</title>
+  <meta name="description" content="Product Manager specialising in growth infrastructure, AI pipelines, and activation systems. 7+ years across BlaBlaCar, Dailymotion, Go1, and Proof of Match.">
+  <meta property="og:title" content="Yezi Li — Product Growth & AI Systems">
+  <meta property="og:description" content="Building the intelligence layer for product growth.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    /* ===== TOKENS ===== */
+    :root, [data-theme="light"] {
+      --color-bg: #f9f8f5;
+      --color-surface: #ffffff;
+      --color-surface-2: #f4f2ee;
+      --color-surface-offset: #eeebe6;
+      --color-divider: #dcd9d5;
+      --color-border: #e2e0da;
+      --color-text: #1a1916;
+      --color-text-muted: #636260;
+      --color-text-faint: #a8a7a3;
+      --color-text-inverse: #f9f8f4;
+      --color-primary: #01696f;
+      --color-primary-hover: #0c4e54;
+      --color-primary-active: #0f3638;
+      --color-primary-soft: #eef7f6;
+      --color-primary-highlight: #d0e4e2;
+      --shadow-sm: 0 1px 3px oklch(0.2 0.01 80 / 0.07);
+      --shadow-md: 0 4px 16px oklch(0.2 0.01 80 / 0.09);
+      --shadow-lg: 0 12px 40px oklch(0.2 0.01 80 / 0.13);
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'DM Sans', 'Inter', -apple-system, sans-serif;
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
+      --text-hero: clamp(3rem, 0.5rem + 7vw, 7.5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem;
+      --radius-xl: 1rem; --radius-2xl: 1.5rem; --radius-full: 9999px;
+      --transition-i: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1c1b19;
+      --color-surface-2: #201f1d;
+      --color-surface-offset: #1d1c1a;
+      --color-divider: #262523;
+      --color-border: #393836;
+      --color-text: #cdccca;
+      --color-text-muted: #797876;
+      --color-text-faint: #5a5957;
+      --color-text-inverse: #2b2a28;
+      --color-primary: #4f98a3;
+      --color-primary-hover: #227f8b;
+      --color-primary-active: #1a626b;
+      --color-primary-soft: #1e2e2f;
+      --color-primary-highlight: #2a3f3f;
+      --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.25);
+      --shadow-md: 0 4px 16px oklch(0 0 0 / 0.35);
+      --shadow-lg: 0 12px 40px oklch(0 0 0 / 0.45);
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; scroll-padding-top: 80px; overflow-x: clip; }
+    body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); font-size: var(--text-base); line-height: 1.65; min-height: 100dvh; overflow-x: clip; }
+    img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+    input, button, textarea, select { font: inherit; color: inherit; }
+    ul[role="list"] { list-style: none; }
+    p { text-wrap: pretty; }
+    h1,h2,h3,h4,h5 { font-family: var(--font-display); font-weight: 400; line-height: 1.1; text-wrap: balance; }
+    ::selection { background: oklch(from var(--color-primary) l c h / 0.18); }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+    a, button { transition: color var(--transition-i), background var(--transition-i), box-shadow var(--transition-i), transform var(--transition-i), border-color var(--transition-i); cursor: pointer; }
+    button { background: none; border: none; }
 
-        html {
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-        }
+    /* Anchor offset for fixed nav */
+    section[id] { scroll-margin-top: 80px; }
 
-        body {
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            font-family: var(--font-body);
-            line-height: 1.6;
-            font-size: 16px;
-        }
+    /* ===== NAV ===== */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: oklch(from var(--color-bg) l c h / 0.88);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--color-border);
+      transition: box-shadow var(--transition-i), background var(--transition-i);
+    }
+    nav.scrolled { box-shadow: var(--shadow-sm); }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 var(--space-8);
+      display: flex; justify-content: space-between; align-items: center; height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-display); font-size: 1.3rem; text-decoration: none;
+      color: var(--color-text); letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: var(--space-8); list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--color-text-muted); font-size: var(--text-sm); font-weight: 500;
+      padding: var(--space-1) 0; border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover { color: var(--color-primary); border-color: var(--color-primary); }
+    .nav-actions { display: flex; align-items: center; gap: var(--space-3); }
+    .theme-toggle {
+      width: 36px; height: 36px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center;
+      color: var(--color-text-muted); border: 1px solid var(--color-border);
+    }
+    .theme-toggle:hover { color: var(--color-primary); border-color: var(--color-primary); background: var(--color-primary-soft); }
 
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-family: var(--font-display);
-            font-weight: 400;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
+    /* ===== LAYOUT ===== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-8); }
+    .section { padding: clamp(var(--space-16), 8vw, var(--space-24)) 0; }
+    .label {
+      font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.15em;
+      color: var(--color-primary); font-weight: 700; display: block; margin-bottom: var(--space-4);
+    }
 
-        h1 { font-size: clamp(3rem, 8vw, 5rem); letter-spacing: -0.02em; }
-        h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 2rem; }
-        h3 { font-size: 1.75rem; margin-bottom: 1rem; }
-        
-        p { margin-bottom: 1.5rem; color: var(--color-text-muted); font-size: 1.1rem; max-width: 70ch; }
-        strong { color: var(--color-text); font-weight: 600; }
+    /* ===== HERO ===== */
+    .hero {
+      padding-top: 130px;
+      min-height: 92vh; display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse 60% 50% at 80% 40%, oklch(from var(--color-primary) l c h / 0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h1 {
+      font-size: var(--text-hero);
+      max-width: 14ch; letter-spacing: -0.02em;
+      margin-bottom: var(--space-8);
+      color: var(--color-text);
+    }
+    .hero h1 em { font-style: italic; color: var(--color-primary); }
+    .hero-summary {
+      font-size: var(--text-lg); color: var(--color-text-muted);
+      max-width: 62ch; line-height: 1.7; margin-bottom: var(--space-10);
+    }
+    .hero-summary strong { color: var(--color-text); font-weight: 600; }
+    .hero-meta { display: flex; gap: var(--space-10); flex-wrap: wrap; margin-top: var(--space-10); padding-top: var(--space-8); border-top: 1px solid var(--color-border); }
+    .meta-item .meta-label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-faint); font-weight: 700; margin-bottom: var(--space-1); }
+    .meta-item .meta-value { font-size: var(--text-sm); font-weight: 600; color: var(--color-text); }
+    .hero-cta { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: 0.75rem 1.5rem; border-radius: var(--radius-lg);
+      font-size: var(--text-sm); font-weight: 600; text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--color-text); color: var(--color-text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-primary:hover { background: var(--color-primary); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn-primary:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
+    .btn-outline {
+      background: transparent; color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+    .btn-outline:hover { border-color: var(--color-primary); color: var(--color-primary); background: var(--color-primary-soft); transform: translateY(-1px); }
 
-        .label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--color-accent);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: block;
-        }
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl); padding: var(--space-8) var(--space-10);
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6);
+      box-shadow: var(--shadow-sm);
+      margin-top: calc(-1 * var(--space-10));
+      position: relative; z-index: 2;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: var(--font-display); font-size: var(--text-2xl);
+      color: var(--color-primary); line-height: 1; display: block; margin-bottom: var(--space-1);
+    }
+    .stat-desc { font-size: var(--text-xs); color: var(--color-text-muted); line-height: 1.4; }
 
-        /* Layout */
-        .container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+    /* ===== JOURNEY ===== */
+    .journey-grid {
+      display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-16); align-items: start;
+    }
+    .journey-sticky { position: sticky; top: 96px; }
+    .journey-body h2 { font-size: var(--text-2xl); margin-bottom: var(--space-6); }
+    .journey-body p { font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.75; max-width: 66ch; }
 
-        section {
-            padding: var(--section-spacing) 0;
-        }
+    /* Timeline */
+    .timeline { position: relative; padding-left: var(--space-8); }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: var(--color-border); }
+    .tl-item { position: relative; margin-bottom: var(--space-10); }
+    .tl-item::before {
+      content: ''; position: absolute; left: calc(-1 * var(--space-8) - 4px); top: 6px;
+      width: 9px; height: 9px; background: var(--color-primary); border-radius: var(--radius-full);
+      box-shadow: 0 0 0 3px var(--color-bg);
+    }
+    .tl-date { font-size: var(--text-xs); color: var(--color-text-faint); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--space-1); }
+    .tl-role { font-size: var(--text-base); font-weight: 700; line-height: 1.3; margin-bottom: 2px; }
+    .tl-company { font-size: var(--text-sm); font-weight: 600; color: var(--color-primary); display: block; margin-bottom: var(--space-3); }
+    .tl-item p { font-size: var(--text-sm); color: var(--color-text-muted); max-width: 56ch; }
 
-        /* Nav */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 0;
-            background: rgba(253, 253, 252, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            border-bottom: 1px solid var(--color-border);
-        }
+    /* ===== FLAGSHIP ===== */
+    .flagship-wrapper {
+      background: var(--color-primary-soft); border-radius: var(--radius-2xl);
+      padding: var(--space-12) var(--space-12); border: 1px solid var(--color-primary-highlight);
+    }
+    .flagship-header { margin-bottom: var(--space-10); }
+    .flagship-header h2 { font-size: var(--text-2xl); max-width: 24ch; }
+    .flagship-header p { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 68ch; }
+    .flagship-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); }
+    .case-section { margin-bottom: var(--space-8); }
+    .case-section h3 {
+      font-family: var(--font-body); font-size: var(--text-sm); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-primary);
+      margin-bottom: var(--space-3);
+    }
+    .case-section p { font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.75; max-width: 60ch; }
+    .flagship-links { display: flex; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-10); padding-top: var(--space-8); border-top: 1px solid var(--color-primary-highlight); }
+    .flagship-metrics { display: flex; gap: var(--space-4); flex-wrap: wrap; margin: var(--space-8) 0; }
+    .fmetric {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg); padding: var(--space-4) var(--space-6);
+      text-align: center; min-width: 110px;
+    }
+    .fmetric-val { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-primary); display: block; line-height: 1; margin-bottom: 4px; }
+    .fmetric-label { font-size: var(--text-xs); color: var(--color-text-muted); }
 
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* ===== CASE CARDS ===== */
+    .cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); }
+    .case-card {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl); padding: var(--space-8);
+      box-shadow: var(--shadow-sm);
+      display: flex; flex-direction: column; gap: var(--space-6);
+      transition: box-shadow var(--transition-i), transform var(--transition-i);
+    }
+    .case-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .case-card-header {}
+    .case-company { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-primary); font-weight: 700; margin-bottom: var(--space-2); display: block; }
+    .case-card-header h3 { font-size: var(--text-lg); line-height: 1.2; }
+    .metrics-row { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+    .metric-chip {
+      background: var(--color-primary-soft); border: 1px solid var(--color-primary-highlight);
+      border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4);
+      text-align: center;
+    }
+    .metric-chip-val { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-primary); display: block; line-height: 1; }
+    .metric-chip-label { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: 2px; }
+    .case-narrative { display: flex; flex-direction: column; gap: var(--space-4); flex: 1; }
+    .case-step {}
+    .case-step-label { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-faint); margin-bottom: 3px; }
+    .case-step p { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.65; max-width: none; }
 
-        .logo {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            text-decoration: none;
-            color: var(--color-text);
-        }
+    /* ===== SKILLS ===== */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+    .skill-group {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl); padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+    }
+    .skill-group-name { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-faint); margin-bottom: var(--space-4); }
+    .chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .chip {
+      font-size: var(--text-xs); padding: 3px 10px; border-radius: var(--radius-full);
+      background: var(--color-surface-2); color: var(--color-text-muted);
+      border: 1px solid var(--color-border); font-weight: 500; line-height: 1.5;
+    }
+    .chip.hi { background: var(--color-primary-soft); color: var(--color-primary); border-color: var(--color-primary-highlight); font-weight: 700; }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
+    /* ===== CONTACT ===== */
+    .contact-block {
+      background: var(--color-surface); border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl); padding: var(--space-12);
+      box-shadow: var(--shadow-sm);
+      display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--space-12); align-items: center;
+    }
+    .contact-block h2 { font-size: var(--text-2xl); margin-bottom: var(--space-4); }
+    .contact-block p { color: var(--color-text-muted); font-size: var(--text-base); max-width: 52ch; }
+    .contact-links { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+    .contact-links a {
+      text-decoration: none; font-size: var(--text-base); font-weight: 600;
+      color: var(--color-text); display: flex; align-items: center; gap: var(--space-3);
+      transition: color var(--transition-i);
+    }
+    .contact-links a:hover { color: var(--color-primary); }
+    .contact-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--color-text-faint); }
 
-        nav a {
-            text-decoration: none;
-            color: var(--color-text-muted);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        nav a:hover { color: var(--color-accent); }
+    /* ===== FOOTER ===== */
+    footer { border-top: 1px solid var(--color-border); padding: var(--space-10) 0; }
+    footer .foot-inner { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-8); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); }
+    footer p { font-size: var(--text-xs); color: var(--color-text-faint); }
 
-        /* Hero */
-        .hero {
-            padding-top: 180px;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-        }
+    /* ===== SECTION DIVIDER ===== */
+    .sec-divider { border: none; border-top: 1px solid var(--color-divider); }
 
-        .hero h1 {
-            max-width: 18ch;
-            margin-bottom: 2rem;
-        }
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .journey-grid, .flagship-grid, .cases-grid, .skills-grid { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .flagship-wrapper { padding: var(--space-8); }
+      .contact-block { grid-template-columns: 1fr; padding: var(--space-8); }
+      .hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
+      .hero-meta { gap: var(--space-6); }
+    }
 
-        .hero-meta {
-            display: flex;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-
-        .meta-item .label { margin-bottom: 0.5rem; }
-        .meta-item .value { font-size: 1rem; color: var(--color-text); font-weight: 500; }
-
-        /* Narrative Timeline */
-        .journey-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-            border-left: 1px solid var(--color-border);
-        }
-
-        .timeline-item {
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: calc(-2rem - 5px);
-            top: 0.5rem;
-            width: 9px;
-            height: 9px;
-            background: var(--color-accent);
-            border-radius: 50%;
-        }
-
-        .timeline-date {
-            font-size: 0.8rem;
-            color: var(--color-text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-role {
-            font-weight: 700;
-            font-size: 1.25rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .timeline-co {
-            color: var(--color-accent);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* Case Studies */
-        .flagship-case {
-            background: var(--color-accent-soft);
-            border-radius: 24px;
-            padding: 4rem;
-            margin-top: 2rem;
-        }
-
-        .case-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-
-        .case-card {
-            border-top: 1px solid var(--color-border);
-            padding-top: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .case-meta {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .metric {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--color-border);
-        }
-
-        .metric-value {
-            display: block;
-            font-family: var(--font-display);
-            font-size: 2rem;
-            color: var(--color-accent);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .metric-label {
-            font-size: 0.75rem;
-            color: var(--color-text-muted);
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: var(--color-text);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: transform 0.2s, background 0.3s;
-            gap: 0.75rem;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            background: var(--color-accent-dark, #0c4e54);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--color-text);
-            color: var(--color-text);
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        /* Footer */
-        footer {
-            padding: 80px 0;
-            border-top: 1px solid var(--color-border);
-            text-align: left;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-        }
-
-        .contact-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .contact-links a {
-            color: var(--color-text);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s;
-        }
-
-        .contact-links a:hover {
-            border-color: var(--color-accent);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .journey-grid, .case-grid, .footer-grid { grid-template-columns: 1fr; }
-            .hero-meta { flex-direction: column; gap: 2rem; }
-            .flagship-case { padding: 2rem; }
-            nav ul { display: none; }
-            section { padding: 80px 0; }
-        }
-    </style>
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+    }
+  </style>
 </head>
 <body>
 
-    <nav>
-        <div class="container">
-            <a href="#" class="logo">Yezi Li</a>
-            <ul>
-                <li><a href="#journey">Journey</a></li>
-                <li><a href="#flagship">Flagship</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Yezi Li</a>
+      <ul class="nav-links" role="list">
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#flagship">Flagship</a></li>
+        <li><a href="#projects">Case Studies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <span class="label">Growth Infrastructure & AI Systems</span>
+        <h1>Building the <em>intelligence layer</em> for product growth</h1>
+        <p class="hero-summary">
+          I'm Yezi — a growth-focused PM with 7+ years across 0→1, 1→10, and scale-up phases who builds experimentation infrastructure, event taxonomy, and PLG systems behind B2C and B2B SaaS.  Now specialising in the layer between complex data and user-facing decisions: orchestrating data flows, designing onboarding and activation journeys, and translating AI or infra into intuitive UX and reporting.  
+          
+          Across <strong>BlaBlaCar</strong>, <strong>Dailymotion</strong>, <strong>Go1</strong>,<strong>Sparteo</strong>,  and <strong>Proof of Match</strong>, my work has followed one consistent thread: <strong>turning fragmented data signals into intuitive products</strong>. Now I am building <strong>Proof of Match</strong> from 0→1 : an AI matching engine that turns noisy event data into deal‑ready connections. I led user and market research, defined the data model and ranking signals, and translated that into an explainable AI system, and translating the data into the end‑to‑end user flow, platform interface, and reporting views, then prototyped and shipped an MVP with a clear GTM thesis for capital‑market events in <strong>Web3 and VC space</strong>.
+        </p>
+        <div class="hero-cta">
+          <a href="#flagship" class="btn btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            View Flagship Project
+          </a>
+          <a href="#projects" class="btn btn-outline">Case Studies</a>
+          <a href="mailto:yezi.lilyz@gmail.com" class="btn btn-outline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Get in touch
+          </a>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <span class="meta-label">Current Focus</span>
+            <span class="meta-value">AI-enabled growth</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Based in</span>
+            <span class="meta-value">Paris, France</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Languages</span>
+            <span class="meta-value">English · Mandarin · French</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Available</span>
+            <span class="meta-value">Open to opportunities</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="container">
+      <div class="stats-bar reveal">
+        <div class="stat-item">
+          <span class="stat-num">$1.7M</span>
+          <span class="stat-desc">ARR retained via LLM personalisation</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">+58%</span>
+          <span class="stat-desc">Views from search after taxonomy redesign</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">9 mkts</span>
+          <span class="stat-desc">A/B test infra scaled globally</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">60%</span>
+          <span class="stat-desc">Freemium → premium conversion on PLG SaaS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== JOURNEY ===== -->
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="journey-grid">
+          <div class="journey-sticky">
+            <span class="label">The Trajectory</span>
+            <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-6);">A coherent path from analytics to AI.</h2>
+            <p style="font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.8; max-width: 44ch;">
+              My career is a progression in systems thinking for growth: from cohort analysis and lifecycle automation, 
+              to funnel architecture and experimentation at scale, to building AI pipelines that turn raw data 
+              into user-facing products.
+            </p>
+            <p style="font-size: var(--text-base); color: var(--color-text-muted); line-height: 1.8; max-width: 44ch; margin-top: var(--space-4);">
+              Each role deepened a consistent thread: build the instrumentation first, 
+              then let the data reveal what to build next.
+            </p>
+          </div>
+          <div>
+            <div class="timeline">
+
+              <div class="tl-item reveal">
+                <span class="tl-date">2026 — Present</span>
+                <div class="tl-role">Founder & Product Lead</div>
+                <span class="tl-company">Proof of Match</span>
+                <p>Architecting an AI matching intelligence engine for high-intent VC and Web3 events. Shifting matchmaking from keyword similarity to deal-ready complementarity using a 6-agent pipeline that scores across 7 independent dimensions.</p>
+              </div>
+
+              <div class="tl-item reveal">
+                <span class="tl-date">2025</span>
+                <div class="tl-role">Product Manager — Analytics & Data Infrastructure</div>
+                <span class="tl-company">Sparteo</span>
+                <p>Safeguarded ~15% of annual revenue through GDPR-compliant privacy implementation across display and video ad pipelines. Architected real-time bidding data pipelines feeding publisher revenue dashboards.</p>
+              </div>
+
+              <div class="tl-item reveal">
+                <span class="tl-date">2024 — 2025</span>
+                <div class="tl-role">Senior Product Manager — Content Intelligence</div>
+                <span class="tl-company">Go1</span>
+                <p>Leveraged LLMs to enrich metadata and personalise enterprise learning at scale. Designed search-to-play as the activation proxy, rebuilt content event tracking, and retained $1.7M ARR through precision-driven AI personalisation.</p>
+              </div>
+
+              <div class="tl-item reveal">
+                <span class="tl-date">2022 — 2024</span>
+                <div class="tl-role">Product Data — User Insights & Growth</div>
+                <span class="tl-company">Dailymotion</span>
+                <p>Redesigned global Amplitude event taxonomy and cross-platform A/B test infrastructure for 400M+ users. Aligned acquisition cohorts with activation signals, producing +58% views from search and +35% revenue lift.</p>
+              </div>
+
+              <div class="tl-item reveal">
+                <span class="tl-date">2020 — 2022</span>
+                <div class="tl-role">Product Manager — Growth & Marketing Automation</div>
+                <span class="tl-company">BlaBlaCar</span>
+                <p>Scaled lifecycle experiments across 9 markets. Built the measurement framework for multi-channel activation and retention, including event-triggered CRM sequences and a multi-touch attribution model that improved marketing efficiency by 30%.</p>
+              </div>
+
+              <div class="tl-item reveal">
+                <span class="tl-date">2017 — 2018</span>
+                <div class="tl-role">Product & Growth Manager</div>
+                <span class="tl-company">BevSight.com</span>
+                <p>First PM hire. Designed PLG funnel (signup → onboarding → insight → upgrade) and achieved 60% freemium-to-premium conversion leading a cross-functional team through full product lifecycle.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="sec-divider">
+
+    <!-- ===== FLAGSHIP ===== -->
+    <section class="section" id="flagship">
+      <div class="container">
+        <div class="flagship-wrapper reveal">
+          <div class="flagship-header">
+            <span class="label">Flagship Project · 2026</span>
+            <h2>Proof of Match: AI-Powered Deal-Ready Networking</h2>
+            <p>Traditional event networking relies on shallow keyword signals. Proof of Match redesigns the matching model from the ground up — from similarity to complementarity.</p>
+          </div>
+
+          <div class="flagship-grid">
+            <div>
+              <div class="case-section">
+                <h3>1. Problem Statement</h3>
+                <p>An investor and founder might share a "DeFi" tag but have deep mismatches in funding stage, mandate, or operational readiness — resulting in low-signal conversations that waste high-value time. Event organisers feel the churn pressure and lack of insight threatening sponsor ROI and YoY revenue. I wanted to design a system that makes matching more intentional, transparent, and easier to act on — without turning it into a shallow networking app.</p>
+              </div>
+              <div class="case-section">
+                <h3>2. Research & Insights</h3>
+                <p>Through interviews, LinkedIn how-tos, and founder playbooks, I identified that deal-ready meetings require <em>complementarity</em> (offer vs. need) rather than just similarity. I mapped Jobs-to-be-Done for three personas: Investors (thesis-fit pipeline), Founders (strategic capital), and Regulators (policy engagement) — and surfaced the gap that existing tooling can't attribute meetings to business results.</p>
+              </div>
+            </div>
+            <div>
+              <div class="case-section">
+                <h3>3. Solution & Architecture</h3>
+                <p>Architected a <strong>6-agent AI pipeline</strong> that enriches raw profiles, extracts traction signals, and scores pairs across 7 independent dimensions: Persona Fit, Complementary Value, Intent Overlap, Sector Overlap, Stage Fit, Credibility, and Non-Obviousness matching signals. The pipeline generates prioritised "Match Cards" with natural language reasoning, surfacing non-obvious connections.</p>
+              </div>
+              <div class="case-section">
+                <h3>4. Reflection</h3>
+                <p>The core challenge was balancing semantic flexibility with deterministic filters — the classical trade-off between probabilistic and deterministic pipelines. By separating "who you are" from "what you want" in the embedding space, we avoided the echo-chamber effect of similarity-only matching. Next iterations would incorporate real-time feedback loops from meeting outcomes.</p>
+              </div>
+              <div class="flagship-metrics">
+                <div class="fmetric">
+                  <span class="fmetric-val">7</span>
+                  <span class="fmetric-label">Match dimensions</span>
+                </div>
+                <div class="fmetric">
+                  <span class="fmetric-val">6</span>
+                  <span class="fmetric-label">AI agents</span>
+                </div>
+                <div class="fmetric">
+                  <span class="fmetric-val">0→1</span>
+                  <span class="fmetric-label">Built solo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flagship-links">
+            <a href="https://heather-element-e24.notion.site/Proof-of-match-Yezi-323e1d2be00e80968544e40f50237fef?pvs=73" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Full Case Study
+            </a>
+            <a href="https://yezililyz.github.io/Project/proof-of-match/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+            <a href="https://proof-of-match-587748836028.us-west1.run.app/" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="sec-divider">
+
+    <!-- ===== CASE STUDIES ===== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <span class="label">Selected Impact</span>
+        <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-12);">Measuring what matters.</h2>
+        <div class="cases-grid">
+
+          <!-- Go1 -->
+          <div class="case-card reveal">
+            <div class="case-card-header">
+              <span class="case-company">Go1 · B2B SaaS · Enterprise Learning</span>
+              <h3>Retention via Content Intelligence</h3>
+            </div>
+            <div class="metrics-row">
+              <div class="metric-chip">
+                <span class="metric-chip-val">$1.7M</span>
+                <span class="metric-chip-label">ARR retained</span>
+              </div>
+              <div class="metric-chip">
+                <span class="metric-chip-val">+35%</span>
+                <span class="metric-chip-label">Playability lift</span>
+              </div>
+              <div class="metric-chip">
+                <span class="metric-chip-val">+25%</span>
+                <span class="metric-chip-label">Search discoverability</span>
+              </div>
+            </div>
+            <div class="case-narrative">
+              <div class="case-step">
+                <div class="case-step-label">Problem</div>
+                <p>Go1 had a vast B2B learning catalog, but learners and admins struggled to find the right content, leading to low engagement and underused contracts. Technical failures and poor metadata blocked users from curated content, driving churn. Fragmented event tracking made it impossible to isolate true activation signals from noise across 8M+ users.</p>
+              </div>
+              <div class="case-step">
+                <div class="case-step-label">Research</div>
+                <p>Partnered with CS and sales to collect qualitative feedback on L&D curation pain. Conducted quantitative funnel analysis using search-to-play rates as an activation proxy, identifying the specific friction points blocking content consumption.</p>
+              </div>
+              <div class="case-step">
+                <div class="case-step-label">Solution</div>
+                <p>Built an LLM-powered metadata enrichment pipeline; rebuilt the learner activation layer; architected global Amplitude event schemas that cleanly isolated true activation signals; redesigned the content partner upload workflow to unblock high-quality supply.</p>
+              </div>
+              <div class="case-step">
+                <div class="case-step-label">Reflection</div>
+                <p>"Content playability" is often a data-integrity issue, not a UX issue. Automated metadata enrichment is the only way to scale curation for enterprise-grade learning libraries.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dailymotion -->
+          <div class="case-card reveal">
+            <div class="case-card-header">
+              <span class="case-company">Dailymotion · B2C · 400M+ Users</span>
+              <h3>Platform Revamp & Global Taxonomy Redesign</h3>
+            </div>
+            <div class="metrics-row">
+              <div class="metric-chip">
+                <span class="metric-chip-val">+58%</span>
+                <span class="metric-chip-label">Search views</span>
+              </div>
+              <div class="metric-chip">
+                <span class="metric-chip-val">+35%</span>
+                <span class="metric-chip-label">Revenue lift</span>
+              </div>
+              <div class="metric-chip">
+                <span class="metric-chip-val">−20%</span>
+                <span class="metric-chip-label">Infra costs</span>
+              </div>
+            </div>
+            <div class="case-narrative">
+              <div class="case-step">
+                <div class="case-step-label">Problem</div>
+                <p>~90% of new mobile users started with search, but barely 60% led to a video play in the same session. Inconsistent mobile/desktop tracking made it impossible to tie UI changes to downstream impact across a 400M+ user base.</p>
+              </div>
+              <div class="case-step">
+                <div class="case-step-label">Research</div>
+                <p>Combined structured user interviews with funnel and cohort analysis, segmented by new vs. returning users and acquisition channel. Traced where users were leaking along search-to-play, session depth, and repeat-view patterns — surfacing three core friction points.</p>
+              </div>
+              <div class="case-step">
+                <div class="case-step-label">Solution</div>
+                <p>Designed and deployed a unified Amplitude event model and cross-platform dashboards. Led a cross-functional initiative to revamp watch-page UX, migrate to a stronger search provider, and introduce Google NLP-powered topic annotation. All changes embedded in A/B testing infra for rigorous validation.</p>
+              </div>
+              <div class="case-step">
+                <div class="case-step-label">Reflection</div>
+                <p>Durable growth depends on clean taxonomy and reliable instrumentation. By reframing Dailymotion's rebrand as a mobile-first, Gen Z challenge and using search-to-play as the primary activation lens, we aligned UX, relevance, and data infrastructure around one narrative.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- BlaBlaCar -->
+          <div class="case-card reveal">
+            <div class="case-card-header">
+              <span class="case-company">BlaBlaCar · Marketplace · 9 Markets</span>
+              <h3>Growth Lifecycle Experiments & Multi-Touch Attribution</h3>
+            </div>
+            <div class="metrics-row">
+              <div class="metric-chip">
+                <span class="metric-chip-val">+15%</span>
+                <span class="metric-chip-label">Return trip bookings</span>
+              </div>
+              <div class="metric-chip">
+                <span class="metric-chip-val">+20%</span>
+                <span class="metric-chip-label">User activation</span>
+              </div>
+              <div class="metric-chip">
+                <span class="metric-chip-val">+30%</span>
+                <span class="metric-chip-label">Marketing efficiency</span>
+              </div>
+            </div>
+            <div class="case-narrative">
+              <div class="case-step">
+                <div class="case-step-label">Problem</div>
+                <p>Return-trip booking rates were lagging and marketing spend was inefficient across 9 markets — performance measured on last-click attribution masked true multimodal behaviour and underestimated BlaBlaCar's role in the journey.</p>
+              </div>
+              <div class="case-step">
+                <div class="case-step-label">Research</div>
+                <p>Proxy analysis revealed 9% of users booked outbound and return on different modalities. Once controlled, the 12-point apparent gap in return bookings shrank to 3 points — reframing the question from "fix BlaBlaBus" to "increase any return trip on BlaBlaCar by 3pp."</p>
+              </div>
+              <div class="case-step">
+                <div class="case-step-label">Solution</div>
+                <p>Architected a lifecycle experiments system with clearer return-trip prompts, cohort logic by outbound modality, and Braze event-triggered journeys tuned to booking timing windows. Implemented a Markov-chain multi-touch attribution model, redistributing credit across the full journey. Treated tracking as a blocking dependency — regression-tested the entire stack before launch.</p>
+              </div>
+              <div class="case-step">
+                <div class="case-step-label">Reflection</div>
+                <p>Transitioning from simple re-engagement to event-triggered activation requires tight coordination between marketing and product data layers — and a willingness to redefine the problem before building the solution.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sparteo -->
+          <div class="case-card reveal">
+            <div class="case-card-header">
+              <span class="case-company">Sparteo · B2B SaaS · Adtech</span>
+              <h3>Revenue Safeguarding & Privacy Infrastructure</h3>
+            </div>
+            <div class="metrics-row">
+              <div class="metric-chip">
+                <span class="metric-chip-val">15%</span>
+                <span class="metric-chip-label">Revenue protected</span>
+              </div>
+            </div>
+            <div class="case-narrative">
+              <div class="case-step">
+                <div class="case-step-label">Problem</div>
+                <p>Emerging GDPR privacy requirements threatened adtech revenue streams dependent on cross-platform data pipelines. Without a coordinated response, compliance gaps risked both regulatory penalty and publisher churn.</p>
+              </div>
+              <div class="case-step">
+                <div class="case-step-label">Research</div>
+                <p>Stakeholder interviews and gap analysis across real-time bidding data compliance requirements. Mapped the risk surface across display and video pipelines to prioritise by revenue exposure.</p>
+              </div>
+              <div class="case-step">
+                <div class="case-step-label">Solution</div>
+                <p>Led end-to-end privacy implementation across ad pipelines. Architected real-time publisher dashboards converting operational ad-monetisation processes into visible, actionable revenue signals.</p>
+              </div>
+              <div class="case-step">
+                <div class="case-step-label">Reflection</div>
+                <p>Privacy isn't just a compliance hurdle — it's a product feature that builds long-term trust with publishers and ecosystem partners. Framing it as a revenue protection initiative (not a cost centre) changed how the organisation prioritised it.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="sec-divider">
+
+    <!-- ===== SKILLS ===== -->
+    <section class="section">
+      <div class="container">
+        <span class="label">Core Stack</span>
+        <h2 style="font-size: var(--text-xl); margin-bottom: var(--space-8);">Tools & capabilities</h2>
+        <div class="skills-grid reveal">
+          <div class="skill-group">
+            <div class="skill-group-name">Analytics & Instrumentation</div>
+            <div class="chips">
+              <span class="chip hi">Amplitude</span>
+              <span class="chip hi">BigQuery</span>
+              <span class="chip">Mixpanel</span>
+              <span class="chip">Looker</span>
+              <span class="chip">Tableau</span>
+              <span class="chip">Python</span>
+              <span class="chip">SQL</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-name">Experimentation</div>
+            <div class="chips">
+              <span class="chip hi">A/B Test Infra</span>
+              <span class="chip hi">Event Taxonomy</span>
+              <span class="chip">Funnel QA</span>
+              <span class="chip">Cohort Analysis</span>
+              <span class="chip">Multi-touch Attribution</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-name">Growth & CRM</div>
+            <div class="chips">
+              <span class="chip">Braze</span>
+              <span class="chip">Adjust</span>
+              <span class="chip">Hubspot</span>
+              <span class="chip">Optimizely</span>
+              <span class="chip">PLG Funnels</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-name">AI & Automation</div>
+            <div class="chips">
+              <span class="chip hi">LLM Pipelines</span>
+              <span class="chip hi">n8n</span>
+              <span class="chip">RAG / LangChain</span>
+              <span class="chip">Agent Architectures</span>
+              <span class="chip">Embedding Models</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-name">Product</div>
+            <div class="chips">
+              <span class="chip">Figma</span>
+              <span class="chip">Jira</span>
+              <span class="chip">Notion</span>
+              <span class="chip">Product Discovery</span>
+              <span class="chip">OKR Frameworks</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-name">Languages</div>
+            <div class="chips">
+              <span class="chip hi">Mandarin — Native</span>
+              <span class="chip hi">English — Bilingual</span>
+              <span class="chip">French — Proficient</span>
+              <span class="chip">Italian — Basic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="sec-divider">
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-block reveal">
+          <div>
+            <span class="label">Let's connect</span>
+            <h2>Open to the right conversation.</h2>
+            <p>I'm interested in growth operations, product systems thinking, and AI-enabled infrastructure roles — particularly where experimentation, data, and LLM capabilities intersect.</p>
+            <div style="display: flex; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-8);">
+              <a href="mailto:yezi.lilyz@gmail.com" class="btn btn-primary">yezi.lilyz@gmail.com</a>
+              <a href="tel:+33634991530" class="btn btn-outline">+33 6 34 99 15 30</a>
+            </div>
+          </div>
+          <div>
+            <ul class="contact-links" role="list">
+              <li>
+                <a href="https://www.linkedin.com/in/yezi-l-985066126/" target="_blank" rel="noopener noreferrer">
+                  <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="https://medium.com/@yezi.li_jla" target="_blank" rel="noopener noreferrer">
+                  <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20"/><path d="M12 2a10 10 0 0 1 0 20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Medium
+                </a>
+              </li>
+              <li>
+                <a href="https://yezililyz.github.io/Project/proof-of-match/" target="_blank" rel="noopener noreferrer">
+                  <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  GitHub
+                </a>
+              </li>
             </ul>
+          </div>
         </div>
-    </nav>
+      </div>
+    </section>
+  </main>
 
-    <main>
-        <!-- HERO -->
-        <section class="hero">
-            <div class="container">
-                <span class="label">Growth Operations & Product</span>
-                <h1>Building the intelligence layer
-for product growth</h1>
-                <p>I’m Yezi — a PM who builds the systems behind growth rather than just shipping features. Over seven years across 0→1, 1→10, and scale-up phases in high-growth B2B and B2C SaaS, I’ve gone from cleaning messy data and turning marketing–product insight into automation at BlaBlaCar, to integrating user funnels and evangelising tracking at Dailymotion, to building an intelligent data infrastructure layer with GenAI at Go1 that brought a 100k+ content library into a user-facing platform. Now, starting Proof of Match from zero, I focus on building <strong>growth experimentation infrastructure, AI pipelines and frameworks, activation architecture</strong> that turns raw data into user-facing products..</p>
-                
-                <div class="hero-meta">
-                    <div class="meta-item">
-                        <span class="label">Current Focus</span>
-                        <span class="value">AI enabled product and growth</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="label">Based In</span>
-                        <span class="value">Paris, France</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="label">Languages</span>
-                        <span class="value">English, Mandarin, French</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <footer>
+    <div class="foot-inner">
+      <p>© 2026 Yezi Li. Built with a focus on high-signal matching.</p>
+      <p>Paris, France</p>
+    </div>
+  </footer>
 
-        <!-- JOURNEY -->
-        <section id="journey" class="container">
-            <div class="journey-grid">
-                <div>
-                    <span class="label">The Trajectory</span>
-                    <h2>A coherent path from analytics to AI.</h2>
-                    <p>My career is a progression in systems thinking for growth: from analyzing cohort retention, automating lifecycle marketing, and building experimentation frameworks at BlaBlaCar, to leveraging user behavior, funnel drop‑offs, and A/B tests to scale global growth at Dailymotion. At Go1, I focused on reducing friction and churn and optimizing time‑to‑value for different user profiles by turning the data infrastructure layer into usable, user‑facing products that help people reach “aha” moments faster. At Sparteo, I architected real‑time bidding data pipelines that continuously fed publisher monetization opportunities, and most recently I’ve been translating AI and LLM trends into concrete product opportunities by building AI matching engines for capital markets.</p>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <span class="timeline-date">2026 — Present</span>
-                        <div class="timeline-role">Founder & Product Lead</div>
-                        <span class="timeline-co">Proof of  Match</span>
-                        <p>Architecting the matching intelligence engine for high-intent VC and Web3 events. Shifting matchmaking from keyword similarity to deal-ready complementarity.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">2024 — 2025</span>
-                        <div class="timeline-role">Senior Product Manager (Content Intelligence)</div>
-                        <span class="timeline-co">Go1</span>
-                        <p>Leveraged LLMs to enrich metadata and personalize enterprise learning at scale. Retained $1.7M ARR through precision-driven content matching.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">2022 — 2024</span>
-                        <div class="timeline-role">Product Data — User Insights & Growth</div>
-                        <span class="timeline-co">Dailymotion</span>
-                        <p>Redesigned global event taxonomy and A/B test infra. Aligned acquisition cohorts with activation signals for 400M+ users.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-date">2020 — 2022</span>
-                        <div class="timeline-role">Product Growth & Analytics</div>
-                        <span class="timeline-co">BlaBlaCar</span>
-                        <p>Scaled lifecycle experiments across 9 markets. Built the measurement framework for multi-channel activation and retention.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <script>
+    // Dark mode toggle
+    (function() {
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      function setIcon(t) {
+        toggle.innerHTML = t === 'dark'
+          ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        toggle.setAttribute('aria-label', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' mode');
+      }
+      setIcon(theme);
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        setIcon(theme);
+      });
+    })();
 
-        <!-- FLAGSHIP -->
-        <section id="flagship" class="container">
-            <div class="flagship-case">
-                <span class="label">Flagship Project</span>
-                <h2>Proof of Match: AI-Powered Deal-Ready Networking</h2>
-                
-                <div class="case-grid">
-                    <div class="case-content">
-                        <h3>1. Problem Statement</h3>
-                        <p>Traditional event networking relies on shallow keyword signals. In founder, investor, and operator communities, matching the right people is hard, and proving credibility is even harder. Warm intros are opaque, deal‑flow is fragmented, and a lot of high‑potential conversations never happen because the right signals are missing or buried.
 
-    An investor and a founder might share a "DeFi" tag but have deep mismatches in funding stage, mandate, or operational readiness, resulting in low-signal conversations that waste high-value time.Event organizers feel the churn pressure and lack of insight brining sponsor ROI to YoY revenue growth signal. With Proof of Match, I wanted to explore how to design a system that makes matching more intentional, more transparent, and easier to act on, without turning it into a shallow “networking app”</p>
-                        
-                        <h3>2. Research & Insights</h3>
-                        <p>Through interviews, LinkedIn how‑tos, and founder playbooks, I identified that deal-ready meetings require complementarity (offer vs. need) rather than just similarity. I mapped JTBD for three personas: Investors (thesis-fit pipeline), Founders (strategic capital), and Regulators (policy engagement). And researched the current gap of existing tooling for capital networking organizer complaining the ROI is fuzzy and organizers struggle to attribute meetings to business results.
+    // Scroll reveal (replaces scroll-driven view() animation for reliable cross-browser scroll)
+    (function () {
+      const revealEls = document.querySelectorAll('.reveal');
+      if (!revealEls.length) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+      );
+      revealEls.forEach((el) => io.observe(el));
+    })();
 
- </p>
-                    </div>
-                    <div class="case-content">
-                        <h3>3. Solution & Process</h3>
-                        <p>Architected a 6-agent AI pipeline with fact signals that enriches raw data, extracts traction facts, and scores pairs across 7 independent dimensions: Persona Fit, Complementary Value, Intent Overlap, Sector Overlap, Stage Fit, Credibility, and Non-Obviousness matching.</p>
-                        
-                        <h3>4. Impact & Metrics</h3>
-                        <p>Delivered an intelligence engine that generates prioritized "Match Cards" with natural language reasoning. The system successfully surfaces non-obvious connections—detecting when a fintech founder and a healthcare regulator are solving the same protocol challenges.</p>
-                    </div>
-                </div>
+    // Nav scroll state
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
 
-                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(1, 105, 111, 0.1);">
-                    <h3 style="font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted);"> 
-                    
-            
-                     <h3>5. Reflection</h3>
-                    <p style=; font-size: 1rem; color: var(--color-text);">The core challenge was balancing semantic flexibility with deterministic filters, a classical tradepff between deterministic and probabilistic pipeline in traditional ML and LLM outcomes. By separating 'who you are' from 'what you want' in the embedding space, we avoided the 'echo chamber' effect of similarity-only matching. Next iterations would focus on incorporating real-time feedback loops from scheduled meeting outcomes</p>
-                </div>
-
-                <div class="btn-group">
-                    <a href="https://heather-element-e24.notion.site/Proof-of-match-Yezi-323e1d2be00e80968544e40f50237fef?pvs=73" class="btn" target="_blank">View Case Study</a>
-                    <a href="https://yezililyz.github.io/Project/proof-of-match/" class="btn btn-outline" target="_blank">Github Repository</a>
-                    <a href="https://proof-of-match-587748836028.us-west1.run.app/" class="btn btn-outline" target="_blank">Live Demo</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- OTHER PROJECTS -->
-        <section id="projects" class="container">
-            <span class="label">Selected Impact</span>
-            <h2>Measuring what matters.</h2>
-            
-            <div class="case-grid">
-                <div class="case-card">
-                    <h3>Go1: Retention via Content Intelligence</h3>
-                    <div class="case-meta">
-                        <div class="metric">
-                            <span class="metric-value">$1.7M</span>
-                            <span class="metric-label">ARR Retained</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">+35%</span>
-                            <span class="metric-label">Playability Lift</span>
-                        </div>
-                    </div>
-                    
-                    <p><strong>1. Problem:</strong> Go1 had a vast B2B learning catalog, but learners and customer admins struggled to quickly find the right content for their goals, leading to low engagement and underused contracts. The challenge was to turn a noisy, fragmented content universe into a guided discovery experience that could surface high‑value learning paths for the right users at the right time. Technical failures and poor metadata were blocking users from accessing curated content, leading to churn in the enterprise sector.Fragmented event tracking across mobile and desktop platforms made it impossible to isolate true activation/engagement signals from noise for 8M+ users </p>
-                    <p><strong>2. Research:</strong> I partnered with customer success and sales to collect qualitative feedback on how L&D teams curated content manually, what “good fit” meant in their context, and which gaps generated the most friction. This work surfaced two core needs: trustable content quality signals (freshness, relevance) and faster ways to assemble role and skill‑specific learning journeys without starting from scratch. I then conducted quantitative behavioral funnel analysis and synthesized qualitative insights with quantitative engagement data. Analyzed search-to-play rates as an activation proxy, identifying friction points in the content consumption funnel. And analyzed/identified gaps in metadata coverage and quality metrics: proportion of content mapped to customer taxonomies, presence/absence of key fields, and consistency across partners.</p>
-                    <p><strong>3. Solution:</strong> I worked with engineering and drove core product growth by building an LLM-powered metadata enrichment pipeline and rebuilding the learner activation and engagement layer. Architected global event schemas that cleanly isolated true learner and content-partner activation signals from noise, and redesigned the content partner upload workflow to unlock higher-quality supply and faster time-to-value. </p>
-                    <p><strong>4. Impact:</strong> Yielded +25% search discoverability and +15% content consumption, retaining $1.7M in ARR.</p>
-                    <p><strong>5. Reflection:</strong> Found that "content playability" is often a data-integrity issue rather than a UX issue. Automated metadata enrichment is the only way to scale curation for enterprise-grade learning libraries.</p>
-                </div>
-                <div class="case-card">
-                    <h3>Dailymotion: User insight led to platform revamp & Global Taxonomy Redesign</h3>
-                    <div class="case-meta">
-                        <div class="metric">
-                            <span class="metric-value">+58%</span>
-                            <span class="metric-label">Search Views</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">+25%</span>
-                            <span class="metric-label">Revenue Lift</span>
-                        </div>
-                    </div>
-
-                   <p><strong>1. Problem:</strong> New mobile users were overwhelmingly starting with search (around 90% of first sessions), but barely 60% of those searches led to a video play in the same session, exposing a weak first-touch experience and poor perceived relevance. Inconsistent, fragmented tracking between mobile and desktop made it impossible to reliably tie UI and search changes to downstream impact across a 400M+ user base.</p>
-<p><strong>2. Research:</strong> I combined structured user interviews with funnel and cohort analysis to understand how Gen Z users searched, skimmed results, and decided whether to commit to a watch. Segmenting by new vs. returning users and acquisition channel, I traced where they were leaking along search‑to‑play, session depth, and repeat‑view patterns. This analysis surfaced three core friction points: relevance and topic understanding in search results, a watch page that didn’t quickly validate their choice, and limited visibility into which user paths translated into sustained engagement.</p>
-<p><strong>3. Solution:</strong> I designed and deployed a unified Amplitude event model and cross‑platform dashboards that connected acquisition sources to activation (search‑to‑play), engagement (session depth, repeat views), and retention, creating a trustworthy instrumentation layer for experimentation. In parallel, I led a cross‑functional initiative to revamp the watch‑page UX to better reinforce relevance and next actions, migrate to a stronger search provider, and introduce Google NLP–powered topic annotation to enable more semantic search and ranking. These changes were embedded into an A/B testing and tracking framework so every search or watch‑page iteration could be evaluated against the specific funnel breaks we had identified.
-
-.</p>
-<p><strong>4. Impact:</strong> This work increased overall engagement by 17%, boosted search‑to‑play conversion by 25%, and drove a 50% uplift in views originating from search. At the same time, more efficient infrastructure and query behavior contributed to roughly a 20% reduction in related infra costs.</p>
-<p><strong>5. Reflection:</strong> Durable growth depends on clean taxonomy and reliable instrumentation.By reframing Dailymotion’s rebrand as a mobile‑first, Gen Z‑heavy challenge and using search‑to‑play as the primary activation lens, we were able to align UX, search relevance, and data infrastructure around a single narrative: turning high‑intent search sessions into meaningful, repeatable engagement.</p>
-                </div>
-                <div class="case-card">
-                    <h3>BlaBlaCar: Growth Lifecycle Experiments</h3>
-                    <div class="case-meta">
-                        <div class="metric">
-                            <span class="metric-value">+15%</span>
-                            <span class="metric-label">Return trip booking</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">+20%</span>
-                            <span class="metric-label">User activation</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">+30%</span>
-                            <span class="metric-label">Budget saved</span>
-                        </div>
-                    </div>
-
-                    <p><strong>1. Problem:</strong> Return‑trip booking rates were lagging and marketing spend was inefficient across 9 markets because performance was measured on last‑click attribution, masking true multimodal behaviour and underestimating BlaBlaCar’s role in the journey.</p>
-                    <p><strong>2. Research:</strong> I analysed return‑trip funnels across BlaBlaCar and BlaBlaBus surfaces and performed proxy analysis to identify gaps in return behaviour. By mapping user journeys and intermodal behaviour (bus ↔ carpool), I found that roughly 9% of users booked outbound and return on different modalities; once controlled for this, the apparent 12‑point gap in return bookings shrank to around 3 points. This reframed the core question from “fix BlaBlaBus return bookings” to “increase the share of any return trip booked on BlaBlaCar, regardless of modality, by at least 3 percentage points.</p>
-                    <p><strong>3. Solution:</strong> I architected a growth lifecycle experiments system focused on return trips during the integration of BlaBlaBus, where the experience and data were fragmented across three surfaces (BlaBlaCar, a white‑label bus flow, and a standalone BlaBlaBus app). On the product side, I introduced clearer return‑trip prompts and built cohort logic that segmented users by outbound modality (bus vs. carpool). On the CRM side, I partnered with ops to design Braze journeys: event‑triggered re‑engagement flows with timing tuned to when each cohort historically booked returns (e.g., a ~24h window for carpool users and a much tighter same‑session window for bus users). Treating tracking as a blocking dependency, I defined outbound/return booking events and CRM triggers, then regression‑tested the entire stack by walking journeys end‑to‑end, validating that events fired with correct properties, landed in analytics and Braze, and appeared accurately in measurement dashboards. On the automation side, I partnered with automation team implemented a probabilistic multi‑touch attribution model (Markov‑chain–style) that redistributed credit across the full journey instead of giving it all to the final touch. The updated channel weights were then wired back into campaign rules and reporting, so budget decisions and performance reviews reflected this more realistic view of impact.</p>
-                    <p><strong>4. Impact:</strong> Validated +15% conversion lift in return bookings and improved marketing ops efficiency by 30%.</p>
-                    <p><strong>5. Reflection:</strong> Transitioning from simple re-engagement to event-triggered activation sequences requires tight coordination between marketing and product data layers.</p>
-                </div>
-                <div class="case-card">
-                    <h3>Sparteo: Revenue Safeguarding & Privacy</h3>
-                    <div class="case-meta">
-                        <div class="metric">
-                            <span class="metric-value">15%</span>
-                            <span class="metric-label">Revenue Protected</span>
-                        </div>
-                    </div>
-
-                    <p><strong>1. Problem:</strong> Tightening GDPR/CNIL rules made our cross‑platform tracking and reporting non‑compliant for a growing chunk of traffic, creating sudden drops in publisher KPIs and real risk of “invisible” consent losses in their numbers.</p>
-                    <p><strong>2. Research:</strong> Mapped the full data path (CMP → Sparteo → SSP/DSP → reports), benchmarked against Google Ads–style consent handling, and worked with legal, CSM, and engineering to quantify how consent vs non‑consent traffic should appear in metrics like sessions, RPM, and revenue.</p>
-                    <p><strong>3. Solution:</strong> Designed and shipped a consent‑aware reporting model: non‑consent traffic is aggregated (no URL/user‑level detail), user‑level KPIs are recalculated on consented sessions only,  and we updated in‑product copy plus CSM playbooks so publishers clearly understand why RPM per session and traffic counts shift under CNIL‑compliant rules.</p>
-                    <p><strong>4. Impact:</strong> Successfully safeguarded ~15% of annual revenue through compliant data infrastructure.</p>
-                    <p><strong>5. Reflection:</strong> Privacy isn't just a compliance hurdle—it's a product feature that builds long-term trust with publishers and ecosystem partners.Treating privacy as a first‑class product constraint forced us to rebuild metrics around truth instead of convenience, which strengthened publisher trust in Sparteo’s numbers and made future compliance changes easier to land.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact" class="container">
-            <div class="footer-grid">
-                <div>
-                    <p>Open to discussions on growth operations, product systems thinking, and AI-enabled matching infrastructure.</p>
-                    <div class="btn-group">
-                        <a href="mailto:yezi.lilyz@gmail.com" class="btn">yezi.lilyz@gmail.com</a>
-                        <span style="font-weight: 500; align-self: center;">+33 6 34 99 15 30</span>
-                    </div>
-                </div>
-                <div>
-                    <ul class="contact-links">
-                        <li><a href="https://www.linkedin.com/in/yezi-l-985066126/" target="_blank">LinkedIn</a></li>
-                        <li><a href="https://medium.com/@yezi.li_jla" target="_blank">Medium</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Yezi Li. Built with a focus on high-signal matching.</p>
-        </div>
-    </footer>
-
+    // Animated stat numbers on entry
+    const statNums = document.querySelectorAll('.stat-num');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    statNums.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
