@@ -25,16 +25,6 @@ body{font-family:var(--font-body);font-size:9.2pt;line-height:1.55;color:var(--c
 .sidebar{background:#1b2929;color:#cfe2e1;padding:2rem 1.25rem;display:flex;flex-direction:column;gap:1.4rem;}
 .sidebar-name{font-family:var(--font-display);font-size:24pt;font-weight:400;color:#fff;line-height:1.05;letter-spacing:-.5px;}
 .sidebar-title{font-size:7.5pt;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#4f98a3;margin-top:.25rem;}
-.sidebar-cta{
-  display:flex;align-items:center;justify-content:center;gap:5px;margin-top:.75rem;padding:7px 10px;border-radius:4px;
-  background:#4f98a3;color:#142220;font-size:7.2pt;font-weight:700;letter-spacing:.55px;text-transform:uppercase;
-  text-decoration:none;border:1px solid rgba(159,212,217,.45);line-height:1.25;text-align:center;
-  transition:background .15s ease,color .15s ease,box-shadow .15s ease;
-  box-shadow:0 1px 0 rgba(0,0,0,.2);
-}
-.sidebar-cta:hover{background:#6bb3bc;color:#0d1818;box-shadow:0 2px 8px rgba(0,0,0,.18);}
-.sidebar-cta:focus-visible{outline:2px solid #9fd4d9;outline-offset:2px;}
-.sidebar-cta svg{width:11px;height:11px;flex-shrink:0;opacity:.9;}
 .s-rule{border:none;border-top:1px solid rgba(255,255,255,.09);margin:.15rem 0;}
 .s-head{font-size:6.8pt;font-weight:700;letter-spacing:1.9px;text-transform:uppercase;color:#4f98a3;margin-bottom:.55rem;}
 .contact-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
@@ -96,12 +86,10 @@ body{font-family:var(--font-body);font-size:9.2pt;line-height:1.55;color:var(--c
   body{background:#fff;font-size:8.8pt;}
   .screen-wrapper{box-shadow:none;margin:0;border-radius:0;max-width:100%;}
   .sidebar{background:#1b2929!important;-webkit-print-color-adjust:exact!important;}
-  .sidebar-cta{background:#4f98a3!important;color:#142220!important;-webkit-print-color-adjust:exact!important;}
   .wins-bar,.exp-badge{background:#f0faf9!important;-webkit-print-color-adjust:exact!important;}
   .chip{background:rgba(79,152,163,.17)!important;-webkit-print-color-adjust:exact!important;}
   .print-btn{display:none!important;}
   a{color:inherit;text-decoration:none;}
-  .sidebar-cta::after{content:" " attr(href);font-size:6.2pt;font-weight:500;letter-spacing:0;text-transform:none;display:block;margin-top:3px;opacity:.95;word-break:break-all;}
 }
 .print-btn{position:fixed;bottom:22px;right:22px;background:var(--color-accent);color:#fff;border:none;padding:9px 18px;border-radius:6px;font-family:var(--font-body);font-size:12.5px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(1,105,111,.35);z-index:100;display:flex;align-items:center;gap:7px;transition:background .18s;}
 .print-btn:hover{background:var(--color-accent-dark);}
@@ -122,10 +110,6 @@ Print / Save PDF
       <div>
         <div class="sidebar-name">Yezi Li</div>
         <div class="sidebar-title">Product Manager · Growth & Data& AI</div>
-        <a class="sidebar-cta" href="https://yezililyz.github.io/Project/Portfolio/" target="_blank" rel="noopener noreferrer">
-          <span>Portfolio &amp; case studies</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
-        </a>
       </div>
       <hr class="s-rule">
       <div>
@@ -177,8 +161,9 @@ Print / Save PDF
           <div>
             <div class="s-cat">User, Market & UX Research</div>
             <div class="chips">
-              <span class="chip hi">User research & interviews</span>
-              <span class="chip">Product discovery</span>
+              <span class="chip hi">Product strategy</span>
+              <span class="chip hi">Product growth</span>
+               <span class="chip hi">Product discovery</span>
               <span class="chip">Competitor analysis</span>
               <span class="chip">Funnel analysis</span>
               <span class="chip">Experiment design</span>
@@ -253,9 +238,9 @@ Print / Save PDF
       <div>
         <div class="sec-hdr"><span class="sec-lbl">Profile</span><hr class="sec-rule"></div>
         <p class="summary-text">
-         Growth‑focused Product Manager with <strong>7+ years</strong> building the systems behind growth: user and market research, event taxonomy, experimentation, and PLG funnels. 
-           My focus isturning messy data into clear user journeys and UI:
-          <strong>from data strategy and AI pipelines to UX research, interaction design, and reporting</strong>. 
+         Growth‑focused Product Manager with <strong>7+ years</strong> building the systems behind growth specialising in growth, data, AI agent product building in international / multi-market context.
+           My focus is turning messy data into  
+          <strong> data strategy, AI pipelines and intuitive user/platform design</strong>. 
         </p>
       </div>
 
@@ -267,16 +252,16 @@ Print / Save PDF
         <div class="win-item"><span class="win-num">60%</span><div class="win-lbl">Freemium → premium conversion in PLG funnel (BevSight)</div></div>
       </div>
 
-      <!-- EXPERIENCE -->
+      <!-- AI side project -->
       <div>
-        <div class="sec-hdr"><span class="sec-lbl">Experience</span><hr class="sec-rule"></div>
+        <div class="sec-hdr"><span class="sec-lbl">AI Matching Agent – Product Builder (side project)</span><hr class="sec-rule"></div>
         <div class="exp-list">
 
           <!-- Proof of Match -->
           <div>
             <div class="exp-hdr">
               <div>
-                <div class="exp-role">Founder &amp; Product Lead</div>
+                <div class="exp-role">Product builder</div>
                 <div class="exp-co-line">
                   <span class="exp-co">Proof of Match</span>
                   <span class="exp-links">
@@ -292,13 +277,8 @@ Print / Save PDF
               <div class="exp-date">2026 – Present</div>
             </div>
             <ul class="exp-bullets">
-              <li>Proof of Match — <strong>0→1 AI matching engine</strong> that turns noisy event and profile data into deal‑ready connections for capital‑market and Web3 events.</li>
-              <li>Led <strong>user and market research</strong>, defining JTBD, matching pain points, and success metrics.</li>
-              <li>Designed the <strong>data model and ranking signals</strong> (persona fit, complementarity, intent, stage, credibility) and orchestrated a multi‑agent AI pipeline from raw data to Match Cards.</li>
-              <li>Owned <strong>end‑to‑end UX</strong>: designed full conversion funnel from organiser onboarding → attendee matching → attendee activation → deal outcome tracking.</li>
-              <li>Prototyped and shipped an MVP with a clear <strong>GTM thesis</strong> for high‑intent events.</li>
-            </ul>
-          </div>
+              <li>Proof of Match — <strong>Architected an AI matching intelligence engine from  0→1 for high-intent VC and Web3 events.</strong> Orchestrate/automats event and profile data into deal‑ready connections for capital‑market and Web3 events. Shifting matchmaking from keyword similarity to deal-ready complementarity using a 6-agent pipeline that scores across 7 independent dimensions.</li>
+              
 
           <!-- Sparteo -->
           <div>
@@ -331,9 +311,8 @@ Print / Save PDF
               <div class="exp-date">2024 – 2025</div>
             </div>
             <ul class="exp-bullets">
-              <li>Turned a noisy learning catalog into a <strong>user‑facing discovery system</strong> by leading an LLM‑based metadata enrichment pipeline; improved precision/recall and retained <strong>$1.7M ARR</strong>.</li>
-              <li>Unlocked <strong>+35% content playability</strong> by rebuilding admin activation layer; resolved technical failures blocking end users from accessing curated content.</li>
-              <li>Defined events, KPIs, and dashboards that made content performance and learner activation visible : search-to-play rate as activation proxy metric; redesigned content event tracking (query → click → play) that identified friction points, yielding <strong>+25% search discoverability</strong> and <strong>+15% content consumption</strong>.</li>
+              <li>Turned a noisy learning catalog into a <strong>user‑facing discovery system</strong> by leading an LLM‑based metadata enrichment pipeline that retained <strong>$1.7M ARR yielding <strong>+25% search discoverability</strong> and <strong>+15% content consumption</strong>.</strong></li>
+              <li>Unlocked <strong>+35% content playability</strong> by evengalize events taxonomy,  user funnel definition bringing visibility in user friction points.
             </ul>
           </div>
 
@@ -350,9 +329,8 @@ Print / Save PDF
               <div class="exp-date">2022 – 2024</div>
             </div>
             <ul class="exp-bullets">
-              <li>Led a redesign of the <strong>global search UX and underlying infrastructure</strong>, including the full event taxonomy (search query → results → play) and semantic search layer, driving <strong>+58%</strong> search‑originated views and a <strong>17% </strong>lift in overall engagement while lowering infra costs.</li>
-              <li>Combined user interviews with funnel/cohort analysis to understand how Gen Z were searching and deciding what to watch, then drove <strong>watch‑page and search UX changes</strong> based on these insights.</li>
-              <li>Architected global Amplitude event schemas and cross‑platform funnel dashboards that improved <strong>time‑to‑first‑value</strong>, and aligned acquisition cohorts with clear activation and retention signals, enabling truly data‑driven growth prioritisation. </li>
+              <li>Led the redesign of the <strong>user search UX and search infrastructure</strong>, driving <strong>+58%</strong> search‑originated views and a <strong>17% </strong>lift in overall engagement while lowering infra costs by implementing semantic search,automate topic taxonomy annotation.
+              <li>Lead <strong>product analytics initiatives</strong> that identify user friction and product feature opportunities along with qualitative user review data, AB tested and measured product changes that boosted <strong> +15%</strong> user engagement<strong> +35% ads revenue </strong> </li>. </li>
             </ul>
           </div>
 
@@ -370,7 +348,7 @@ Print / Save PDF
             </div>
             <ul class="exp-bullets">
              
-              <li class="stat-key">Achieved <strong>+20% user activation</strong> and  <strong>+30% retention</strong> by architecting and scaling a growth lifecycle experiments system across 9 markets. Defined the measurement framework and developed multi-channel re-engagement flows, including event-triggered activation sequences and modality-based cohort logic integrating marketing and product data.</li>
+              <li class="stat-key">Achieved <strong>+20% user activation</strong> and  <strong>+30% retention</strong> by architecting and scaling a growth lifecycle experiments system across 9 markets. Defined the measurement framework and developed multi-channel re-engagement flows integrating marketing and product data.</li>
               <li>Partnered with marketing ops to implement a <strong>multi‑touch attribution model</strong>, shifting budget toward true value‑drivers rather than last‑click channels.</li>
             </ul>
           </div>
@@ -395,10 +373,4 @@ Print / Save PDF
         </div>
       </div>
 
-    </main>
-
-  </div>
-</div>
-
-</body>
-</html>
+     
