@@ -110,20 +110,22 @@
     .fail-card p{font-size:0.78rem;color:var(--muted);}
     .fail-card .fc-lesson{font-size:0.77rem;margin-top:5px;padding:5px 7px;border-radius:7px;background:#f7f1e7;}
     .mono{font-family:var(--mono);font-size:0.78rem;color:var(--muted);}
-    /* reference architecture artefact */
-    .artifact-wrap{margin-bottom:16px;}
-    .artifact-card{background:var(--surface);border-radius:var(--radius);padding:14px 16px 16px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03);}
-    .artifact-card h2{font-size:0.95rem;margin-bottom:4px;}
-    .artifact-card .sub{margin-bottom:10px;}
-    .artifact-figure{margin:0;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#1f1f1f;line-height:0;}
-    .artifact-figure img{width:100%;height:auto;display:block;}
-    .artifact-cap{font-size:0.74rem;color:var(--muted);margin-top:8px;}
     /* responsive */
     @media(max-width:860px){.two-col{grid-template-columns:1fr;}.failure-grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
 <div class="app">
+
+  <!-- TOOLS BAR -->
+  <div style="font-size:0.78rem;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+    <span style="font-weight:500;color:var(--text);">Tools:</span>
+    <a href="https://app.langwatch.ai/pom-fYhwil" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;padding:2px 8px;border-radius:999px;border:1px solid var(--accent-soft);background:var(--accent-soft);">LangWatch</a>
+    <span style="color:var(--border);">·</span>
+    <a href="https://mermaid.js.org/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;padding:2px 8px;border-radius:999px;border:1px solid var(--accent-soft);background:var(--accent-soft);">Mermaid.js</a>
+    <span style="color:var(--border);">·</span>
+    <a href="https://app.eraser.io/dashboard/all" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;padding:2px 8px;border-radius:999px;border:1px solid var(--accent-soft);background:var(--accent-soft);">Eraser.io</a>
+  </div>
 
   <!-- TOP BAR -->
   <div class="top">
@@ -134,18 +136,6 @@
     <div style="display:flex;gap:8px;align-items:center;">
       <span id="timerDisplay" class="mono">00:15:00</span>
       <button class="timer-pill" id="timerBtn">▶ Start 15 min</button>
-    </div>
-  </div>
-
-  <!-- REFERENCE ARCHITECTURE (screenshot artefact) -->
-  <div class="artifact-wrap">
-    <div class="artifact-card">
-      <h2>Reference architecture</h2>
-      <div class="sub">Agentic pipeline: input and guardrails → intent and routing → context (memory, prompts, retrieval) → orchestration → MCP tool layer; observability, audit, and quality analytics wrap the stack.</div>
-      <figure class="artifact-figure">
-        <img src="https://raw.githubusercontent.com/yezililyz/Project/main/AI%20PM%20Gems/AI%20system%20design/ai-system-architecture-reference.png" alt="AI system 7-layer architecture reference diagram" style="width:100%;border-radius:8px;display:block;" onerror="this.onerror=null;this.src='assets/ai-system-architecture-reference.png';" />
-      </figure>
-      <p class="artifact-cap">Map this diagram to the seven layers in the practice worksheet below.</p>
     </div>
   </div>
 
@@ -365,6 +355,12 @@
   <!-- ═══════════════════════════════════════ TAB: REFERENCE ═══════════════════════════════════ -->
   <div class="panel" id="tab-reference">
     <div class="ref-full">
+
+      <div class="ref-card">
+        <h3 style="margin-bottom:8px;">🗺 Full architecture map</h3>
+        <div class="rc-meta" style="margin-bottom:10px;">All 7 layers, tool connections, and observability flow — use as a mental model while filling in the practice worksheet.</div>
+        <img src="https://raw.githubusercontent.com/yezililyz/Project/main/AI%20PM%20Gems/AI%20system%20design/ai-system-architecture-reference.png" alt="AI system 7-layer architecture reference diagram" style="width:100%;border-radius:8px;border:1px solid var(--border);display:block;" onerror="this.onerror=null;this.src='assets/ai-system-architecture-reference.png';" />
+      </div>
 
       <div class="ref-card">
         <h3><span class="layer-badge lc1">Layer 1</span> Input / Guardrail</h3>
@@ -636,6 +632,111 @@
         </table>
       </div>
 
+      <div class="ref-card">
+        <h3>🔴 Raycast AI — OS Command Palette</h3>
+        <div class="rc-meta">Product Hunt · Mac-native · BYOK model · 30+ AI extensions · Sub-200ms response target</div>
+        <table>
+          <tr><th>Layer</th><th>What Raycast AI does</th><th>Evidence</th></tr>
+          <tr><td><span class="layer-badge lc1">1 Input</span></td><td>Selected text or clipboard as ad-hoc input; BYOK means no centralised input filtering — safety is delegated to the model provider; local-only mode possible</td><td>Raycast docs: "Use your own API keys — Raycast passes requests directly to the provider"</td></tr>
+          <tr><td><span class="layer-badge lc2">2 Intent</span></td><td>Raycast Auto model-selector: routes simple rewrites to fast/cheap model, complex reasoning to a frontier model, code to a coding-specialist; natural language dispatches to correct AI extension</td><td>Raycast changelog: "Auto model automatically picks the best model for the task"</td></tr>
+          <tr><td><span class="layer-badge lc3">3 Context</span></td><td>No persistent long-term memory by default; per-session chat history; OS context injected on demand (calendar events, contacts, frontmost app name, clipboard)</td><td>Raycast AI commands: "Use ⌘K context — injects active app, selection, or clipboard as context"</td></tr>
+          <tr><td><span class="layer-badge lc4">4 Orchestration</span></td><td>Primarily single-turn; AI Extensions can chain calls within a command; no multi-agent coordinator — each extension is an independent tool invocation</td><td>Raycast Extensions SDK: each extension runs isolated, communicates via Raycast API</td></tr>
+          <tr><td><span class="layer-badge lc5">5 Tools</span></td><td>OS-level integrations (clipboard, Finder, Calendar, Contacts, browser tabs); 30+ AI extensions (GitHub, Linear, Jira); HTTP action for custom REST API calls</td><td>Raycast store: 5,000+ extensions; AI commands can call any extension as a tool</td></tr>
+          <tr><td><span class="layer-badge lc6">6 Reflection</span></td><td>No native eval layer; quality relies on model output; BYOK limits Raycast's quality telemetry; user can iterate inline with follow-up prompts</td><td>BYOK architecture means Raycast has no visibility into response quality metrics</td></tr>
+          <tr><td><span class="layer-badge lc7">7 Output</span></td><td>Output rendered in Raycast HUD, clipboard, or piped into frontmost app; Markdown rendered natively; can trigger subsequent OS actions (send email, create task)</td><td>Raycast AI Results view: "Copy, paste into app, or trigger action with single keystroke"</td></tr>
+        </table>
+      </div>
+
+      <div class="ref-card">
+        <h3>⚫ GitHub Copilot — AI Pair Programmer</h3>
+        <div class="rc-meta">Microsoft / GitHub · 1.8M+ paid subscribers · Billions of completions/day · Deep IDE + CLI integration</div>
+        <table>
+          <tr><th>Layer</th><th>What GitHub Copilot does</th><th>Evidence</th></tr>
+          <tr><td><span class="layer-badge lc1">1 Input</span></td><td>.copilotignore file excludes sensitive directories before context is sent; Copilot secret scanning detects API keys and tokens in code; enterprise privacy mode disables telemetry</td><td>GitHub docs: ".copilotignore works like .gitignore — excluded files never leave the client"</td></tr>
+          <tr><td><span class="layer-badge lc2">2 Intent</span></td><td>Four intent modes: inline completion, inline chat (slash commands), workspace chat (repo-aware Q&A), and CLI suggestions; each routes to a different harness and context budget</td><td>Copilot feature matrix: /fix, /explain, /tests, /doc are separate intent classifiers within chat</td></tr>
+          <tr><td><span class="layer-badge lc3">3 Context</span></td><td>BFG (Best File Gathering) algorithm selects most-relevant open files + imports + recently edited files; vector-search over repo embeddings for workspace chat; 64K context window on GPT-4o</td><td>GitHub Engineering blog: "BFG ranks candidate context snippets by relevance score before filling prompt"</td></tr>
+          <tr><td><span class="layer-badge lc4">4 Orchestration</span></td><td>Copilot Workspace: multi-step plan (spec → file diff → PR) with explicit plan editing; single-step for completions; ReAct loop for agent-mode debugging with terminal access</td><td>Copilot Workspace preview: "plan is editable at every step — human stays in the loop"</td></tr>
+          <tr><td><span class="layer-badge lc5">5 Tools</span></td><td>GitHub repo file access, GitHub Actions for CI runs, Bing web search, terminal execution, PR diff view; MCP server support announced for custom enterprise tool integrations</td><td>GitHub Copilot Extensions: any MCP server can be registered as a Copilot skill</td></tr>
+          <tr><td><span class="layer-badge lc6">6 Reflection</span></td><td>A/B testing between models (GPT-4o, Claude Sonnet, Gemini) per task type; internal evals on acceptance rate + downstream test pass rate; thumbs feedback powers RLHF fine-tuning</td><td>GitHub blog: "We evaluate models on real acceptance and test-pass metrics, not just benchmark scores"</td></tr>
+          <tr><td><span class="layer-badge lc7">7 Output</span></td><td>Inline ghost-text diffs; code review comments formatted as GitHub PR threads; secret scanning blocks output containing detected credentials; SAST-style vulnerability warnings on suggestions</td><td>GitHub Copilot security features: "Copilot refuses to complete patterns matching known insecure code (CWE top 25)"</td></tr>
+        </table>
+      </div>
+
+      <div class="ref-card">
+        <h3>✉️ Superhuman AI — Email Intelligence</h3>
+        <div class="rc-meta">YC · Premium email client · Sub-100ms UI · AI triage, drafting, and scheduling</div>
+        <table>
+          <tr><th>Layer</th><th>What Superhuman AI does</th><th>Evidence</th></tr>
+          <tr><td><span class="layer-badge lc1">1 Input</span></td><td>Email body + subject ingested; PII-aware processing aligned with SOC2 Type II / GDPR; enterprise data residency controls; sender/recipient metadata used for contact graph</td><td>Superhuman security page: "SOC2 Type II certified, optional zero-data-retention mode for enterprise"</td></tr>
+          <tr><td><span class="layer-badge lc2">2 Intent</span></td><td>Classifies each email as reply-needed, FYI, action-required, or unsubscribe candidate; tone analysis to flag urgent or sensitive threads; separate intent path for calendar scheduling vs. drafting</td><td>Superhuman AI triage: automatic priority labels inferred from content, sender importance, and urgency signals</td></tr>
+          <tr><td><span class="layer-badge lc3">3 Context</span></td><td>Full thread history + contact relationship graph (how often you email this person, past tone); calendar availability injected for scheduling; user-defined writing style stored as long-term profile</td><td>Superhuman: "AI learns your writing style from your sent history — drafts sound like you, not a robot"</td></tr>
+          <tr><td><span class="layer-badge lc4">4 Orchestration</span></td><td>Instant Reply pipeline: read thread → extract key asks → match tone → generate draft → user approves; single-step; no multi-agent; speed is the UX priority (sub-200ms to first draft word)</td><td>Superhuman product blog: "We optimized the entire pipeline for perceived latency — first token in &lt;200ms"</td></tr>
+          <tr><td><span class="layer-badge lc5">5 Tools</span></td><td>Gmail/Outlook API (read/send/label); Google Calendar / Outlook Calendar for availability; contact enrichment APIs; no public web search — intentionally constrained to personal data</td><td>Superhuman integrations: "Gmail + Outlook. Calendar. That's it. We say no to distraction."</td></tr>
+          <tr><td><span class="layer-badge lc6">6 Reflection</span></td><td>User editing the AI draft IS the primary reflection signal — edits are logged and used to personalise future suggestions; explicit thumbs feedback on triage labels improves routing model</td><td>Superhuman product: "Every edit you make teaches Superhuman how you write — personalisation improves over time"</td></tr>
+          <tr><td><span class="layer-badge lc7">7 Output</span></td><td>Draft rendered in compose window (not sent automatically); sensitive financial / legal phrases flagged before send; scheduled send with AI-recommended optimal delivery time</td><td>Superhuman: "AI suggests optimal send time based on recipient timezone and historical open patterns"</td></tr>
+        </table>
+      </div>
+
+      <div class="ref-card">
+        <h3>🟡 Replit AI — Cloud IDE + AI Agent</h3>
+        <div class="rc-meta">YC S18 · Browser-based IDE · 30M+ developers · Full-stack agent: scaffold → run → debug → deploy</div>
+        <table>
+          <tr><th>Layer</th><th>What Replit AI does</th><th>Evidence</th></tr>
+          <tr><td><span class="layer-badge lc1">1 Input</span></td><td>Code and prompts sanitised before agent execution; sandboxed containers prevent agent-generated code from escaping the Repl; malicious code pattern detection before execution</td><td>Replit security: "Every Repl runs in an isolated container — agent code execution cannot affect other users"</td></tr>
+          <tr><td><span class="layer-badge lc2">2 Intent</span></td><td>Classifies as: create new app from description, debug existing error, explain code, refactor, add feature, or deploy; each intent routes to a different agent scaffold or single-turn completion</td><td>Replit Agent interface: "Describe what you want to build — Agent picks whether to scaffold, fix, or extend"</td></tr>
+          <tr><td><span class="layer-badge lc3">3 Context</span></td><td>Full repo in context for small-to-medium projects; recent file edits and terminal output dynamically injected; runtime error stack traces as real-time context; package.json / requirements.txt for dependency awareness</td><td>Replit Agent: "Reads your entire Repl to understand structure before making any changes"</td></tr>
+          <tr><td><span class="layer-badge lc4">4 Orchestration</span></td><td>ReAct-style loop: plan → scaffold files → install dependencies → run → read output → debug → iterate; explicit plan shown to user; user can interrupt or redirect at any step</td><td>Replit Agent blog: "The agent generates a plan first, shows it to you, then executes step-by-step"</td></tr>
+          <tr><td><span class="layer-badge lc5">5 Tools</span></td><td>Container file system (read/write), shell/terminal, package managers (npm, pip, cargo), browser preview iframe, Replit Deployments API; database provisioning via Replit DB and Postgres</td><td>Replit Agent tools: "File editor, shell, browser preview, and deployment — the full dev loop in one agent"</td></tr>
+          <tr><td><span class="layer-badge lc6">6 Reflection</span></td><td>Execution output IS the eval signal — if the app doesn't run, the agent retries automatically; test runner integration means test pass/fail drives iteration; user approval gates each major plan phase</td><td>Replit Agent: "Runs your code after every change. If it fails, it reads the error and tries to fix it."</td></tr>
+          <tr><td><span class="layer-badge lc7">7 Output</span></td><td>Code diffs shown before applied; live preview URL generated instantly; deployment to replit.app in one click; error output surfaced inline with AI explanation; shareable project URL for collaboration</td><td>Replit: "From prompt to live URL in minutes — no DevOps, no config, no deployment pipeline"</td></tr>
+        </table>
+      </div>
+
+      <div class="ref-card">
+        <h3>🔷 Dust — Enterprise Agent Platform</h3>
+        <div class="rc-meta">YC · Enterprise-grade · 20+ data source connectors · Build, test, and deploy custom AI assistants</div>
+        <table>
+          <tr><th>Layer</th><th>What Dust does</th><th>Evidence</th></tr>
+          <tr><td><span class="layer-badge lc1">1 Input</span></td><td>Workspace data-source permissions act as the primary input filter — agents can only access data sources explicitly granted; role-based access control per assistant; conversation input sanitized before tool dispatch</td><td>Dust docs: "Data source access is permission-scoped per assistant — no assistant sees more than its granted sources"</td></tr>
+          <tr><td><span class="layer-badge lc2">2 Intent</span></td><td>Routes to the correct custom assistant based on query context; each assistant has an explicit system prompt defining its scope; workspace admin maps use cases to assistants (HR bot, eng bot, sales bot)</td><td>Dust product: "Build purpose-specific assistants — each with its own instructions, data sources, and tools"</td></tr>
+          <tr><td><span class="layer-badge lc3">3 Context</span></td><td>Full document RAG across 20+ connected sources (Notion, Google Drive, Slack, GitHub, Confluence, Intercom); BM25 + semantic hybrid search; metadata-aware retrieval (recency, author, document type)</td><td>Dust blog: "Retrieval combines semantic similarity with BM25 — structured metadata like recency boosts ranking"</td></tr>
+          <tr><td><span class="layer-badge lc4">4 Orchestration</span></td><td>Sequential and parallel tool use within a single agent turn; code interpreter for data analysis; no native multi-agent coordinator yet — one primary assistant per conversation; workflow-builder for chained actions</td><td>Dust roadmap: "Multi-agent orchestration in beta — assistants can delegate to specialised sub-assistants"</td></tr>
+          <tr><td><span class="layer-badge lc5">5 Tools</span></td><td>20+ data source connectors, code execution sandbox, web search, SQL over connected databases, custom API tool builder (define any REST endpoint as a tool for the agent)</td><td>Dust docs: "Tool actions — define any API as a typed function; agent decides when and how to call it"</td></tr>
+          <tr><td><span class="layer-badge lc6">6 Reflection</span></td><td>Workspace analytics dashboard shows per-assistant usage and thumbs feedback; eval dataset builder lets admins create golden Q&A pairs to test assistant quality before deployment</td><td>Dust: "Test your assistant against an eval dataset before enabling it for the team"</td></tr>
+          <tr><td><span class="layer-badge lc7">7 Output</span></td><td>Markdown answers with inline citations linking back to source documents; permission-aware output (citations only shown if recipient has source access); Slack and web app rendering targets</td><td>Dust: "Citations are permission-aware — users only see source links for documents they can already access"</td></tr>
+        </table>
+      </div>
+
+      <div class="ref-card">
+        <h3>🧠 Letta (MemGPT) — Memory-First Agent</h3>
+        <div class="rc-meta">YC · Open-source · Research-origin · Three-tier memory architecture · Stateful long-running agents</div>
+        <table>
+          <tr><th>Layer</th><th>What Letta does</th><th>Evidence</th></tr>
+          <tr><td><span class="layer-badge lc1">1 Input</span></td><td>Standard conversational input; no specialised input guardrail — focus is on stateful memory management, not adversarial filtering; enterprise deployments add their own input layer on top</td><td>Letta docs: "Letta handles memory and state — add your own guardrails on top via the agent middleware"</td></tr>
+          <tr><td><span class="layer-badge lc2">2 Intent</span></td><td>Routes each turn to a memory operation decision: query archival store, update core memory, send reply, or call external tool; agent explicitly decides which memory tier to read/write</td><td>MemGPT paper: "The agent generates a chain-of-thought deciding whether to search archival memory or respond"</td></tr>
+          <tr><td><span class="layer-badge lc3">3 Context</span></td><td>Three-tier memory: in-context working memory (current turn), recall memory (recent conversation SQL store), archival memory (unlimited vector store); agent self-manages what to page in/out of context window</td><td>MemGPT paper: "OS-inspired virtual context — agent pages memory in/out like an OS pages RAM to disk"</td></tr>
+          <tr><td><span class="layer-badge lc4">4 Orchestration</span></td><td>Self-editing agent architecture — agent modifies its own core memory and decides when to pause for external input; inner monologue reasoning is visible before any action; multi-agent via Letta server spawning multiple agent instances</td><td>Letta blog: "Inner monologue is a first-class construct — the agent thinks before acting, and you can read the thoughts"</td></tr>
+          <tr><td><span class="layer-badge lc5">5 Tools</span></td><td>Memory read/write functions (search_archival, insert_archival, edit_core_memory); external REST tool calling; file I/O; database connectors; custom tool functions registered at agent instantiation</td><td>Letta SDK: "Register any Python function as a tool — the agent learns its signature and when to call it"</td></tr>
+          <tr><td><span class="layer-badge lc6">6 Reflection</span></td><td>Agent explicitly reflects on memory relevance before each response; archival search results assessed for fit; core memory edits logged for auditability; transparent reasoning chain before any action</td><td>MemGPT paper: "The agent verifies retrieved memories are relevant before including them in the response"</td></tr>
+          <tr><td><span class="layer-badge lc7">7 Output</span></td><td>Standard text reply to conversation; memory operation log optionally surfaced to user for transparency; agent state (core memory contents) exportable and inspectable; REST API for integration</td><td>Letta server: "Full agent state is serializable — export, restore, or migrate any agent at any point"</td></tr>
+        </table>
+      </div>
+
+      <div class="ref-card">
+        <h3>📋 Linear AI — PM & Engineering Intelligence</h3>
+        <div class="rc-meta">Product Hunt · 25k+ teams · Git-synced issues · AI estimates, summaries, and project Q&A</div>
+        <table>
+          <tr><th>Layer</th><th>What Linear AI does</th><th>Evidence</th></tr>
+          <tr><td><span class="layer-badge lc1">1 Input</span></td><td>Issue text and comments as input; workspace-permission-based filtering — users only see issues in their team; no special abuse filter — enterprise trust model applies</td><td>Linear security: "Role-based access controls gate all data access, including AI context"</td></tr>
+          <tr><td><span class="layer-badge lc2">2 Intent</span></td><td>Classifies as: create issue from Slack/email, generate sub-issues from spec, estimate story points, summarise project, or find related issues; each maps to a distinct action pipeline</td><td>Linear changelog: "Ask Linear AI to break down a spec into sub-issues — intent classified, not templated"</td></tr>
+          <tr><td><span class="layer-badge lc3">3 Context</span></td><td>Full project graph as context: parent epic, milestone, linked PRs and commits, team velocity data, past similar issues and their resolution times; team-specific vocabulary learned from issue history</td><td>Linear blog: "AI estimates are calibrated against your team's historical data — not generic benchmarks"</td></tr>
+          <tr><td><span class="layer-badge lc4">4 Orchestration</span></td><td>Primarily sequential single-step actions (not multi-agent); intent → query context → generate structured output → user confirms; no autonomous agent loop — human in the loop on all changes</td><td>Linear design principles: "AI assists, humans decide — Linear AI never changes data without explicit confirmation"</td></tr>
+          <tr><td><span class="layer-badge lc5">5 Tools</span></td><td>Linear issue graph (full read/write), GitHub/GitLab integration (linked PRs, commits, branches), Figma link preview, Slack integration for triage; no web search — deliberately closed-world</td><td>Linear integrations: "AI context is your Linear workspace + connected dev tools — no hallucinated external data"</td></tr>
+          <tr><td><span class="layer-badge lc6">6 Reflection</span></td><td>Estimate accuracy tracked against actual cycle time — AI recalibrates over time; user edits to AI-generated issue descriptions feed back into future suggestions; explicit feedback on generated summaries</td><td>Linear blog: "The more your team uses Linear, the better AI estimates get — it learns your team's pace"</td></tr>
+          <tr><td><span class="layer-badge lc7">7 Output</span></td><td>Structured Linear issue format (title, description, labels, assignee, estimate, priority) — not freeform text; changes shown as diff before applying; changelog-style AI-generated release notes</td><td>Linear AI output: "Issues are always structured data — AI fills fields, not paragraphs"</td></tr>
+        </table>
+      </div>
+
     </div>
   </div>
 
@@ -728,6 +829,130 @@
     });
   });
 
+  // Case study autofill data
+  const caseStudyData = {
+    "Perplexity": {
+      origin: "Answer engine · PH",
+      l1: "Query parsing, format normalisation, safety filters before search fan-out (prompt/abuse filters, basic rate limiting).",
+      l2: "Classifies intent into web search, file Q&A, deep research, coding; routes to the right search + generation harness.",
+      l3: "Hybrid lexical + semantic retrieval over 200B-URL index; sub-document chunks; ML-driven URL freshness prioritisation as context.",
+      l4: "Multi-stage pipeline: prefilter → lexical ranker → embedding ranker → cross-encoder reranker; horizontally scaled at each stage.",
+      l5: "PerplexityBot crawler, search index, vector store, content understanding module, browser fetch for real-time pages.",
+      l6: "Every generated answer is a live eval signal for search ranking; combined with human feedback → continuous ranking model improvement.",
+      l7: "Natural language answer + bullet summary + source citations; 358ms median latency; channel-adapted formatting (mobile vs. web).",
+      clone: "v0.1: web app that routes queries to web-search-plus-LLM backend. Real: intent router + simple retrieval + answer formatter. Fake: large-scale crawler (stub with curated index).",
+      bottleneck: "Context + tool layer (index freshness and quality) and orchestration latency across multiple ranking stages at very high QPS."
+    },
+    "Cursor IDE": {
+      origin: "AI code editor · YC W24",
+      l1: "Multi-layer secret detection: .gitignore + .cursorignore + pre-upload scanner strips API keys and passwords before any code leaves the client.",
+      l2: "Classifies interactions as autocomplete, chat Q&A, agent task (refactor/add feature), or background agent job; picks appropriate model.",
+      l3: "Encrypted embeddings in Turbopuffer (migrated from Yugabyte during live outage) + Merkle tree sync every 3 min to detect changed files only.",
+      l4: "Anyrun — Rust-based orchestrator managing agent lifecycle; uses AWS Firecracker for secure VM isolation per agent job.",
+      l5: "Client sends only specific file chunks when server needs them (not persisted); Pinecone for doc embeddings; 10k+ H100 GPUs on Azure for inference.",
+      l6: "RL for coding models — test-based rewards, process reward models, human-centric eval metrics; internal dogfooding as continuous reflection loop.",
+      l7: "Code diffs shown for user approval; Datadog logging + PagerDuty oncall + Sentry errors; conservative feature flags; all engineers own AI-merged code.",
+      clone: "v0.1: local-first code assistant that reads a small project, sends selected files to LLM, proposes diffs. Real: guardrails + basic context index. Fake: large-scale RL training.",
+      bottleneck: "Context and tool layers at large monorepo scale (indexing freshness), and orchestration costs for long-running agents."
+    },
+    "n8n AI workflows": {
+      origin: "AI orchestration · OSS",
+      l1: "Trigger nodes (webhook/chat) validate payload shape and types before workflows run; basic abuse controls via auth.",
+      l2: "Text Classifier AI node labels incoming messages (billing/support/order/etc.) and routes them via Switch nodes.",
+      l3: "Memory nodes and vector-store integrations keep per-conversation context and document knowledge for agents.",
+      l4: "AI Agent node orchestrates a graph of sub-agents as tools, each mapped to its own sub-workflow; strong visual DAG.",
+      l5: "500+ integration nodes (HTTP, DBs, SaaS APIs) plus Code nodes form the tool layer for agents; MCP support.",
+      l6: "No native eval layer; users build explicit eval/checker nodes if they want reflection or quality gates.",
+      l7: "Outputs passed to downstream nodes (email, Slack, DB updates); no native output guardrail node — requires custom code or LLM filter.",
+      clone: "v0.1: visual builder with a single AI agent node and HTTP/DB nodes. Fake: reflection/eval layer — rely on manual QA.",
+      bottleneck: "Orchestration + reflection: complex graphs can fail silently without good logging and explicit eval nodes."
+    },
+    "Notion AI": {
+      origin: "Workspace AI · PH",
+      l1: "Workspace permissions act as input gate — users can only ask about pages/DBs they have access to.",
+      l2: "Routes per task category: long-form writing → high-reasoning model; Q&A → large context model; field autofill → fine-tuned cost-efficient model.",
+      l3: "Block-based structured context: 'April 30' is a due date property on a task block assigned to a person — not just a string. AI queries workspace graph.",
+      l4: "Multi-agent setup: market analyst → technical architect → UX designer with clear handoff protocols; specialised agents per domain.",
+      l5: "70+ integrations (Slack, Drive, GitHub, Teams); web access; Notion MCP server for persistent agent workspace context.",
+      l6: "Memory persists to workspace pages/databases between agent sessions — agents build on previous work without repetitive instructions.",
+      l7: "Workspace-native formatting (blocks, databases, tasks); permission-aware output; citations to source pages.",
+      clone: "v0.1: agent that reads a subset of pages/DBs via API and writes summaries/tasks back. Real: context + routing + simple tools. Fake: advanced multi-agent orchestration.",
+      bottleneck: "Context freshness and graph traversal cost at workspace scale; reliable permission-aware grounding for outputs."
+    },
+    "Raycast AI": {
+      origin: "OS cmd palette · PH",
+      l1: "BYOK model — no centralised input filtering; safety delegated to model provider; .copilotignore-equivalent not implemented; local-only mode available.",
+      l2: "Raycast Auto picks fast/cheap model for rewrites, frontier model for complex reasoning, coding specialist for code; natural language dispatches to correct AI extension.",
+      l3: "Per-session chat history only; OS context injected on demand (calendar events, contacts, frontmost app, clipboard); no persistent long-term memory.",
+      l4: "Primarily single-turn; AI Extensions chain calls within a command; no multi-agent coordinator — each extension is an independent isolated tool invocation.",
+      l5: "OS-level integrations (clipboard, Finder, Calendar, Contacts, browser tabs); 30+ AI extensions (GitHub, Linear); HTTP action for custom REST API calls.",
+      l6: "No native eval layer; BYOK limits quality telemetry; user iterates inline with follow-up prompts.",
+      l7: "Output rendered in Raycast HUD or piped into frontmost app; Markdown rendered natively; can trigger subsequent OS actions (send email, create task).",
+      clone: "v0.1: Electron or web app with a hotkey-triggered text input that sends selection to LLM and pastes back. Real: intent routing + model selector. Fake: long-term memory.",
+      bottleneck: "Layer 3 (no persistent memory) and Layer 6 (no eval) — quality is entirely model-dependent; BYOK means no platform-level safety net."
+    },
+    "GitHub Copilot": {
+      origin: "AI coding · MSFT",
+      l1: ".copilotignore excludes sensitive dirs; secret scanning detects API keys in code; enterprise privacy mode disables telemetry; excluded files never leave the client.",
+      l2: "Four intent modes: inline completion, inline chat, workspace chat, CLI suggestions; each routes to different harness and context budget; slash commands classify sub-intent.",
+      l3: "BFG algorithm ranks most-relevant open files + imports + recent edits; vector-search over repo embeddings for workspace chat; 64K context window on GPT-4o.",
+      l4: "Copilot Workspace: multi-step plan (spec → file diff → PR) with explicit plan editing; ReAct loop for agent-mode debugging with terminal access.",
+      l5: "GitHub repo file access, GitHub Actions for CI runs, Bing web search, terminal execution, PR diff view; MCP server support for custom enterprise tools.",
+      l6: "A/B testing between models (GPT-4o, Claude Sonnet, Gemini) per task; evals on acceptance rate + test pass rate; thumbs feedback powers RLHF fine-tuning.",
+      l7: "Inline ghost-text diffs; code review comments as GitHub PR threads; blocks output containing detected credentials; SAST-style vulnerability warnings on suggestions.",
+      clone: "v0.1: VSCode extension that reads open files + sends to LLM for inline completion. Real: BFG context selection + repo RAG. Fake: A/B model testing, RLHF fine-tuning.",
+      bottleneck: "Context quality at monorepo scale (BFG heuristics degrade), and reflection layer reliability for complex multi-file agent tasks."
+    },
+    "Superhuman AI": {
+      origin: "Email AI · YC",
+      l1: "PII-aware processing with SOC2 Type II / GDPR compliance; enterprise data residency controls; sender/recipient metadata used only for contact graph enrichment.",
+      l2: "Classifies each email as reply-needed, FYI, action-required, or unsubscribe candidate; tone analysis for urgent/sensitive threads; separate path for calendar vs. drafting.",
+      l3: "Full thread history + contact relationship graph (frequency, past tone); calendar availability injected for scheduling; user writing style stored as long-term profile.",
+      l4: "Instant Reply pipeline: read thread → extract key asks → match tone → generate draft → user approves; single-step; speed UX priority (sub-200ms first token).",
+      l5: "Gmail/Outlook API (read/send/label); Google Calendar / Outlook Calendar for availability; contact enrichment APIs; no public web search — intentionally constrained.",
+      l6: "User editing the AI draft IS the reflection signal — edits are logged and personalise future suggestions; thumbs feedback on triage labels improves routing model.",
+      l7: "Draft rendered in compose window (never auto-sent); sensitive financial/legal phrases flagged before send; AI-recommended optimal delivery time based on recipient timezone.",
+      clone: "v0.1: web app that reads Gmail thread, generates draft reply, lets user edit. Real: thread context + tone matching + calendar inject. Fake: writing style learning, optimal send time.",
+      bottleneck: "Layer 3 quality (how accurately the contact graph and style profile represent the user) directly determines whether drafts feel authentic."
+    },
+    "Replit AI": {
+      origin: "AI coding · YC S18",
+      l1: "Code sanitised before agent execution; sandboxed containers prevent agent-generated code from escaping the Repl; malicious code pattern detection before execution.",
+      l2: "Classifies as: create new app, debug existing error, explain code, refactor, add feature, or deploy; each intent routes to different agent scaffold or single-turn completion.",
+      l3: "Full repo in context for small/medium projects; recent file edits and terminal output dynamically injected; runtime error stack traces as real-time context; package files for dep awareness.",
+      l4: "ReAct-style loop: plan → scaffold files → install deps → run → read output → debug → iterate; explicit plan shown to user; user can interrupt or redirect at any step.",
+      l5: "Container file system (read/write), shell/terminal, package managers (npm, pip, cargo), browser preview iframe, Replit Deployments API, Postgres provisioning.",
+      l6: "Execution output IS the eval signal — if the app doesn't run the agent retries automatically; test runner integration means test pass/fail drives iteration.",
+      l7: "Code diffs shown before applied; live preview URL generated instantly; deployment to replit.app in one click; error output surfaced inline with AI explanation.",
+      clone: "v0.1: chat interface → LLM generates code → code written to local directory → subprocess runs it → stdout fed back. Real: container sandboxing + file system tools. Fake: smart context selection, deployment.",
+      bottleneck: "Layer 4 (orchestration loop quality) — knowing when to stop retrying vs. ask for user guidance is the hard problem at scale."
+    },
+    "Dust": {
+      origin: "Agent platform · YC",
+      l1: "Workspace data-source permissions as primary input filter — agents only access explicitly granted sources; role-based access control per assistant; conversation input sanitised before tool dispatch.",
+      l2: "Routes to correct custom assistant based on query context; each assistant has explicit system prompt defining scope; workspace admin maps use cases to assistants (HR, eng, sales).",
+      l3: "Full document RAG across 20+ connected sources (Notion, Drive, Slack, GitHub, Confluence); BM25 + semantic hybrid search; metadata-aware retrieval (recency, author, doc type).",
+      l4: "Sequential and parallel tool use within a single agent turn; code interpreter for data analysis; workflow-builder for chained actions; multi-agent orchestration in beta.",
+      l5: "20+ data source connectors, code execution sandbox, web search, SQL over connected databases, custom API tool builder (define any REST endpoint as a typed tool).",
+      l6: "Workspace analytics dashboard shows per-assistant usage and thumbs feedback; eval dataset builder lets admins create golden Q&A pairs to test assistant quality before deployment.",
+      l7: "Markdown answers with inline citations linking to source documents; permission-aware output — citations only shown if recipient has source access; Slack and web app rendering.",
+      clone: "v0.1: chatbot with one data source (Notion) connected via RAG. Real: data source connectors + retrieval + assistant routing. Fake: multi-agent, eval datasets.",
+      bottleneck: "Context layer quality at retrieval time — BM25+semantic hybrid only works if chunk quality and metadata are maintained; stale data in connectors is the main failure mode."
+    },
+    "Letta (MemGPT)": {
+      origin: "Memory AI · YC",
+      l1: "Standard conversational input; no specialised input guardrail — focus is stateful memory management; enterprise deployments add their own input layer on top.",
+      l2: "Routes each turn to a memory operation decision: query archival store, update core memory, send reply, or call external tool; agent explicitly decides which memory tier to read/write.",
+      l3: "Three-tier memory: in-context working memory (current turn), recall memory (recent conversation SQL store), archival memory (unlimited vector store); agent self-manages context paging.",
+      l4: "Self-editing agent architecture — agent modifies its own core memory and decides when to pause; inner monologue reasoning visible before any action; multi-agent via Letta server instances.",
+      l5: "Memory read/write functions (search_archival, insert_archival, edit_core_memory); external REST tool calling; file I/O; database connectors; custom Python functions as tools.",
+      l6: "Agent explicitly reflects on memory relevance before each response; archival search results assessed for fit; core memory edits logged for auditability; transparent reasoning chain.",
+      l7: "Standard text reply to conversation; memory operation log optionally surfaced for transparency; full agent state (core memory) exportable and inspectable via REST API.",
+      clone: "v0.1: chat loop where assistant maintains a text file of 'things it knows about the user' and decides when to read/write it. Real: archival vector store + recall SQL. Fake: self-editing core memory.",
+      bottleneck: "Layer 3 (memory tier management) — deciding what to store, when to retrieve, and how to keep archival memory clean without manual curation is the core unsolved problem."
+    }
+  };
+
   // Product pool
   const products = [
     ["Perplexity","Answer engine · PH","Strong layers 2,3,4,5,6"],
@@ -750,13 +975,24 @@
     ["Letta (MemGPT)","Memory AI · YC","Strong layers 3,6"],
   ];
   const poolEl = document.getElementById("pool");
+  function fillIf(id, value) {
+    const el = document.getElementById(id);
+    if (el && typeof value === "string") el.value = value;
+  }
   products.forEach(([name, meta, layers])=>{
     const row = document.createElement("div");
     row.className="pool-row";
     row.innerHTML=`<span class="pname">${name}</span><span class="ptag">${meta}<br/><span style="font-size:0.65rem;color:#b2aa9c;">${layers}</span></span>`;
     row.addEventListener("click",()=>{
-      document.getElementById("product").value=name;
-      document.getElementById("origin").value=meta;
+      fillIf("product", name);
+      fillIf("origin", meta);
+      const cs = caseStudyData[name];
+      if (cs) {
+        fillIf("origin", cs.origin || meta);
+        fillIf("l1", cs.l1); fillIf("l2", cs.l2); fillIf("l3", cs.l3);
+        fillIf("l4", cs.l4); fillIf("l5", cs.l5); fillIf("l6", cs.l6);
+        fillIf("l7", cs.l7); fillIf("clone", cs.clone); fillIf("bottleneck", cs.bottleneck);
+      }
       document.querySelectorAll(".tab")[0].click();
       window.scrollTo({top:0,behavior:"smooth"});
     });
