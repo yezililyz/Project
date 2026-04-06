@@ -81,6 +81,9 @@ body{font-family:var(--font-body);font-size:9.2pt;line-height:1.55;color:var(--c
 .exp-bullets li.stat-key::before{content:'●';color:#000;font-size:7pt;font-weight:900;top:2px;}
 .exp-bullets li.stat-key strong{color:#000;font-weight:700;}
 
+/* Side projects two-column grid */
+.side-projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+
 /* PRINT */
 @media print{
   body{background:#fff;font-size:8.8pt;}
@@ -90,6 +93,7 @@ body{font-family:var(--font-body);font-size:9.2pt;line-height:1.55;color:var(--c
   .chip{background:rgba(79,152,163,.17)!important;-webkit-print-color-adjust:exact!important;}
   .print-btn{display:none!important;}
   a{color:inherit;text-decoration:none;}
+  .side-projects-grid{grid-template-columns:1fr 1fr;}
 }
 .print-btn{position:fixed;bottom:22px;right:22px;background:var(--color-accent);color:#fff;border:none;padding:9px 18px;border-radius:6px;font-family:var(--font-body);font-size:12.5px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(1,105,111,.35);z-index:100;display:flex;align-items:center;gap:7px;transition:background .18s;}
 .print-btn:hover{background:var(--color-accent-dark);}
@@ -109,7 +113,7 @@ Print / Save PDF
     <aside class="sidebar">
       <div>
         <div class="sidebar-name">Yezi Li</div>
-        <div class="sidebar-title">Product Manager · Growth & Data& AI</div>
+        <div class="sidebar-title">Product Manager · Growth & Data & AI</div>
       </div>
       <hr class="s-rule">
       <div>
@@ -126,7 +130,7 @@ Print / Save PDF
               <rect x="2" y="4" width="20" height="16" rx="2"/>
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
             </svg>
-           yezi.lilyz@gmail.com 
+            yezi.lilyz@gmail.com
           </li>
           <li>
             <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -136,14 +140,14 @@ Print / Save PDF
             </svg>
             linkedin.com/in/yezi-li
           </li>
-         
           <li>
             <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/>
               <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
             </svg>
             medium.com/@yezi.li_jla
-          </li> <li>
+          </li>
+          <li>
             <svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
               <circle cx="12" cy="9" r="2.5"/>
@@ -151,7 +155,6 @@ Print / Save PDF
             France
           </li>
         </ul>
-        
       </div>
 
       <hr class="s-rule">
@@ -190,6 +193,7 @@ Print / Save PDF
             <div class="chips">
               <span class="chip hi">Figma</span>
               <span class="chip hi">Antigravity</span>
+              <span class="chip hi">GenAI use cases</span>
               <span class="chip">LLM pipelines</span>
               <span class="chip">Machine learning</span>
               <span class="chip">RAG/LangChain</span>
@@ -222,9 +226,9 @@ Print / Save PDF
       <div>
         <div class="sec-hdr"><span class="sec-lbl">Profile</span><hr class="sec-rule"></div>
         <p class="summary-text">
-         Growth‑focused Product Manager with <strong>7+ years</strong> building the systems behind growth specialising in growth, data, AI agent product building in international / multi-market context.
-           My focus is turning messy data into  
-          <strong> data strategy, AI pipelines and intuitive user/platform design</strong>. 
+          Growth‑focused Product Manager with <strong>7+ years</strong> building the systems behind growth specialising in growth, data, AI agent product building in international / multi-market context.
+          My focus is turning messy data into
+          <strong>data strategy, AI pipelines and intuitive user/platform design</strong>.
         </p>
       </div>
 
@@ -236,38 +240,63 @@ Print / Save PDF
         <div class="win-item"><span class="win-num">60%</span><div class="win-lbl">Freemium → premium conversion in PLG funnel (BevSight)</div></div>
       </div>
 
-      <!-- AI side project -->
+      <!-- AI SIDE PROJECTS -->
       <div>
-        <div class="sec-hdr"><span class="sec-lbl">AI Matching Agent – Product Builder (side project)</span><hr class="sec-rule"></div>
-        <div class="exp-list">
+        <div class="sec-hdr"><span class="sec-lbl">AI Side Projects – Product Builder</span><hr class="sec-rule"></div>
+        <div class="side-projects-grid">
 
           <!-- Proof of Match -->
           <div>
             <div class="exp-hdr">
               <div>
-                <div class="exp-role">Product builder</div>
+                <div class="exp-role">Product Builder</div>
                 <div class="exp-co-line">
                   <span class="exp-co">Proof of Match</span>
                   <span class="exp-links">
-                    <a href="https://heather-element-e24.notion.site/Proof-of-match-Yezi-323e1d2be00e80968544e40f50237fef?pvs=74">Case study</a>
+                    <a href="https://heather-element-e24.notion.site/Proof-of-match-Yezi-323e1d2be00e80968544e40f50237fef?pvs=74" target="_blank" rel="noopener noreferrer">Case study</a>
                     <span>·</span>
-                    <a href="https://yezililyz.github.io/Project/proof-of-match/">GitHub</a>
+                    <a href="https://yezililyz.github.io/Project/proof-of-match/" target="_blank" rel="noopener noreferrer">GitHub</a>
                     <span>·</span>
-                    <a href="https://proof-of-match-198450121132.us-west1.run.app/">Live prototype</a>
+                    <a href="https://proof-of-match-198450121132.us-west1.run.app/" target="_blank" rel="noopener noreferrer">Live prototype</a>
                   </span>
+                </div>
+                <div class="exp-co-line" style="margin-top:3px;">
                   <span class="exp-badge">B2B SaaS · AI matching · 0→1</span>
                 </div>
               </div>
               <div class="exp-date">2026 – Present</div>
             </div>
             <ul class="exp-bullets">
-              <li>Proof of Match — <strong>Architected an AI matching intelligence engine from  0→1 for high-intent VC and Web3 events.</strong> Orchestrate/automats event and profile data into deal‑ready connections for capital‑market and Web3 events. Shifting matchmaking from keyword similarity to deal-ready complementarity using a 6-agent pipeline that scores across 7 independent dimensions.</li>
+              <li><strong>Architected an AI matching intelligence engine from 0→1</strong> for high-intent VC and Web3 events. Orchestrates event and profile data into deal‑ready connections, shifting matchmaking from keyword similarity to deal-ready complementarity using a 6-agent pipeline that scores across 7 independent dimensions.</li>
+            </ul>
+          </div>
+
+          <!-- AI Product Thinking Lab — NEW CARD -->
+          <div>
+            <div class="exp-hdr">
+              <div>
+                <div class="exp-role">Product Builder</div>
+                <div class="exp-co-line">
+                  <span class="exp-co">AI Product Thinking Lab</span>
+                  <span class="exp-links">
+                    <a href="https://ai-product-thinking-lab-587748836028.us-west1.run.app/" target="_blank" rel="noopener noreferrer">Live prototype</a>
+                  </span>
+                </div>
+                <div class="exp-co-line" style="margin-top:3px;">
+                  <span class="exp-badge">AI · PM training · Interactive</span>
+                </div>
+              </div>
+              <div class="exp-date">2026 – Present</div>
+            </div>
+            <ul class="exp-bullets">
+              <li><strong>Built an interactive sandbox</strong> that bridges the gap between isolated PM frameworks and applied AI product thinking. A hands-on lab where PMs work through real AI product challenges — strategy, discovery, roadmapping, and product and system design — with AI as a thinking partner, not a passive tool.</li>
             </ul>
           </div>
 
         </div>
       </div>
 
+      <!-- EXPERIENCE -->
       <div>
         <div class="sec-hdr"><span class="sec-lbl">Experience</span><hr class="sec-rule"></div>
         <div class="exp-list">
@@ -321,7 +350,8 @@ Print / Save PDF
               <div class="exp-date">2022 – 2024</div>
             </div>
             <ul class="exp-bullets">
-              <li>Led the redesign of the <strong>user search UX and search infrastructure</strong>, driving <strong>+58%</strong> search‑originated views and a <strong>17%</strong> lift in overall engagement while lowering infra costs by introducing semantic search and automated topic taxonomy annotation.</li>
+              <li>Brought<strong> +25% </strong>in search usage and <strong>+58%</strong> views from search by reinventing search engine with Google Media Search API, enabling <strong>20%</strong> cost saving by deploying autocomplete to search service
+Led tech discovery/delivery of integrating <strong>Google NLP API and Whisper API LLM model</strong> for content annotation(transcription) service</li>
               <li>Led <strong>product analytics initiatives</strong> combining quantitative funnels with qualitative review data to identify friction and feature opportunities, A/B testing improvements that boosted <strong>+15%</strong> user engagement and <strong>+35%</strong> ads revenue.</li>
             </ul>
           </div>
@@ -339,17 +369,17 @@ Print / Save PDF
               <div class="exp-date">2020 – 2022</div>
             </div>
             <ul class="exp-bullets">
-              <li>Achieved <strong>+20% </strong> user activation and <strong>+30% </strong> retention by architecting and <strong>scaling a growth lifecycle</strong>  experiments system across 9 markets. Defined the measurement framework and developed multi‑channel re‑engagement flows with event‑triggered activation sequences and modality‑based cohort logic integrating marketing and product data.</li>
-              <li>Successfully managed the migration of <strong>300k+ monthly bus bookings</strong>; ran proxy analysis to identify gaps in return‑trip behaviour and implemented an <strong>A/B testing</strong>  infrastructure for return trips, resulting in a validated <strong>+15%</strong> conversion lift in return‑trip bookings across all markets.</li>
-              <li>Enhanced marketing operations efficiency by <strong>30%</strong> through deploying a <strong>ML multi‑touch attribution</strong>  model to replace last‑click; provided data‑driven channel allocation and tighter feedback loops between marketing and product. 
-   
+              <li>Achieved <strong>+20%</strong> user activation and <strong>+30%</strong> retention by architecting and <strong>scaling a growth lifecycle</strong> experiments system across 9 markets. Defined the measurement framework and developed multi‑channel re‑engagement flows with event‑triggered activation sequences and modality‑based cohort logic integrating marketing and product data.</li>
+              <li>Successfully managed the migration of <strong>300k+ monthly bus bookings</strong>; ran proxy analysis to identify gaps in return‑trip behaviour and implemented an <strong>A/B testing</strong> infrastructure for return trips, resulting in a validated <strong>+15%</strong> conversion lift in return‑trip bookings across all markets.</li>
+              <li>Enhanced marketing operations efficiency by <strong>30%</strong> through deploying a <strong>ML multi‑touch attribution</strong> model to replace last‑click; provided data‑driven channel allocation and tighter feedback loops between marketing and product.</li>
+            </ul>
           </div>
 
           <!-- BevSight -->
           <div>
             <div class="exp-hdr">
               <div>
-                <div class="exp-role">Founding product manager</div>
+                <div class="exp-role">First Product Manager</div>
                 <div class="exp-co-line">
                   <span class="exp-co">BevSight</span>
                   <span class="exp-badge">B2B SaaS · PLG</span>
@@ -377,12 +407,12 @@ Print / Save PDF
                   <span class="exp-co">Toulouse Business School</span>
                   <span class="exp-badge">Eiffel Scholarship · Top 2/80</span>
                 </div>
-                
               </div>
               <div class="exp-date">Sep 2018 – Jan 2020</div>
-                <ul class="exp-bullets">
-              <li>Courses: Machine Learning | Innovation Marketing | Design Thinking | Data visualisation and Business Intelligence</li>
             </div>
+            <ul class="exp-bullets">
+              <li>Courses: Machine Learning | Innovation Marketing | Design Thinking | Data Visualisation and Business Intelligence</li>
+            </ul>
           </div>
         </div>
       </div>
