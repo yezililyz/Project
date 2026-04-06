@@ -110,14 +110,6 @@
     .fail-card p{font-size:0.78rem;color:var(--muted);}
     .fail-card .fc-lesson{font-size:0.77rem;margin-top:5px;padding:5px 7px;border-radius:7px;background:#f7f1e7;}
     .mono{font-family:var(--mono);font-size:0.78rem;color:var(--muted);}
-    /* reference architecture artefact */
-    .artifact-wrap{margin-bottom:16px;}
-    .artifact-card{background:var(--surface);border-radius:var(--radius);padding:14px 16px 16px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03);}
-    .artifact-card h2{font-size:0.95rem;margin-bottom:4px;}
-    .artifact-card .sub{margin-bottom:10px;}
-    .artifact-figure{margin:0;border-radius:10px;overflow:hidden;border:1px solid var(--border);background:#1f1f1f;line-height:0;}
-    .artifact-figure img{width:100%;height:auto;display:block;}
-    .artifact-cap{font-size:0.74rem;color:var(--muted);margin-top:8px;}
     /* responsive */
     @media(max-width:860px){.two-col{grid-template-columns:1fr;}.failure-grid{grid-template-columns:1fr;}}
   </style>
@@ -134,18 +126,6 @@
     <div style="display:flex;gap:8px;align-items:center;">
       <span id="timerDisplay" class="mono">00:15:00</span>
       <button class="timer-pill" id="timerBtn">▶ Start 15 min</button>
-    </div>
-  </div>
-
-  <!-- REFERENCE ARCHITECTURE (screenshot artefact) -->
-  <div class="artifact-wrap">
-    <div class="artifact-card">
-      <h2>Reference architecture</h2>
-      <div class="sub">Agentic pipeline: input and guardrails → intent and routing → context (memory, prompts, retrieval) → orchestration → MCP tool layer; observability, audit, and quality analytics wrap the stack.</div>
-      <figure class="artifact-figure">
-      <img src="ai-system-architecture-reference.png" alt="System architecture diagram: input layer with guardrails, intent classifier, context builder with memory and vector retrieval, central orchestration engine with task decomposition and agents, MCP registry with tools, and infrastructure observability with monitors, logs, and quality tracks" loading="lazy" decoding="async" />
-      </figure>
-      <p class="artifact-cap">Map this diagram to the seven layers in the practice worksheet below.</p>
     </div>
   </div>
 
@@ -661,6 +641,58 @@
     });
   });
 
+  // Case study data used to autofill the worksheet
+  const caseStudyData = {
+    "Perplexity": {
+      origin: "Answer engine · PH",
+      l1: "Normalizes and sanitizes user queries, applies safety filters before any search fan‑out (prompt/abuse filters, basic rate limiting).",
+      l2: "Classifies intent into web search, file Q&A, deep research, coding, etc., and routes to the right search + generation harness.",
+      l3: "Hybrid lexical + semantic retrieval over a 200B‑URL index with sub‑document chunks and freshness‑aware ranking as context.",
+      l4: "Multi‑stage pipeline: prefilter → lexical ranker → embedding ranker → cross‑encoder reranker, horizontally scaled at each stage.",
+      l5: "Massive crawler (PerplexityBot), search index, vector store, and browser fetch tools powering retrieval and content understanding.",
+      l6: "Every answer produces live quality signals that feed evaluation and training for ranking models (LLM‑as‑judge style feedback).",
+      l7: "Natural language answer plus bullets and citations, tuned for latency; output formatted per channel with strict latency budgets.",
+      clone: "v0.1: single‑page app that routes queries to a web‑search‑plus‑LLM backend. Real: intent router + simple retrieval + answer formatter. Fake: large‑scale crawler (stub with a small curated index).",
+      bottleneck: "Context + tool layer (index freshness and quality) and orchestration latency across multiple ranking stages at very high QPS."
+    },
+    "Cursor IDE": {
+      origin: "AI code editor · YC W24",
+      l1: "Multi‑layer secret detection (ignore files, client scanners) to strip keys and sensitive data before code is sent anywhere.",
+      l2: "Classifies interactions into autocomplete, chat Q&A, code edits, and background agents; picks appropriate models/modes.",
+      l3: "Encrypted embeddings of workspace files with Merkle‑tree based sync so only changed code is re‑indexed as context.",
+      l4: "Rust‑based Anyrun orchestrator manages multi‑step agent plans, tool calls, and background runs in isolated sandboxes.",
+      l5: "Code execution sandboxes, vector DB, model APIs, repo/file access, and other tools exposed through the orchestrator.",
+      l6: "RL for code models using tests and human evals; internal dogfooding acts as continuous reflection/evaluation loop.",
+      l7: "Outputs come back as diffs/patches for user approval; strong observability and conservative feature flags gate rollout.",
+      clone: "v0.1: local‑first code assistant that reads a small project, sends selected files to an LLM, and proposes diffs. Real: guardrails around secrets + basic context index. Fake: large‑scale RL training.",
+      bottleneck: "Context and tool layers at large monorepo scale (indexing and freshness), and orchestration costs for long‑running agents."
+    },
+    "n8n AI workflows": {
+      origin: "AI orchestration · OSS",
+      l1: "Trigger nodes (webhook/chat) validate payload shape and types before workflows run; basic abuse controls via auth.",
+      l2: "Text classifier node labels incoming messages (billing/support/order/etc.) and routes them via Switch nodes.",
+      l3: "Memory nodes and vector‑store integrations keep per‑conversation context and document knowledge for agents.",
+      l4: "AI Agent node orchestrates a graph of sub‑agents as tools, each mapped to its own sub‑workflow; strong visual DAG.",
+      l5: "Hundreds of integration nodes (HTTP, DBs, SaaS APIs) plus Code nodes form the tool layer for agents.",
+      l6: "No native eval layer; users build explicit eval/checker nodes if they want reflection or quality gates.",
+      l7: "Outputs are passed to downstream nodes (email, Slack, DB updates) with any guardrails implemented manually per flow.",
+      clone: "v0.1: visual builder with a single AI agent node and a couple of HTTP/DB nodes. Fake: full reflection/eval layer; rely on manual QA.",
+      bottleneck: "Orchestration + reflection: complex graphs can fail silently without good logging and explicit eval nodes."
+    },
+    "Notion AI": {
+      origin: "Workspace AI · PH",
+      l1: "Workspace permissions act as an input gate so users can only ask about pages/DBs they are allowed to see.",
+      l2: "Routes tasks (writing, Q&A, summarization, autofill) to different models balancing quality, latency, and cost.",
+      l3: "Uses block‑structured workspace graph as context: properties, relations, and timelines instead of flat text.",
+      l4: "Specialized agents (e.g., market analyst → architect → designer) collaborate with clear handoffs in some flows.",
+      l5: "Integrations (Slack, Drive, GitHub, etc.) and a Notion MCP workspace surface form the tool/environment layer.",
+      l6: "Persists insights back into pages and databases so later sessions can build on prior work without restating goals.",
+      l7: "Outputs as Notion‑native blocks, databases, and tasks with permission‑aware sharing and inline citations.",
+      clone: "v0.1: agent that can read a subset of pages/DBs via API and write summaries/tasks back. Real: context + routing + simple tools. Fake: advanced multi‑agent orchestration.",
+      bottleneck: "Context freshness and graph traversal cost at workspace scale, plus reliable, permission‑aware grounding for outputs."
+    }
+  };
+
   // Product pool
   const products = [
     ["Perplexity","Answer engine · PH","Strong layers 2,3,4,5,6"],
@@ -683,14 +715,39 @@
     ["Letta (MemGPT)","Memory AI · YC","Strong layers 3,6"],
   ];
   const poolEl = document.getElementById("pool");
+
+  function fillIf(id, value) {
+    const el = document.getElementById(id);
+    if (el && typeof value === "string") el.value = value;
+  }
+
   products.forEach(([name, meta, layers])=>{
     const row = document.createElement("div");
     row.className="pool-row";
     row.innerHTML=`<span class="pname">${name}</span><span class="ptag">${meta}<br/><span style="font-size:0.65rem;color:#b2aa9c;">${layers}</span></span>`;
     row.addEventListener("click",()=>{
-      document.getElementById("product").value=name;
-      document.getElementById("origin").value=meta;
-      document.querySelectorAll(".tab")[0].click();
+      // Basic fields
+      fillIf("product", name);
+      fillIf("origin", meta);
+
+      // Autofill from case study if available
+      const cs = caseStudyData[name];
+      if (cs) {
+        fillIf("origin", cs.origin || meta);
+        fillIf("l1", cs.l1);
+        fillIf("l2", cs.l2);
+        fillIf("l3", cs.l3);
+        fillIf("l4", cs.l4);
+        fillIf("l5", cs.l5);
+        fillIf("l6", cs.l6);
+        fillIf("l7", cs.l7);
+        fillIf("clone", cs.clone);
+        fillIf("bottleneck", cs.bottleneck);
+      }
+
+      // Jump to practice tab and scroll to top
+      const tabs = document.querySelectorAll(".tab");
+      if (tabs.length) tabs[0].click();
       window.scrollTo({top:0,behavior:"smooth"});
     });
     poolEl.appendChild(row);
