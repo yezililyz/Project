@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Modern Villa with Pool – RoyalCity</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --blue: #1A6EFA;
+    --blue-dark: #1355d0;
+    --green: #22c55e;
+    --gray-50: #f9fafc;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--gray-900); background: #fff; font-size: 15px; line-height: 1.6; }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 60px; border-bottom: 1px solid var(--gray-200); position: sticky; top: 0; background: #fff; z-index: 100; }
+  .nav-logo { display: flex; align-items: center; gap: 8px; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--blue); text-decoration: none; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--gray-700); font-weight: 500; font-size: 14px; }
+  .btn-connect { background: var(--blue); color: #fff; border: none; padding: 8px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .breadcrumb { padding: 12px 48px; font-size: 13px; color: var(--gray-500); }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 48px 60px; }
+  .property-grid { display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start; }
+  .gallery-main { border-radius: 12px; overflow: hidden; width: 100%; height: 340px; }
+  .gallery-main img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery-thumbs { display: flex; gap: 12px; margin-top: 12px; }
+  .gallery-thumbs img { width: 160px; height: 100px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid transparent; }
+  .gallery-thumbs img:hover { border-color: var(--blue); }
+  .panel { border: 1px solid var(--gray-200); border-radius: 12px; padding: 24px; position: sticky; top: 76px; }
+  .price-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+  .price-value { font-size: 28px; font-weight: 700; color: var(--gray-900); line-height: 1; }
+  .roi-value { font-size: 20px; font-weight: 700; color: var(--green); text-align: right; }
+  .metrics { margin-top: 16px; border-top: 1px solid var(--gray-200); padding-top: 16px; }
+  .metric-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 14px; }
+  .funding-bar { height: 6px; background: var(--gray-200); border-radius: 99px; overflow: hidden; margin: 6px 0; }
+  .funding-fill { height: 100%; width: 89%; background: var(--blue); border-radius: 99px; }
+  .min-invest { font-size: 12px; color: var(--gray-500); margin-top: 6px; }
+  .btn-3d, .btn-wallet, .btn-marketplace { width: 100%; background: var(--blue); color: #fff; border: none; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; margin-top: 12px; }
+  .section { margin-top: 32px; }
+  .section h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+  .description { color: var(--gray-700); line-height: 1.7; }
+  .meta-row { display: flex; gap: 28px; margin-top: 16px; flex-wrap: wrap; }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; margin-top: 12px; }
+  .token-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: var(--gray-50); border-radius: 10px; padding: 20px; margin-top: 12px; }
+  .financial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
+  .fin-card { background: var(--gray-50); border-radius: 10px; padding: 20px; }
+  .fin-row { display: flex; justify-content: space-between; padding: 5px 0; font-size: 14px; border-bottom: 1px solid var(--gray-200); }
+  .fin-row:last-child { border-bottom: none; }
+  .accordion-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--gray-200); font-weight: 600; }
+  .accordion-content { display: none; padding: 16px 0; background: #f8fafc; border-radius: 8px; }
+  .accordion-content.show { display: block; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+<a href="#" class="nav-logo">RoyalCity</a>
+<ul class="nav-links">
+<li><a href="#">Home</a></li>
+<li><a href="#">Properties</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">FAQ</a></li>
+<li><a href="#">Blog</a></li>
+</ul>
+<button class="btn-connect">Connect</button>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+<a href="#">Home</a> / <a href="#">Properties</a> / Modern Villa with Pool
+</div>
+
+<div class="container">
+<div class="property-grid">
+
+<!-- LEFT COLUMN -->
+<div id="propertyLeft">
+  <!-- Gallery -->
+  <div class="gallery-main">
+    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=900&q=80" alt="Modern Villa"/>
+  </div>
+  <div class="gallery-thumbs">
+    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&q=70" alt="thumb 1"/>
+    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&q=70" alt="thumb 2"/>
+  </div>
+
+  <!-- Property Details -->
+  <div class="section">
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:12px">
+      <span style="background:#22c55e;color:#fff;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600">Active Investment</span>
+      <span style="color:var(--gray-500)">89% Funded</span>
+    </div>
+    <h2>Property Details</h2>
+    <p class="description">This stunning modern villa offers luxurious living spaces with high-end finishes throughout. The property has been tokenized for fractional ownership, allowing investors to participate in this premium real estate opportunity with as little as $10.</p>
+    <div class="meta-row">
+      <div class="meta-item">🅿️ 3 Parking</div>
+      <div class="meta-item">↔️ 0.5 acres</div>
+      <div class="meta-item">📅 Built 2020</div>
+      <div class="meta-item">👥 142 Investors</div>
+      <div class="meta-item">✅ Current Occupancy: 100% • Stable rental collection</div>
+    </div>
+  </div>
+
+  <!-- FEATURES - DIRECTLY UNDER PROPERTY DETAILS -->
+  <div class="section">
+    <h2>Features</h2>
+    <div class="features-grid">
+      <div class="feature-item">🏠 Swimming Pool</div>
+      <div class="feature-item">🏠 Smart Home System</div>
+      <div class="feature-item">🏠 Gourmet Kitchen</div>
+      <div class="feature-item">🏠 Home Theater</div>
+      <div class="feature-item">🏠 Wine Cellar</div>
+      <div class="feature-item">🏠 Outdoor Kitchen</div>
+      <div class="feature-item">🏠 Fire Pit</div>
+      <div class="feature-item">🏠 Three-Car Garage</div>
+    </div>
+  </div>
+
+  <!-- PROPERTY HISTORY - NOW MOVED DIRECTLY UNDER FEATURES -->
+  <div class="section">
+    <h2>Property History</h2>
+    <div style="background:#f8fafc;padding:20px;border-radius:10px;display:flex;gap:16px;justify-content:space-between">
+      <div><strong>Mar 2026</strong><br>Initial Token Offering</div>
+      <div><strong>Apr 2026</strong><br>89% Funded • Stable rent collection</div>
+      <div><strong>May 2026</strong><br>First royalties paid to holders</div>
+    </div>
+  </div>
+
+  <!-- How Returns Work -->
+  <div class="section">
+    <div class="accordion-header" onclick="toggleReturns(this)">
+      How Returns Work <span style="color:var(--blue)">ⓘ</span>
+    </div>
+    <div class="accordion-content" id="returnsContent">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="background:#e4f2f1;padding:20px;border-radius:10px">
+          <strong>Monthly cash to your wallet</strong><br>
+          Rental income after expenses &amp; loan (your ROI)
+        </div>
+        <div style="background:#e4f2f1;padding:20px;border-radius:10px">
+          <strong>Extra long-term value</strong><br>
+          Loan pay-down + future sale profit (your full profitability)
+        </div>
+      </div>
+      <p style="margin-top:16px;font-size:13px;color:var(--gray-500)">
+        <a href="#" onclick="showFAQ()" style="color:var(--blue)">Read full details in FAQ →</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Your Rights as Investor -->
+  <div class="section">
+    <div class="accordion-header" onclick="toggleRights(this)">
+      Your Rights as Investor <span style="color:var(--blue)">ⓘ</span>
+    </div>
+    <div class="accordion-content" id="rightsContent">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="background:#e4f2f1;padding:20px;border-radius:10px">
+          <strong>You receive</strong><br>
+          Monthly rental payouts to your wallet<br>
+          Share of any profit when the property is sold
+        </div>
+        <div style="background:#e4f2f1;padding:20px;border-radius:10px">
+          <strong>You do NOT receive</strong><br>
+          Direct title to the property<br>
+          Day-to-day management responsibility
+        </div>
+      </div>
+      <p style="margin-top:16px;font-size:13px;color:var(--gray-500)">
+        The legal company that owns the property handles everything.<br>
+        <a href="#" onclick="showFAQ()" style="color:var(--blue)">Read full details in FAQ →</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Documents -->
+  <div class="section">
+    <h2>Documents</h2>
+    <button onclick="showDocuments()" style="background:#fff;border:1px solid var(--gray-200);padding:12px 24px;border-radius:8px;width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center">
+      View all property and legal documents
+      <span style="font-size:24px">↓</span>
+    </button>
+  </div>
+
+  <!-- SECONDARY MARKETPLACE - PERFECTLY ALIGNED -->
+  <div class="section">
+    <h2>Secondary Marketplace</h2>
+    <button onclick="showOrderBook()" style="background:#3b82f6;color:#fff;padding:18px 32px;border:none;border-radius:9999px;font-size:17px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;cursor:pointer;transition:all 0.2s;">
+      👉 Trade NFTs with the RoyalCity Community
+    </button>
+    <p style="text-align:center;margin:16px 0 12px 0;color:#374151;font-size:15.5px;">
+      Buy or sell your VILLA425 tokens peer-to-peer.
+    </p>
+    <div style="text-align:center;margin-bottom:20px;">
+      <span style="background:#ecfdf5;color:#10b981;padding:8px 24px;border-radius:9999px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:8px;">
+        👥 159 investors trading
+      </span>
+    </div>
+    <p style="text-align:center;">
+      <a href="#" onclick="showFAQ()" style="color:#1A6EFA;text-decoration:underline;font-size:15px;">How it works →</a>
+    </p>
+  </div>
+
+  <!-- Token Information -->
+  <div class="section">
+    <h2>Token Information</h2>
+    <div class="token-grid">
+      <div><strong>Token Symbol</strong><br>VILLA425</div>
+      <div><strong>Token Price</strong><br>$10</div>
+      <div><strong>Available Tokens</strong><br>9,350</div>
+      <div><strong>Total Supply</strong><br>85,000</div>
+      <div style="grid-column:1/-1">
+        <strong>Smart Contract</strong><br>0x1234...5678
+      </div>
+    </div>
+  </div>
+
+  <!-- Financial Overview -->
+  <div class="section">
+    <h2>Financial Overview</h2>
+    <div class="financial-grid">
+      <div class="fin-card">
+        <h4>Rental Income</h4>
+        <div class="fin-row"><span>Gross Rent</span><span>$8,500/month</span></div>
+        <div class="fin-row"><span>Net Rent</span><span>$7,225/month</span></div>
+      </div>
+      <div class="fin-card">
+        <h4>Expenses</h4>
+        <div class="fin-row"><span>Management</span><span>8%</span></div>
+        <div class="fin-row"><span>Maintenance</span><span>5%</span></div>
+        <div class="fin-row"><span>Insurance</span><span>2%</span></div>
+        <div class="fin-row"><span>Property Tax</span><span>1.2%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RIGHT COLUMN -->
+<div>
+  <div class="panel">
+    <div class="price-label">Investment Price</div>
+    <div class="price-row">
+      <div>
+        <div class="price-value">$850,000</div>
+        <div class="eth-badge">425 ETH</div>
+      </div>
+      <div>
+        <div class="roi-label">Annual ROI</div>
+        <div class="roi-value">7.2%</div>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <div class="metric-row"><span class="label">Rental Yield</span><span class="val">5.8%</span></div>
+      <div class="metric-row"><span class="label">Appreciation</span><span class="val">4.5%</span></div>
+      <div class="metric-row"><span class="label">Total Return</span><span class="val green">10.3%</span></div>
+    </div>
+
+    <div class="funding-block">
+      <div class="funding-label"><span>Funding Progress</span><span>89%</span></div>
+      <div class="funding-bar"><div class="funding-fill"></div></div>
+      <div class="min-invest">Min Investment: $10</div>
+    </div>
+
+    <button class="btn-3d">View 3D version</button>
+    <button class="btn-wallet">Connect Wallet to Invest</button>
+
+    <!-- Social Icons -->
+    <div class="social-row" style="display:flex;gap:16px;justify-content:center;margin-top:16px">
+      <div onclick="window.open('https://facebook.com','_blank')" style="background:#1877f2;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></div>
+      <div onclick="window.open('https://x.com','_blank')" style="background:#1da1f2;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25l-7.165 8.159L3.5 2.25H.5L9.5 13.5 2.25 21.75h3.5l6.5-7.5 7.5 7.5h3.5L13.5 13.5z"/></svg></div>
+      <div onclick="window.open('https://linkedin.com','_blank')" style="background:#0a66c2;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.1h-2.79v8.4h2.79v-4.55c0-.96.74-1.73 1.65-1.73.92 0 1.65.77 1.65 1.73v4.55h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68 1.68 1.68 0 0 0-1.68-1.68 1.68 1.68 0 0 0-1.68 1.68 1.68 1.68 0 0 0 1.68 1.68m1.39 9.94v-8.4H5.5v8.4h2.77z"/></svg></div>
+      <div onclick="window.open('https://discord.com','_blank')" style="background:#5865F2;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.08.08 0 0 0 .031.055 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.096 13.096 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.15 10.15 0 0 0 .372-.18.076.076 0 0 1 .077-.035c3.992.544 8.426.544 12.416 0a.075.075 0 0 1 .077.036c.12.06.24.124.373.18a.077.077 0 0 1-.008.127 12.98 12.98 0 0 1-1.872.893.077.077 0 0 0-.041.105c.36.705.79 1.38 1.226 1.994a.076.076 0 0 0 .084.028 19.873 19.873 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></div>
+    </div>
+  </div>
+
+  <!-- Advisor Card -->
+  <div class="advisor-card">
+    <div class="advisor-top">
+      <div class="advisor-avatar"><img src="https://i.pravatar.cc/96?img=68" alt="John Doe"/></div>
+      <div>
+        <div class="advisor-name">John Doe</div>
+        <div class="advisor-title">Investment Advisor</div>
+      </div>
+    </div>
+    <div class="advisor-contact">Phone: +1 (555) 123-4567</div>
+    <div class="advisor-contact">Email: john@realestate.com</div>
+    <button class="btn-consult">Schedule Consultation</button>
+  </div>
+</div>
+
+</div>
+</div>
+
+<!-- ORDER BOOK VIEW -->
+<div id="orderBookView" style="display:none">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px">
+    <h1>VILLA425 • Modern Villa with Pool</h1>
+    <button onclick="hideOrderBook()" style="background:#fff;color:#201d18;padding:12px 24px;border-radius:8px">← Back to Property</button>
+  </div>
+
+  <div style="background:#f8fafc;padding:24px;border-radius:12px">
+    <h2>Market Snapshot</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
+      <div><div style="font-size:13px;color:var(--gray-500)">Last trade</div><div style="font-size:2rem;font-weight:700">$22.00</div><div style="color:var(--gray-500)">3 minutes ago</div></div>
+      <div><div style="font-size:13px;color:var(--gray-500)">Estimated fair NFT value</div><div style="font-size:2rem;font-weight:700">$33.40</div></div>
+      <div><div style="font-size:13px;color:var(--gray-500)">Trade volume (4 weeks)</div><div style="font-size:2rem;font-weight:700">$1,201</div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:40px">
+    <h2>Open Orders</h2>
+    <table style="width:100%;border-collapse:collapse">
+      <tr>
+        <th colspan="2" style="text-align:left;background:#f7f6f2;padding:12px 16px">BUY ORDERS</th>
+        <th colspan="2" style="text-align:right;background:#f7f6f2;padding:12px 16px">SELL ORDERS</th>
+      </tr>
+      <tr onclick="simulateTrade('Buy',22)" style="cursor:pointer;border-top:1px solid #e5e7eb">
+        <td style="padding:12px 16px"><strong>Price</strong> $22.00</td>
+        <td style="padding:12px 16px"><strong>Quantity</strong> 59 tokens</td>
+        <td style="text-align:right;padding:12px 16px"><strong>Price</strong> $48.00</td>
+        <td style="text-align:right;padding:12px 16px"><strong>Quantity</strong> 8 tokens</td>
+      </tr>
+      <tr onclick="simulateTrade('Buy',20)" style="cursor:pointer;border-top:1px solid #e5e7eb">
+        <td style="padding:12px 16px"><strong>Price</strong> $20.00</td>
+        <td style="padding:12px 16px"><strong>Quantity</strong> 10 tokens</td>
+        <td style="text-align:right;padding:12px 16px"><strong>Price</strong> $48.50</td>
+        <td style="text-align:right;padding:12px 16px"><strong>Quantity</strong> 27 tokens</td>
+      </tr>
+    </table>
+    <p style="margin-top:24px;font-size:13px;color:var(--gray-500)">
+      Purchases cannot be cancelled at this time, but you can sell your NFT anytime on the secondary marketplace.<br>
+      <a href="#" onclick="showFAQ()" style="color:var(--blue)">Read full details in FAQ →</a>
+    </p>
+  </div>
+</div>
+
+<script>
+function toggleReturns(el) { const content = document.getElementById('returnsContent'); if (content) content.classList.toggle('show'); }
+function toggleRights(el) { const content = document.getElementById('rightsContent'); if (content) content.classList.toggle('show'); }
+function showOrderBook() { 
+  const prop = document.getElementById('propertyLeft'); 
+  const order = document.getElementById('orderBookView'); 
+  if (prop) prop.style.display = 'none'; 
+  if (order) order.style.display = 'block'; 
+}
+function hideOrderBook() { 
+  const prop = document.getElementById('propertyLeft'); 
+  const order = document.getElementById('orderBookView'); 
+  if (order) order.style.display = 'none'; 
+  if (prop) prop.style.display = 'block'; 
+}
+function simulateTrade(type, price) { 
+  const toast = document.createElement('div'); 
+  toast.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#22c55e;color:#fff;padding:16px 24px;border-radius:999px'; 
+  toast.textContent = `${type} order placed at $${price} • Secure trading`; 
+  document.body.appendChild(toast); 
+  setTimeout(() => toast.remove(), 2500); 
+}
+function showFAQ() { 
+  alert('FAQ simulation:\n\nThe RoyalCity Marketplace is our platform that allows RoyalCity community members to buy and sell NFTs among themselves.'); 
+}
+function showDocuments() {
+  alert('Documents folder opened (PoC simulation):\n\n• Appraisal Report.pdf\n• Title Deed.pdf\n• Lease Agreement.pdf\n• SPV Agreement.pdf\n• Insurance Certificate.pdf');
+}
+</script>
+
+</body>
+</html>
